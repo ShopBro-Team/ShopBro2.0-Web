@@ -41,3 +41,5 @@ class Register extends React.Component {
 }
 
 export default connect()(Register)
+
+//Add an email input in this component.
