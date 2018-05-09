@@ -13774,7 +13774,7 @@ var App = function App() {
       _react2.default.createElement(
         'h1',
         { className: 'title is-1' },
-        'Hello World'
+        'Shop Bro'
       ),
       _react2.default.createElement(_reactRouterDom.Route, { path: '/', component: _Nav2.default }),
       _react2.default.createElement(_reactRouterDom.Route, { path: '/login', component: _Login2.default }),
