@@ -97,7 +97,7 @@ res STATUS 200
    {
     “user_id": 1,
     “budget_in_cents”: “5000”, //make this an integer not a ‘$50’ string also remember to x100 or /100 (in component) - Steve understands
-    “total_savings_in-cents”: 500 //integer not string
+    “total_savings_in_cents”: 500 //integer not string
     "date": 04052018, //timestamp
     “items”: [
       {id: 1, name: “bread”,  cost: 10}, //again integer not string
@@ -111,3 +111,23 @@ res STATUS 500
   "message": "Error occured.  Whoops!"
   }
 ```
+
+## DB (Server Side)
+  There should be three tables for MVP
+
+### Users
+  | Column Name | Data Type |
+  | --- | --- |
+  | id | Integer |
+  | user_name | String |
+  | email | String |
+
+
+### Shoppinglist
+  | Column Name | Data Type |
+  | --- | --- |
+  | id | Integer |
+  | date | Timestamp |
+  | budget_in_cents | integer |
+  | total_savings_in_cents | integer |
+  | items | array |
