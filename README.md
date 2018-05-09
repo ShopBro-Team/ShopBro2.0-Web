@@ -113,7 +113,7 @@ res STATUS 500
 ```
 
 ## DB (Server Side)
-  There should be three tables for MVP
+  There should be two tables for MVP
 
 ### Users
   | Column Name | Data Type |
