@@ -19,7 +19,7 @@ const App = ({auth}) => (
       {/* The way we know and have written the turnery above before works but this is legit */}
       <Route path="/main" component={Main} />
       <Route path="/login" component={Login} />
-      <Route path="/Register" component={Register} />
+      <Route path="/register" component={Register} />
     </div>
   </Router>
 )
