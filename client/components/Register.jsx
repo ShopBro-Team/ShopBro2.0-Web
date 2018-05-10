@@ -7,6 +7,7 @@ class Register extends React.Component {
     super(props)
     this.state = {
       user_name: '',
+      user_email: '',
       password: '',
       confirm_password: ''
     }
@@ -20,13 +21,16 @@ class Register extends React.Component {
     e.preventDefault()
     e.target.reset()
     let {user_name, password, confirm_password} = this.state
-    if (password == confirm_password) this.props.dispatch(registerUserRequest({user_name, password}))
+    if (password == confirm_password) this.props.dispatch(registerUserRequest({user_name, user_email, password}))
   }
   render() {
     return (
       <form className="Register container" onSubmit={this.submit}>
         <label>Username:
           <input className="input" type="text" name="user_name" onChange={this.updateDetails}/>
+        </label><br/>
+        <label>Email:
+          <input className="input" type="text" name="user_email" onChange={this.updateDetails}/>
         </label><br/>
         <label>Password:
           <input className="input" type="password" name="password" onChange={this.updateDetails}/>
