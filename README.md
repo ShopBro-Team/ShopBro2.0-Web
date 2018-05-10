@@ -135,7 +135,7 @@ res STATUS 500
 
 ##Views (Client Side)
   | name | purpose | Stateful(SF)/Stateless(SL) |
-  | --- | --- |
+  | --- | --- | --- |
   | Login | Landing page for users, the view for users to enter their login credentials | SF |
   | Register | View for user to sign up for the App | SF |
   | Main ('Done'Button) | View for user when authentication is successful, it renders the following components (in order) | SF |
