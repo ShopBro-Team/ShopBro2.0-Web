@@ -134,7 +134,7 @@ res STATUS 500
  
 
 ## Views (Client Side)
-  | name | purpose | Stateful(SF)/Stateless(SL) |
+  | Name | Purpose | Stateful(SF)/Stateless(SL) |
   | --- | --- | --- |
   | Login | Landing page for users, the view for users to enter their login credentials | SF |
   | Register | View for user to sign up for the App | SF |
