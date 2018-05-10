@@ -2,14 +2,24 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 
-const Budget = (props) => {
+class Budget extends React.Component {
+  
+  render () {
   return (
     <div> 
       <h1>Show budget progress</h1>
-      {/* <input className="input" type="text"><Link to='/BudgetList'></Link></input>
-      <button onClick="button is-success" type="next"><Link to='/BudgetList'>Next</Link></button> */}
+      <p>This is your budget: {this.props.budget} </p>
     </div>
   )
 }
+}
 
-export default Budget 
+const mapStateToProps = (state) => {
+  return {
+    budget: state.budget.budget
+  }
+}
+
+//since our object 'budget' has only one key-value pair we are mapping it straight to props(budget)
+//alternatively we could have done this just between render and return as in const budget = this.props.budget.budget
+export default connect(mapStateToProps)(Budget) 
