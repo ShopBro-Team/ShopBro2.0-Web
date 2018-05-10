@@ -6,16 +6,38 @@ import {navigate} from '../actions/navigate'
 
 
 class BudgetSetting extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      budget: ''
+    }
+    this.updateBudget = this.updateBudget.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
 
-  onChange() {
+  }
+
+  updateBudget(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+    console.log("this.state.budget, ", this.state.budget)
+  }
+
+  handleSubmit() {
+    budget = this.state
+    this.props.dispatch(addBudget(budget))
     this.props.dispatch(navigate('budget'))
   }
 
   render() {
     return ( 
       <div> 
-        <h1> set the budget </h1>
-        <button onClick={this.onChange.bind(this)} className="button"> Next</button>
+        <form onSubmit={this.handleSubmit}>
+        <label>Set your budget </label>
+        <input name="budget" type="text" placeholder="your budget" onChange={this.updateBudget}/>
+        <input type="submit" />
+        {/* <button onClick={this.onChange.bind(this)} className="button"> Next</button> */}
+        </form>
       </div>
     )
   }
