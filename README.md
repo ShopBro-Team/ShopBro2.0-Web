@@ -100,10 +100,10 @@ res STATUS 200
     “total_savings_in_cents”: 500 //integer not string
     "date": 04052018, //timestamp
     “items”: [
-      {id: 1, name: “bread”,  cost: 10}, //again integer not string
-      {id: 2, name: “milk”, cost: 10},},
-      {id: 3, name: “butter”, cost: 10},},
-      {id: 4, name: “beer”, cost: 10},}
+      {id: 1, name: “bread”,  cost_in_cents: 10}, //again integer not string
+      {id: 2, name: “milk”, cost_in_cents: 10},
+      {id: 3, name: “butter”, cost_in_cents: 10},
+      {id: 4, name: “beer”, cost_in_cents: 10},}
       ]  } //remember to stringify/json parse
 
 res STATUS 500
