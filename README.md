@@ -133,7 +133,7 @@ res STATUS 500
   | items | array |
  
 
-##Views (Client Side)
+## Views (Client Side)
   | name | purpose | Stateful(SF)/Stateless(SL) |
   | --- | --- | --- |
   | Login | Landing page for users, the view for users to enter their login credentials | SF |
