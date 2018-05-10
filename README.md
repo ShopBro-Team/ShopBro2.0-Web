@@ -22,6 +22,17 @@ Its ShopBro 2.0
 2. As a user I want to save my shopping list once it is done
 3. As a user I want to see a dashboard shoing past shopping activities
 
+##Errors we have come across and how to fix them:
+
+1. Authy error (it wasn't showing user_email address):
+Fix: Needed to run 'sudo killall node', this cleared the server and made the connection fresh that it worked.
+
+2. Pulling down master
+Fix: Run yarn and Rollback twice because we have 2 migrated tables
+
+3. 
+
+
 ## API (Client - Server)
 
 | Method | Endpoint                | Protected | Usage                          | Response                                            |
