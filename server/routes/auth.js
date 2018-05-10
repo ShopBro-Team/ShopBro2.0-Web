@@ -18,4 +18,8 @@ function register (req, res, next) {
 
 router.post('/login', token.issue)
 
+router.get('/', function (req,res) {
+  res.redirect('/login')
+})
+
 module.exports = router

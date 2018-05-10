@@ -3,11 +3,11 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logoutUser} from '../actions/logout'
 
-function Nav (props) {
+function Main (props) {
   return (
     <div className="Nav hero is-small is-info">
       <div className="hero-body">
-        <Link to="/">Home</Link>
+        <Link to="/main">Home</Link>
         {props.auth.isAuthenticated
           ? <button onClick={() => props.dispatch(logoutUser())}>Logout</button>
           : <div className="columns nav-menu">
@@ -25,7 +25,7 @@ const mapStateToProps = ({auth}) => {
   return {auth}
 }
 
-export default connect(mapStateToProps)(Nav)
+export default connect(mapStateToProps)(Main)
 
 // Change <button> on line 12 to <Link> to the ShoppingList Component.
 
