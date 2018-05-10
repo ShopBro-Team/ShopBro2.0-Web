@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 
 import {navigate} from '../actions/navigate'
+import {addBudget} from '../actions/budget'
 
 
 class BudgetSetting extends React.Component {
@@ -20,23 +21,25 @@ class BudgetSetting extends React.Component {
     this.setState({
       [e.target.name]: e.target.value
     })
-    console.log("this.state.budget, ", this.state.budget)
   }
 
-  handleSubmit() {
-    budget = this.state
+  //updateBudget entirely concered with component's state (sets budget in local state)
+
+  handleSubmit(event) {
+    event.preventDefault()
+    const budget = this.state
     this.props.dispatch(addBudget(budget))
     this.props.dispatch(navigate('budget'))
   }
+  //interacts with redux state: adds budget from component's state to redux global state and navigates to budget page
 
   render() {
     return ( 
       <div> 
         <form onSubmit={this.handleSubmit}>
-        <label>Set your budget </label>
+        <label>Set your budget $</label>
         <input name="budget" type="text" placeholder="your budget" onChange={this.updateBudget}/>
         <input type="submit" />
-        {/* <button onClick={this.onChange.bind(this)} className="button"> Next</button> */}
         </form>
       </div>
     )
