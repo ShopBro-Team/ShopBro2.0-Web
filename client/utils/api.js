@@ -21,6 +21,7 @@ export default function consume(method = 'get', endpoint, data = {}) {
       return res
     })
     .catch(err => {
+      console.log('Heelo')
       throw err
     })
 }

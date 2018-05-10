@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logoutUser} from '../actions/logout'
+import { saveShoppingList } from '../actions/shoppinglist';
 
 function Main (props) {
   return (
@@ -15,6 +16,12 @@ function Main (props) {
             <Link className="nav-item" to="/register">Register</Link>
           </div>
         }
+        <div>
+          
+          <button onClick={()=> props.dispatch(saveShoppingList(500, 
+            200, '04052018', [{id: 5, name: 'milk', cost: 200}]))}>Done
+          </button>  
+        </div>
       </div>
 
     </div>
