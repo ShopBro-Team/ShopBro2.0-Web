@@ -131,3 +131,15 @@ res STATUS 500
   | budget_in_cents | integer |
   | total_savings_in_cents | integer |
   | items | array |
+ 
+
+##Views (Client Side)
+| name | purpose | Stateful(SF)/Stateless(SL) |
+| --- | --- |
+| Login | Landing page for users, the view for users to enter their login credentials | SF |
+| Register | View for user to sign up for the App | SF |
+| Main ('Done'Button) | View for user when authentication is successful, it renders the following components (in order) | SF |
+| BudgetSetting | View for user to set the budget for their shop | SL |
+| Budget | View for user to see the progress bar showoing the remaining budget | SL |
+| List (Button will be rendered on Main) | View for user to create a shopping list.  To add, edit and delete cost and items to the shopping list | SL |
+| Alert | Notification to tell the user they have gone over their budeget | SL |
