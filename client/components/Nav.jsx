@@ -26,3 +26,8 @@ const mapStateToProps = ({auth}) => {
 }
 
 export default connect(mapStateToProps)(Nav)
+
+// Change <button> on line 12 to <Link> to the ShoppingList Component.
+
+
+
