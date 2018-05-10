@@ -1,5 +1,5 @@
 
-import {saveUserToken} from '../utils/auth'
+import request from '../utils/api'
 
 export function saveShoppingList (budget_in_cents, total_savings_in_cents, date, items) {
 
@@ -11,6 +11,7 @@ export function saveShoppingList (budget_in_cents, total_savings_in_cents, date,
     let data =  {
         budget_in_cents, total_savings_in_cents, date, items
       } 
+    console.log('action',data)  
     request ('post', 'v1/shoppinglists', data)
   }
 }
