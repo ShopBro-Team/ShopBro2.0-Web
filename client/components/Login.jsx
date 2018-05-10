@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {loginUser} from '../actions/login'
+import {Link} from 'react-router-dom'
 
 class Login extends React.Component {
   constructor(props) {
@@ -30,7 +31,7 @@ class Login extends React.Component {
         <label>Password:
           <input className="input" type="password" name="password" onChange={this.updateDetails}/>
         </label><br/>
-        <input className="button is-success" type="submit" />
+        <input className="button is-success" type="submit" /><Link to= '/register'><a className="button is-light">Register</a></Link>
       </form>
     )
   }
