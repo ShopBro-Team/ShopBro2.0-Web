@@ -25,3 +25,11 @@ export function addShoppingListItem (item) {
     item
   }
 }
+
+export function editShoppingListItem (item) {
+
+  return {
+    type: 'EDIT_ITEM',
+    item
+  }
+}

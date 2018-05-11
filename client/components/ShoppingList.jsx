@@ -2,6 +2,8 @@ import React from 'react'
 import {connect} from 'react-redux'
 import { addShoppingListItem } from '../actions/shoppinglist'
 
+import AddedItems from './AddedItems'
+
 export class ShoppingList extends React.Component {
     constructor (props) {
         super(props)
@@ -33,10 +35,12 @@ export class ShoppingList extends React.Component {
       return <div>
         <br/>
          <div className="column is-mobile">
+            <div>
+                 <AddedItems />  
+            </div> 
            <div className="field has-addons">
            <p>Hello</p>
-             
-
+                 
                <input onChange={this.handleChange} className="input is-medium" type="text" name="name" placeholder="Enter item" />
                <input onChange={this.handleChange} className="input is-medium" type="text" name="cost" placeholder="Enter cost" />
              
@@ -54,9 +58,9 @@ export class ShoppingList extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-console.log(state)
+    //console.log(state)
     return {
-        shoppinglist: state.shoppinglist
+        shoppingList: state.shoppingList
     }
   }
 
