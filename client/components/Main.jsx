@@ -5,6 +5,7 @@ import {logoutUser} from '../actions/logout'
 import { saveShoppingList } from '../actions/shoppinglist'
 import BudgetSetting from './BudgetSetting'
 import Budget from './Budget'
+import ShoppingList from './ShoppingList'
 
 //ISSUE: budgetView needs to reset to 'setting' everytime there is a new user or
 //where a user logs in that has not click on the 'next button'.
@@ -26,6 +27,7 @@ function Main (props) {
             <Link className="nav-item" to="/register">Register</Link>
           </div>
         }
+        <ShoppingList />
       </div>
       {/* <BudgetSetting /> */}
 
@@ -51,7 +53,7 @@ function Main (props) {
 // the above is what Steve wrote to solve Dana and Rosie's problem re navigating, the below is more in line with how we are used to write mapStateToProps and how we are suggesting to write this
 
 const mapStateToProps = (state) => {
-  console.log('state in mstp, ', state)
+  //console.log('state in mstp, ', state)
   return {
     auth: state.auth,
     budgetView: state.budgetView,

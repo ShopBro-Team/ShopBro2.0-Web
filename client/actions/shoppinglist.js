@@ -15,3 +15,18 @@ export function saveShoppingList (budget_in_cents, total_savings_in_cents, date,
     request ('post', 'v1/shoppinglists', data)
   }
 }
+
+export function addShoppingListItem (item) {
+  return {
+    type: 'ADD_ITEM',
+    item
+  }
+}
+
+export function editShoppingListItem (item) {
+
+  return {
+    type: 'EDIT_ITEM',
+    item
+  }
+}
