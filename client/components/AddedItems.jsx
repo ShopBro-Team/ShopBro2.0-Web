@@ -1,7 +1,8 @@
 import React from 'react' 
 import {connect} from 'react-redux'
+import { editShoppingListItem } from '../actions/shoppinglist'
 
-
+//This component is for editing and deleting an item in the shopping list
 
 class AddedItems extends React.Component {
     constructor(props) {
@@ -21,7 +22,7 @@ class AddedItems extends React.Component {
         e.preventDefault()
         console.log({item})
         
-        // this.props.dispatch(editShoppingListItem(item))
+        this.props.dispatch(editShoppingListItem(item))
     }
 
     render() {
@@ -52,13 +53,11 @@ class AddedItems extends React.Component {
                     </form>
 
                 )
-            })  
-            
-            } 
+            })} 
         </div>
         )
     }
-    }
+}
   
 const mapStateToProps = (state) => {
     console.log(state)

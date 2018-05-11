@@ -4,6 +4,8 @@ import { addShoppingListItem } from '../actions/shoppinglist'
 
 import AddedItems from './AddedItems'
 
+//This component adds a new item to the shopping list
+
 export class ShoppingList extends React.Component {
     constructor (props) {
         super(props)
@@ -18,18 +20,22 @@ export class ShoppingList extends React.Component {
 
     handleChange(e) {
         this.setState({[e.target.name]: e.target.value})
-        console.log(this.state)
-      }
+    }
 
     addItem(e) {
+        //This function add the item to the store
         e.preventDefault()
+        //NOTE: It may be better to assign id to item in reducer - may cause problems with unique ids
         let item = {id: this.state.id++, 
                     name: this.state.name,
                     cost_in_cents: this.state.cost}
-        console.log(item.id)
-        
+        //console.log(item.id)      
         this.props.dispatch(addShoppingListItem(item))
+        //NOTE: Need to add functionality to reset add buttons to placeholder values - use reset?
+      
     }
+
+    //NOTE: The call to AddedItems may be better off in the Main component
 
     render() {
       return <div>
@@ -39,20 +45,17 @@ export class ShoppingList extends React.Component {
                  <AddedItems />  
             </div> 
            <div className="field has-addons">
-           <p>Hello</p>
                  
                <input onChange={this.handleChange} className="input is-medium" type="text" name="name" placeholder="Enter item" />
                <input onChange={this.handleChange} className="input is-medium" type="text" name="cost" placeholder="Enter cost" />
              
-             <div className="control">
-               <a className="button is-medium is-primary is-outlined is-mobile" onClick={this.addItem} type="submit" value="add item">
+               <div className="control">
+                <a className="button is-medium is-primary is-outlined is-mobile" onClick={this.addItem} type="submit" value="add item">
                  Add
-               </a>
+                </a>
              </div>
            </div>
          </div>
-        {/* <input onChange={this.handleChange} type="text" name="Item" placeholder="Shop Item" />
-        {/* <input type="submit" value="Add item"/> */}
       </div>
     }
 }
@@ -62,6 +65,6 @@ const mapStateToProps = (state) => {
     return {
         shoppingList: state.shoppingList
     }
-  }
+}
 
 export default connect(mapStateToProps)(ShoppingList)
