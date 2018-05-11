@@ -6,13 +6,14 @@ import { saveShoppingList } from '../actions/shoppinglist'
 import BudgetSetting from './BudgetSetting'
 import Budget from './Budget'
 import ShoppingList from './ShoppingList'
+import Alert from './Alert'
 import Celebration from './Celebration'
 
 //ISSUE: budgetView needs to reset to 'setting' everytime there is a new user or
 //where a user logs in that has not click on the 'next button'.
 
+
 function Main (props) {
-  var totalSavings = 10  // once available, bring in from props.totalSavings (exact name TBC)
 
   return (
     <div className="Nav hero is-small is-info">
@@ -29,20 +30,23 @@ function Main (props) {
           </div>
         }
         <ShoppingList />
+      {(props.budget - props.totalSpend)< 0 && <Alert />} 
       </div>
-      {/* <BudgetSetting /> */}
-
-       <div>
+      
+      {/* Done button saves shopping list to database and celebrates if underbudget */}
+      <div>
           <button onClick={()=> props.dispatch(saveShoppingList(props.budget, 
-            200, '04052018', [{id: 5, name: 'milk', cost: 200}]))}>{totalSavings > 0 ? <Link className="nav-item" to="/celebration">Done</Link> : "Done"}
+            (props.budget - props.totalSpend), new Date(), props.shoppingList))}>
+            {props.budget - props.totalSpend> 0 ? <Link className="nav-item" to="/celebration">Done</Link> : "Done"}  
           </button>  
-       </div>
+      </div> 
+
     </div>
   )
 }
 // }
 
-
+//props.shoppingList
 // const mapStateToProps = ({auth,budgetView}) => {
 
 //   return {
@@ -53,12 +57,12 @@ function Main (props) {
 // the above is what Steve wrote to solve Dana and Rosie's problem re navigating, the below is more in line with how we are used to write mapStateToProps and how we are suggesting to write this
 
 const mapStateToProps = (state) => {
-  //console.log('state in mstp, ', state)
   return {
     auth: state.auth,
     budgetView: state.budgetView,
-    budget: state.budget.budget
-    // totalSavings: state.totalSavings
+    budget: state.budget.budget,
+    totalSpend: state.totalSpend,
+    shoppingList: state.shoppingList
   }
 }
 

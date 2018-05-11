@@ -30,6 +30,7 @@ class BudgetSetting extends React.Component {
     const budget = this.state
     this.props.dispatch(addBudget(budget))
     this.props.dispatch(navigate('budget'))
+    
   }
   //interacts with redux state: adds budget from component's state to redux global state and navigates to budget page
 
@@ -38,8 +39,9 @@ class BudgetSetting extends React.Component {
       <div> 
         <form onSubmit={this.handleSubmit}>
         <label>Set your budget $</label>
-        <input name="budget" type="text" placeholder="your budget" onChange={this.updateBudget}/>
-        <input type="submit" />
+        <input className="is-normal is-" name="budget" type="text" placeholder="your budget" onChange={this.updateBudget}/>
+        <input className="button is-normal is-light" type="submit" />
+        {/* Added the className 'button is-normal is-light' via bulma styling */}
         </form>
       </div>
     )

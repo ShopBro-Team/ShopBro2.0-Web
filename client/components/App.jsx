@@ -4,9 +4,11 @@ import {HashRouter as Router, Route} from 'react-router-dom'
 import Login from './Login'
 import Register from './Register'
 import Main from './Main'
+import Budget from './Budget'
 
 import {connect} from 'react-redux'
 import Celebration from './Celebration';
+import { ShoppingList } from './ShoppingList';
 
 const App = ({auth}) => (
   <Router>
@@ -22,6 +24,9 @@ const App = ({auth}) => (
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
       <Route path="/celebration" component={Celebration} />
+      <Route path="/budget" component={Budget} />
+      <Route path="/shoppinglist" component={ShoppingList} />
+
     </div>
   </Router>
 )

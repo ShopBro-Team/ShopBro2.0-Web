@@ -1,6 +1,7 @@
 import React from 'react' 
 import {connect} from 'react-redux'
-import { editShoppingListItem, deleteShoppingListItem } from '../actions/shoppinglist'
+import { editShoppingListItem, deleteShoppingListItem, deleteFromTotalSpend } from '../actions/shoppinglist'
+
 
 //This component is for editing and deleting an item in the shopping list
 
@@ -8,7 +9,7 @@ class AddedItems extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-
+           
         }
     this.handleChange = this.handleChange.bind(this)
     this.editItem = this.editItem.bind(this)
@@ -30,6 +31,7 @@ class AddedItems extends React.Component {
         }
 
         this.props.dispatch(editShoppingListItem(updateItem))
+        // this.props.dispatch(editTotalSpend(updateItem.cost_in_cents)) - Rosie and Annika work in progress
     }
 
     deleteItem(e, item) {
@@ -37,6 +39,7 @@ class AddedItems extends React.Component {
         console.log(item.id)
 
         this.props.dispatch(deleteShoppingListItem(item.id))
+        this.props.dispatch(deleteFromTotalSpend(item.cost_in_cents))
 
 
     }
@@ -44,7 +47,6 @@ class AddedItems extends React.Component {
     render() {
         return (
         <div> 
-            <p>HELLO  </p>
             {this.props.shoppingList.map(item => {
                 return (
                     <form key={item.id}>
