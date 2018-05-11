@@ -6,6 +6,7 @@ import Register from './Register'
 import Main from './Main'
 
 import {connect} from 'react-redux'
+import Celebration from './Celebration';
 
 const App = ({auth}) => (
   <Router>
@@ -20,6 +21,7 @@ const App = ({auth}) => (
       <Route path="/main" component={Main} />
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
+      <Route path="/celebration" component={Celebration} />
     </div>
   </Router>
 )

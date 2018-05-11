@@ -6,12 +6,13 @@ import { saveShoppingList } from '../actions/shoppinglist'
 import BudgetSetting from './BudgetSetting'
 import Budget from './Budget'
 import ShoppingList from './ShoppingList'
+import Celebration from './Celebration'
 
 //ISSUE: budgetView needs to reset to 'setting' everytime there is a new user or
 //where a user logs in that has not click on the 'next button'.
 
-
 function Main (props) {
+  var totalSavings = 10  // once available, bring in from props.totalSavings (exact name TBC)
 
   return (
     <div className="Nav hero is-small is-info">
@@ -33,10 +34,9 @@ function Main (props) {
 
        <div>
           <button onClick={()=> props.dispatch(saveShoppingList(props.budget, 
-            200, '04052018', [{id: 5, name: 'milk', cost: 200}]))}>Done
+            200, '04052018', [{id: 5, name: 'milk', cost: 200}]))}>{totalSavings > 0 ? <Link className="nav-item" to="/celebration">Done</Link> : "Done"}
           </button>  
-       </div> 
-
+       </div>
     </div>
   )
 }
@@ -58,6 +58,7 @@ const mapStateToProps = (state) => {
     auth: state.auth,
     budgetView: state.budgetView,
     budget: state.budget.budget
+    // totalSavings: state.totalSavings
   }
 }
 
