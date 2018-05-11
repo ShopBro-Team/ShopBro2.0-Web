@@ -6,6 +6,7 @@ import { saveShoppingList } from '../actions/shoppinglist'
 import BudgetSetting from './BudgetSetting'
 import Budget from './Budget'
 import ShoppingList from './ShoppingList'
+import Alert from './Alert'
 
 //ISSUE: budgetView needs to reset to 'setting' everytime there is a new user or
 //where a user logs in that has not click on the 'next button'.
