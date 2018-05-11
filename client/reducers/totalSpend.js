@@ -5,6 +5,7 @@ const totalSpend = (state = 0, action) => {
         case 'DELETE_FROM_TOTALSPEND':
             return (parseInt(state) - parseInt(action.cost))
         case 'EDIT_TOTALSPEND':
+        console.log("state")
             let newState = state.map(item => {
                 console.log("item, ", item)
                 if(item.id == action.item.id) {
