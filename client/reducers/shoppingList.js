@@ -14,6 +14,16 @@ function shoppingList (state = [], action) {
             })
             //console.log('reducer',newState)
             return [...newState]
+
+        case 'DELETE_ITEM':
+        console.log(action.item_id)
+            let newerState = state.filter(item => {
+                // console.log(state.filter)
+                    return item.id !== action.item_id 
+            })
+            console.log(newerState, 'hey')
+            return[...newerState]
+       
         default:
             return state
     }
