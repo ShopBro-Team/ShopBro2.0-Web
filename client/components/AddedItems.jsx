@@ -1,6 +1,6 @@
 import React from 'react' 
 import {connect} from 'react-redux'
-import { editShoppingListItem } from '../actions/shoppinglist'
+import { editShoppingListItem, deleteShoppingListItem } from '../actions/shoppinglist'
 
 //This component is for editing and deleting an item in the shopping list
 
@@ -11,6 +11,8 @@ class AddedItems extends React.Component {
 
         }
     this.handleChange = this.handleChange.bind(this)
+    this.editItem = this.editItem.bind(this)
+    this.deleteItem = this.deleteItem.bind(this)
     }
 
     handleChange(e) {
@@ -28,6 +30,15 @@ class AddedItems extends React.Component {
         }
 
         this.props.dispatch(editShoppingListItem(updateItem))
+    }
+
+    deleteItem(e, item) {
+        e.preventDefault()
+        console.log(item.id)
+
+        this.props.dispatch(deleteShoppingListItem(item.id))
+
+
     }
 
     render() {
@@ -50,7 +61,8 @@ class AddedItems extends React.Component {
                                 </a>
                             </div>
                             <div className="column">
-                                <a className="button is-medium is-primary is-outlined is-mobile" type="submit" value="edit item">
+                                <a className="button is-medium is-primary is-outlined is-mobile" onClick=
+                                {e => this.deleteItem(e, item)} type="submit" value="edit item">
                                     Delete
                                 </a>
                             </div>
