@@ -1,6 +1,7 @@
 import React from 'react' 
 import {connect} from 'react-redux'
-import { editShoppingListItem, deleteShoppingListItem } from '../actions/shoppinglist'
+import { editShoppingListItem, deleteShoppingListItem, deleteFromTotalSpend } from '../actions/shoppinglist'
+
 
 //This component is for editing and deleting an item in the shopping list
 
@@ -37,6 +38,7 @@ class AddedItems extends React.Component {
         console.log(item.id)
 
         this.props.dispatch(deleteShoppingListItem(item.id))
+        this.props.dispatch(deleteFromTotalSpend(item.cost_in_cents))
 
 
     }

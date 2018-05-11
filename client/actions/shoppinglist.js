@@ -38,6 +38,13 @@ export function addToTotalSpend (cost) {
   }
 }
 
+export function deleteFromTotalSpend (cost) { 
+  return {
+    type: 'DELETE_FROM_TOTALSPEND',
+    cost
+  }
+}
+
 
 export function deleteShoppingListItem (item_id) {
 console.log(item_id, 'ASSD')
