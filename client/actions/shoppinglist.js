@@ -37,3 +37,12 @@ export function addToTotalSpend (cost) {
     cost
   }
 }
+
+
+export function deleteShoppingListItem (item_id) {
+console.log(item_id, 'ASSD')
+  return {
+    type: 'DELETE_ITEM',
+    item_id
+  }
+}
