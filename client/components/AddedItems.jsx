@@ -8,8 +8,7 @@ class AddedItems extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            cost_in_cents: '',
-            name: ''
+           
         }
     this.handleChange = this.handleChange.bind(this)
     this.editItem = this.editItem.bind(this)
@@ -51,10 +50,10 @@ class AddedItems extends React.Component {
                     <form key={item.id}>
                         <div className="columns is-mobile">
                             <div className="column">
-                                <input onChange={this.handleChange} className="input is-medium" type="text" name="name" value={this.state.name} placeholder={item.name} />
+                                <input onChange={this.handleChange} className="input is-medium" type="text" name="name" placeholder={item.name} />
                             </div>
                             <div className="column">
-                                <input onChange={this.handleChange} className="input is-medium" type="text" name="cost_in_cents" value={this.state.cost_in_cents} placeholder={item.cost_in_cents} />
+                                <input onChange={this.handleChange} className="input is-medium" type="text" name="cost_in_cents" placeholder={item.cost_in_cents} />
                             </div>
                             <div className="column">
                                 <a className="button is-medium is-primary is-outlined is-mobile" onClick={e => this.editItem(e, item)} type="submit" value="edit item">
