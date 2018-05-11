@@ -8,7 +8,7 @@ class Budget extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      progress: 40
+      progress: 30
     }
   }
 
@@ -24,9 +24,8 @@ class Budget extends React.Component {
       <div className="container">
       {this.state.progress < 50 ? (
       <progress className="progress is-warning" value={this.state.progress} max="100">25%</progress> ):
-      ( <progress className="progress is-danger" value="25" max="100">25%</progress> )
+      ( <progress className="progress is-danger" value={this.state.progress} max="100">25%</progress> )
       }
-      <progress className="progress is-danger" value="25" max="100">25%</progress>
       </div>
       <p>This is your budget: {this.props.budget} </p>
       <button onClick={this.editBudget.bind(this)}>Edit Button</button>
