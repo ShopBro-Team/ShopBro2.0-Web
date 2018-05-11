@@ -1,6 +1,6 @@
 import React from 'react' 
 import {connect} from 'react-redux'
-import { addShoppingListItem } from '../actions/shoppinglist'
+import { addShoppingListItem, addToTotalSpend } from '../actions/shoppinglist'
 
 import AddedItems from './AddedItems'
 
@@ -33,6 +33,7 @@ export class ShoppingList extends React.Component {
                     cost_in_cents: this.state.cost}
         //console.log(item.id)      
         this.props.dispatch(addShoppingListItem(item))
+        this.props.dispatch(addToTotalSpend(item.cost_in_cents))
         this.setState({
             name: '',
             cost: ''

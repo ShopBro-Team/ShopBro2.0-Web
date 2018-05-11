@@ -30,6 +30,7 @@ class BudgetSetting extends React.Component {
     const budget = this.state
     this.props.dispatch(addBudget(budget))
     this.props.dispatch(navigate('budget'))
+    
   }
   //interacts with redux state: adds budget from component's state to redux global state and navigates to budget page
 
