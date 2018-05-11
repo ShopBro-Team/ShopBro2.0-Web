@@ -29,6 +29,7 @@ function Main (props) {
           </div>
         }
         <ShoppingList />
+      {(props.budget - props.totalSpend)< 0 && <Alert />} 
       </div>
       
 

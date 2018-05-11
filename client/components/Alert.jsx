@@ -9,12 +9,10 @@ class Alert extends React.Component{
     render() {
         return <div>
         <div className="notification is-warning">
-            <p>You have gone over your budget!  Are you sure you want to
-            continue?</p>
+            <p>You have gone over your budget!  You may want to remove some items.</p>
             <br/>
             <div className="buttons is-centered">
-                <a className="button is-centered"><Link to = '/budget'>Yes</Link></a>
-                <a className="button is-centered"><Link to = '/shoppinglist'>No</Link></a>
+                <a className="button is-centered">Okay</a>
             </div>
         </div>
     </div>
