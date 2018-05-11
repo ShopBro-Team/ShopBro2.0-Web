@@ -4,19 +4,19 @@ const totalSpend = (state = 0, action) => {
          return (parseInt(state) + parseInt(action.cost))
         case 'DELETE_FROM_TOTALSPEND':
             return (parseInt(state) - parseInt(action.cost))
-        // case 'EDIT_TOTALSPEND':
-        //     let newState = state.map(item => {
-        //         //console.log(item)
-        //         if(item.id == action.item.id) {
-        //             //console.log('Hello', action.item)
-        //             return action.item
-        //         } else {
-        //             return item
-        //         }
-        //     })
-        //     //console.log('reducer',newState)
-        //     return [...newState]
-        //         return //Rosie and Annika work in progress
+        case 'EDIT_TOTALSPEND':
+        console.log("state")
+            let newState = state.map(item => {
+                console.log("item, ", item)
+                if(item.id == action.item.id) {
+                    console.log('action.item ,', action.item)
+                    console.log('action.item.cost_in_cents, ', action.item.cost_in_cents )
+                    return action.item.cost_in_cents
+                } else {
+                    return item.cost_in_cents
+                }
+            })
+            return [...newState]
       default:
         return state
     }
