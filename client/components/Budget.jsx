@@ -50,7 +50,8 @@ class Budget extends React.Component {
       <p>This is your budget: {this.props.budget} </p> 
       <p>This is your remaining money: {this.props.budget - this.props.totalSpend}</p>
       {/* commented for trialling  */}
-      <button onClick={this.editBudget.bind(this)}>Edit Button</button>
+      <button className="button is-normal is-light" onClick={this.editBudget.bind(this)}>Edit Button</button>
+      {/* Added the classname 'button is-normal is-light' via bulma styling */}
     </div>
   )
 }

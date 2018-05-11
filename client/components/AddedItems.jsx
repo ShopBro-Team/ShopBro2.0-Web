@@ -47,7 +47,6 @@ class AddedItems extends React.Component {
     render() {
         return (
         <div> 
-            <p>HELLO  </p>
             {this.props.shoppingList.map(item => {
                 return (
                     <form key={item.id}>
