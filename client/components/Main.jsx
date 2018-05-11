@@ -29,7 +29,6 @@ function Main (props) {
           </div>
         }
         <ShoppingList />
-        <Alert />
       </div>
       {/* <BudgetSetting /> */}
 
