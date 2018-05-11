@@ -15,14 +15,19 @@ class AddedItems extends React.Component {
 
     handleChange(e) {
         this.setState({[e.target.name]: e.target.value})
-        console.log(this.state)
+        //console.log(this.state)
     }
 
     editItem(e, item) {
         e.preventDefault()
-        console.log({item})
-        
-        this.props.dispatch(editShoppingListItem(item))
+
+        let updateItem = {
+            id: item.id,
+            name: this.state.name || this.props.shoppingList[item.id].name,
+            cost_in_cents: this.state.cost_in_cents || this.props.shoppingList[item.id].cost_in_cents
+        }
+
+        this.props.dispatch(editShoppingListItem(updateItem))
     }
 
     render() {
