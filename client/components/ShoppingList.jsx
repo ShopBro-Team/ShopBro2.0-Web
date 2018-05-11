@@ -32,7 +32,6 @@ export class ShoppingList extends React.Component {
         //console.log(item.id)      
         this.props.dispatch(addShoppingListItem(item))
         this.props.dispatch(addToTotalSpend(item.cost_in_cents))
-         //Annika and Ruth trying to figure this out
         //NOTE: Need to add functionality to reset add buttons to placeholder values - use reset?
       
     }
