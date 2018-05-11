@@ -30,7 +30,7 @@ function Main (props) {
       {/* <BudgetSetting /> */}
 
        <div>
-          <button onClick={()=> props.dispatch(saveShoppingList(500, 
+          <button onClick={()=> props.dispatch(saveShoppingList(props.budget, 
             200, '04052018', [{id: 5, name: 'milk', cost: 200}]))}>Done
           </button>  
        </div> 
@@ -38,18 +38,28 @@ function Main (props) {
     </div>
   )
 }
+// }
 
-const mapStateToProps = ({auth,budgetView}) => {
 
+// const mapStateToProps = ({auth,budgetView}) => {
+
+//   return {
+//     auth,
+//     budgetView
+//   }
+// }
+// the above is what Steve wrote to solve Dana and Rosie's problem re navigating, the below is more in line with how we are used to write mapStateToProps and how we are suggesting to write this
+
+const mapStateToProps = (state) => {
+  console.log('state in mstp, ', state)
   return {
-    auth,
-    budgetView
+    auth: state.auth,
+    budgetView: state.budgetView,
+    budget: state.budget.budget
   }
 }
 
 export default connect(mapStateToProps)(Main)
-
-// Change <button> on line 12 to <Link> to the ShoppingList Component.
 
 
 
