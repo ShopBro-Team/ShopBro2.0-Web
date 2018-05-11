@@ -33,7 +33,7 @@ function Main (props) {
 
        <div>
           <button onClick={()=> props.dispatch(saveShoppingList(props.budget, 
-            (props.budget - props.totalSpend), new Date(), [{id: 5, name: 'milk', cost: 200}]))}>Done
+            (props.budget - props.totalSpend), new Date(), props.shoppingList))}>Done
           </button>  
        </div> 
 
@@ -42,7 +42,7 @@ function Main (props) {
 }
 // }
 
-
+//props.shoppingList
 // const mapStateToProps = ({auth,budgetView}) => {
 
 //   return {
@@ -57,7 +57,8 @@ const mapStateToProps = (state) => {
     auth: state.auth,
     budgetView: state.budgetView,
     budget: state.budget.budget,
-    totalSpend: state.totalSpend
+    totalSpend: state.totalSpend,
+    shoppingList: state.shoppingList
   }
 }
 

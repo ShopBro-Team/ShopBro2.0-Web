@@ -10,7 +10,9 @@ export class ShoppingList extends React.Component {
     constructor (props) {
         super(props)
         this.state = {
-            id: 0
+            id: 0,
+            name: '',
+            cost: ''
         }
         this.handleChange = this.handleChange.bind(this)
         // this.handleChangeTwo = this.handleChangeTwo.bind(this)
@@ -32,6 +34,10 @@ export class ShoppingList extends React.Component {
         //console.log(item.id)      
         this.props.dispatch(addShoppingListItem(item))
         this.props.dispatch(addToTotalSpend(item.cost_in_cents))
+        this.setState({
+            name: '',
+            cost: ''
+        })
         //NOTE: Need to add functionality to reset add buttons to placeholder values - use reset?
       
     }
@@ -47,8 +53,8 @@ export class ShoppingList extends React.Component {
             </div> 
            <div className="field has-addons">
                  
-               <input onChange={this.handleChange} className="input is-medium" type="text" name="name" placeholder="Enter item" />
-               <input onChange={this.handleChange} className="input is-medium" type="text" name="cost" placeholder="Enter cost" />
+               <input onChange={this.handleChange} className="input is-medium" type="text" value={this.state.name} name="name" placeholder="Enter item" />
+               <input onChange={this.handleChange} className="input is-medium" type="text" value={this.state.cost} name="cost" placeholder="Enter cost" />
              
                <div className="control">
                 <a className="button is-medium is-primary is-outlined is-mobile" onClick={this.addItem} type="submit" value="add item">
