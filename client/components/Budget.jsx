@@ -3,14 +3,13 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {navigate} from '../actions/navigate'
 
-var totalSpend = 40
+var totalSpend = 110
   // var totalSpend = this.props.shoppingList.totalSpend 
   // the above variable currently does not exist (hence, hardcoded outside class, action and reducer for totalcost still needs to be written, totalcost will keep a running tally of all item's costs
 
 
 class Budget extends React.Component {
-
-
+  
 
   editBudget(event){
     event.preventDefault()
