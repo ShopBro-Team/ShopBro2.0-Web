@@ -45,6 +45,14 @@ export function deleteFromTotalSpend (cost) {
   }
 }
 
+// export function editTotalSpend (item) {
+//   return {
+//     type: 'EDIT_TOTALSPEND',
+//     item
+//   }
+// }
+//Rosie and Annika work in progress
+
 
 export function deleteShoppingListItem (item_id) {
 console.log(item_id, 'ASSD')

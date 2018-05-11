@@ -31,6 +31,7 @@ class AddedItems extends React.Component {
         }
 
         this.props.dispatch(editShoppingListItem(updateItem))
+        // this.props.dispatch(editTotalSpend(updateItem.cost_in_cents)) - Rosie and Annika work in progress
     }
 
     deleteItem(e, item) {
