@@ -1,6 +1,6 @@
 import React from 'react' 
 import {connect} from 'react-redux'
-import { editShoppingListItem, deleteShoppingListItem, deleteFromTotalSpend, editTotalSpend } from '../actions/shoppinglist'
+import { editShoppingListItem, deleteShoppingListItem, deleteFromTotalSpend, addToTotalSpend } from '../actions/shoppinglist'
 
 
 //This component is for editing and deleting an item in the shopping list
@@ -18,7 +18,6 @@ class AddedItems extends React.Component {
 
     handleChange(e) {
         this.setState({[e.target.name]: e.target.value})
-        //console.log(this.state)
     }
 
     editItem(e, item) {
@@ -30,18 +29,16 @@ class AddedItems extends React.Component {
             cost_in_cents: this.state.cost_in_cents || this.props.shoppingList[item.id].cost_in_cents
         }
 
+        let diffCost = this.state.cost_in_cents - this.props.shoppingList[item.id].cost_in_cents
+
         this.props.dispatch(editShoppingListItem(updateItem))
-        this.props.dispatch(editTotalSpend(updateItem))
+        this.props.dispatch(addToTotalSpend(diffCost))
     }
 
     deleteItem(e, item) {
         e.preventDefault()
-        console.log(item.id)
-
         this.props.dispatch(deleteShoppingListItem(item.id))
         this.props.dispatch(deleteFromTotalSpend(item.cost_in_cents))
-
-
     }
 
     render() {
@@ -79,10 +76,9 @@ class AddedItems extends React.Component {
 }
   
 const mapStateToProps = (state) => {
-    console.log(state)
     return {
-            shoppingList: state.shoppingList
-           }
+        shoppingList: state.shoppingList
+        }
     }
     
 export default connect(mapStateToProps)(AddedItems)  

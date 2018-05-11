@@ -3,11 +3,6 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {navigate} from '../actions/navigate'
 
-// var totalSpend = 110
-  // var totalSpend = this.props.shoppingList.totalSpend 
-  // the above variable currently does not exist (hence, hardcoded outside class, action and reducer for totalcost still needs to be written, totalcost will keep a running tally of all item's costs
-
-
 class Budget extends React.Component {
   constructor(props) {
     super(props)
@@ -45,10 +40,8 @@ class Budget extends React.Component {
       <div className="container">
       {this.renderProgressBar()}
       </div>
-      {/* <p>This is your budget: $ {() => this.calculateRemainingBudget.bind(this)} </p> */}
       <p>This is your budget: {this.props.budget} </p> 
       <p>This is your remaining money: {this.props.budget - this.props.totalSpend}</p>
-      {/* commented for trialling  */}
       <button onClick={this.editBudget.bind(this)}>Edit Button</button>
     </div>
   )
