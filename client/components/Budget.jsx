@@ -22,13 +22,17 @@ class Budget extends React.Component {
     let progress = this.props.totalSpend *100/this.props.budget
 
 
-    return (<div className="level">
+    return (<div className="columns">
 
       {progress < 50 ? (
-      <progress className="progress is-large is-success" value={progress} max="100">25%</progress> ):
-      ( <progress className="progress is-large is-danger" value={progress} max="100">25%</progress> )
+      <div className="column is-four-fifths">
+      <progress className="progress is-normal is-success" value={progress} max="100">25%</progress> 
+      </div>):
+      ( <div className="column is-four-fifths"><progress className="progress is-normal is-danger" value={progress} max="100">25%</progress>
+    </div> )
       }
-      <button className="button is-normal is-outlined is-mobile is-success" onClick={this.editBudget.bind(this)}>Edit Budget</button>
+      <div className="column is-one-fifth">
+      <button className="button is-normal is-outlined is-mobile is-success" onClick={this.editBudget.bind(this)}>Edit Budget</button></div>
       
           
       </div>)
