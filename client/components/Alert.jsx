@@ -8,8 +8,8 @@ import ShoppingList from './ShoppingList'
 class Alert extends React.Component{
     render() {
         return <div>
-        <div className="notification is-warning">
-            <p>You have gone over your budget!  You may want to remove some items.</p>
+        <div className="notification is-danger">
+            <p className= "has-text-primary has-text-weight-bold">You have gone over your budget!  You may want to remove some items.</p>
         </div>
     </div>
     }
