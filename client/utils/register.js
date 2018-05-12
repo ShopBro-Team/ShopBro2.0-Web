@@ -45,6 +45,7 @@ function validateEmail(user_email) {
 }
 
 function validateUserName(user_name) {
+  console.log({user_name})
   return user_name.length > 0
 }
 

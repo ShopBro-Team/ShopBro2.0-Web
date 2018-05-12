@@ -28,7 +28,7 @@ function Main (props) {
         <div className="level-right">
           <button className="button" onClick={() => props.dispatch(logoutUser())}>Logout</button>
         </div>
-        <p className="is-size-2 has-text-warning">Kia ora {capitalizeFirstLetter(userName)}</p> 
+        <p className="is-size-2 has-text-warning has-text-weight-bold">Kia ora {capitalizeFirstLetter(userName)}</p> 
         {props.auth.isAuthenticated
           ? <div>
               {props.budgetView === 'setting' ? <BudgetSetting /> : <Budget />}
@@ -44,7 +44,7 @@ function Main (props) {
       
       {/* Done button saves shopping list to database and celebrates if underbudget */}
       <div>
-          <button className="button" onClick={()=> props.dispatch(saveShoppingList(props.budget, 
+          <button className="button is-large is-warning has-text-white" onClick={()=> props.dispatch(saveShoppingList(props.budget, 
             (props.budget - props.totalSpend), new Date(), props.shoppingList))}>
             {props.budget - props.totalSpend> 0 ? <Link className="nav-item" to="/celebration">Done</Link> : "Done"}  
           </button> 

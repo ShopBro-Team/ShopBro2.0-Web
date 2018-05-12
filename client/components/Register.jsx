@@ -27,7 +27,7 @@ class Register extends React.Component {
 
   submit(e) {
     e.preventDefault()
-    e.target.reset()
+
     let {user_name, user_email, password, confirm_password} = this.state
     
     let checkValid = validateRegister(user_name, user_email, password, confirm_password)
@@ -39,26 +39,33 @@ class Register extends React.Component {
     })
     
     console.log(checkValid, checkValid.valid)
-    if (checkValid.valid) this.props.dispatch(registerUserRequest({user_name, user_email, password}))
+    if (checkValid.valid) {
+      this.props.dispatch(registerUserRequest({user_name, user_email, password}))
+      e.target.reset()
+    }
   }
 
   render() {
     return (
       <form className="Register container" onSubmit={this.submit}>
-        <label>Username:
-          <input className="input" type="text" name="user_name" onChange={this.updateDetails}/>
+        <label className="is-size-2">Username:
+          <input className="input is-medium" type="text" name="user_name" onChange={this.updateDetails}/>
         </label><br/>
-        <label>Email:
-          <input className="input" type="text" name="user_email" onChange={this.updateDetails}/>
+        {this.state.messageUserName && <p>{this.state.messageUserName}</p>}
+        <label className="is-size-2">Email:
+          <input className="input is-medium" type="text" name="user_email" onChange={this.updateDetails}/>
         </label><br/>
         {this.state.messageEmail && <p>{this.state.messageEmail}</p>}
-        <label>Password:
-          <input className="input" type="password" name="password" onChange={this.updateDetails}/>
+        <label className="is-size-2">Password:
+          <input className="input is-medium" type="password" name="password" onChange={this.updateDetails}/>
         </label><br/>
-        <label>Confirm:
-          <input className="input" type="password" name="confirm_password" onChange={this.updateDetails}/>
+        <label className="is-size-2">Confirm:
+          <input className="input is-medium" type="password" name="confirm_password" onChange={this.updateDetails}/>       
         </label><br/>
-          <input className="button is-success" type="submit" />
+        {this.state.messagePassword && <p>{this.state.messagePassword}</p>}
+          
+        <input className="button is-success is-large" type="submit" />
+        
       </form>
     )
   }
