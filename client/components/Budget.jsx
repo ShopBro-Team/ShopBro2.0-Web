@@ -22,12 +22,17 @@ class Budget extends React.Component {
     let progress = this.props.totalSpend *100/this.props.budget
 
 
-    return (<div>
+    return (<div className="columns">
 
       {progress < 50 ? (
-      <progress className="progress is-success" value={progress} max="100">25%</progress> ):
-      ( <progress className="progress is-danger" value={progress} max="100">25%</progress> )
+      <div className="column is-four-fifths">
+      <progress className="progress is-normal is-success" value={progress} max="100">25%</progress> 
+      </div>):
+      ( <div className="column is-four-fifths"><progress className="progress is-normal is-danger" value={progress} max="100">25%</progress>
+    </div> )
       }
+      <div className="column is-one-fifth">
+      <button className="button is-normal is-outlined is-mobile is-success" onClick={this.editBudget.bind(this)}>Edit Budget</button></div>
       
           
       </div>)
@@ -36,21 +41,26 @@ class Budget extends React.Component {
   render () {
   return (
     <div className="section"> 
-      <h1>Show budget progress</h1>
       <div className="container">
       {this.renderProgressBar()}
       </div>
-      <p>This is your budget: {this.props.budget} </p> 
-      <p>This is your remaining money: {this.props.budget - this.props.totalSpend}</p>
-      <button onClick={this.editBudget.bind(this)}>Edit Button</button>
+      {/* <p>This is your budget: $ {() => this.calculateRemainingBudget.bind(this)} </p> */}
+      {/* Display budget and remaining money in dollars. Held in store as cents. */}
+      <p className="has-text-warning is-size-2">Your Budget is: $ {this.props.budget/100} </p> 
+      <br/>
+      <p className="has-text-warning is-size-2">You have</p>
+      <p className="has-text-warning has-text-weight-bold is-size-2">$ {(this.props.budget - this.props.totalSpend)/100} left</p>
+      
     </div>
   )
 }
 }
 
 const mapStateToProps = (state) => {
+  
+  //Was budget: state.budget.budget - deleted second .budget to get budget in cents to work. Confusing.
   return {
-    budget: state.budget.budget,
+    budget: state.budget,
     totalSpend: state.totalSpend
   }
 }

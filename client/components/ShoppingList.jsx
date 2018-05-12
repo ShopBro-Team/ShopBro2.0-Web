@@ -27,9 +27,11 @@ export class ShoppingList extends React.Component {
         //This function add the item to the store
         e.preventDefault()
         //NOTE: It may be better to assign id to item in reducer - may cause problems with unique ids
+        //**Converted item cost to from dollars to cents**
         let item = {id: this.state.id++, 
                     name: this.state.name,
-                    cost_in_cents: this.state.cost}
+                    cost_in_cents: this.state.cost*100}
+        //console.log(item.id)      
         this.props.dispatch(addShoppingListItem(item))
         this.props.dispatch(addToTotalSpend(item.cost_in_cents))
         this.setState({
