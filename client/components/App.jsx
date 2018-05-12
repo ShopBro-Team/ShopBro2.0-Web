@@ -13,7 +13,7 @@ import { ShoppingList } from './ShoppingList';
 
 const App = ({auth}) => (
   <Router>
-    <div className='app-container has-text-centered'>
+    <div className='app-container has-text-centered is-block-flex-tablet is-block-flex-mobile'>
       <img src="/image/logo.png" alt="logo" width="13%" height="13%"/>
       <div className='container'>
       </div>
