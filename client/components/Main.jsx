@@ -44,7 +44,7 @@ function Main (props) {
       
       {/* Done button saves shopping list to database and celebrates if underbudget */}
       <div>
-          <button className="button" onClick={()=> props.dispatch(saveShoppingList(props.budget, 
+          <button className="button is-large is-warning has-text-white" onClick={()=> props.dispatch(saveShoppingList(props.budget, 
             (props.budget - props.totalSpend), new Date(), props.shoppingList))}>
             {props.budget - props.totalSpend> 0 ? <Link className="nav-item" to="/celebration">Done</Link> : "Done"}  
           </button> 
