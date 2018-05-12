@@ -14,7 +14,6 @@ function Celebration (props) {
   return (
     <div className="Nav hero is-small is-info">
       <div className="hero-body">
-        <Link to="/main">Home</Link>
         <p className="has-text-warning is-size-2">{capitalizeFirstLetter(userName)} You have saved today!</p>
         <img src="https://media.giphy.com/media/l0ExhcMymdL6TrZ84/giphy.gif" alt="goldgif"/>
         <img src="https://media.giphy.com/media/LCdPNT81vlv3y/giphy.gif" alt="goldgif"/>
