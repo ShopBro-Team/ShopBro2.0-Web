@@ -10,13 +10,17 @@ class Alert extends React.Component{
         return <div>
         <div className="notification is-warning">
             <p>You have gone over your budget!  You may want to remove some items.</p>
-            <br/>
-            <div className="buttons is-centered">
-                <a className="button is-centered">Okay</a>
-            </div>
         </div>
     </div>
     }
 }
 
+
 export default connect()(Alert)
+
+/* <br/>
+            <div className="buttons is-centered">
+              <a className="button is-centered">Okay</a> 
+            </div> */
+//This function is for rendering okay button. Which we might need for the future reference
+//if we wanted to add more feature.
