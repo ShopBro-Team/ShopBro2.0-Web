@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 
 
+
 function Celebration (props) {
 
   let userName = props.auth.user.user_name
@@ -18,7 +19,12 @@ function Celebration (props) {
         <img src="https://media.giphy.com/media/l0ExhcMymdL6TrZ84/giphy.gif" alt="goldgif"/>
         <img src="https://media.giphy.com/media/LCdPNT81vlv3y/giphy.gif" alt="goldgif"/>
       </div>
+      <div>
+      <button className="button is-medium is-warning has-text-primary"><Link to="/main">Close</Link></button>
+      <br/>
+      <br/>
     </div>
+   </div> 
   )
 }
 
