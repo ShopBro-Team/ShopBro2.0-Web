@@ -1,78 +1,96 @@
+// ~*~ This component holds the items that have been added to the shopping list and the functionality to edit and delete the items. ~*~ //
 import React from 'react' 
 import {connect} from 'react-redux'
 import { editShoppingListItem, deleteShoppingListItem, deleteFromTotalSpend, addToTotalSpend } from '../actions/shoppinglist'
 
-
-//This component is for editing and deleting an item in the shopping list
-
 class AddedItems extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-           
-        }
-    this.handleChange = this.handleChange.bind(this)
-    this.editItem = this.editItem.bind(this)
-    this.deleteItem = this.deleteItem.bind(this)
-    }
+	constructor(props) {
+		super(props)
+		this.state = {
+				showInput: false  // When item added to the list, shows as text with button to edit or delete. When edit selected, text will turn into input boxes, with default text the existing list item details. //
+		}
+	this.handleChange = this.handleChange.bind(this)
+	this.editItem = this.editItem.bind(this)
+	this.deleteItem = this.deleteItem.bind(this)
+	this.toggleForm = this.toggleForm.bind(this)
+	}
 
-    handleChange(e) {
-        this.setState({[e.target.name]: e.target.value})
-    }
+	toggleForm () {
+		this.setState({showForm: !this.state.showForm})
+	}
 
-    editItem(e, item) {
-        e.preventDefault()
+	handleChange(e) {
+		this.setState({[e.target.name]: e.target.value})
+	}
 
-        let updateItem = {
-            id: item.id,
-            name: this.state.name || this.props.shoppingList[item.id].name,
-            cost_in_cents: this.state.cost_in_cents || this.props.shoppingList[item.id].cost_in_cents
-        }
+	editItem(e, item) {
+		e.preventDefault()
+		// let updateItem is setting the values of the item object that is being edited. If value has been edited, it will take this.state. If value is unchanged, it will take this.props. // 
+		let updateItem = {
+				id: item.id,
+				name: this.state.name || this.props.shoppingList[item.id].name,
+				cost_in_cents: this.state.cost_in_cents || this.props.shoppingList[item.id].cost_in_cents
+		}
 
-        let diffCost = this.state.cost_in_cents - this.props.shoppingList[item.id].cost_in_cents
+		let diffCost = this.state.cost_in_cents - this.props.shoppingList[item.id].cost_in_cents
 
-        this.props.dispatch(editShoppingListItem(updateItem))
-        this.props.dispatch(addToTotalSpend(diffCost))
-    }
+		this.props.dispatch(editShoppingListItem(updateItem)) // Send updated item object to editShoppingListItem. //
+		this.props.dispatch(addToTotalSpend(diffCost)) // Send the value of the difference in cost to addToTotalSpend. //
+		this.toggleForm() // Toggle the view from input fields back to text, showing the now updated values of item and cost. //
+	}
 
-    deleteItem(e, item) {
-        e.preventDefault()
-        this.props.dispatch(deleteShoppingListItem(item.id))
-        this.props.dispatch(deleteFromTotalSpend(item.cost_in_cents))
-    }
+	deleteItem(e, item) {
+		e.preventDefault()
+		this.props.dispatch(deleteShoppingListItem(item.id))
+		this.props.dispatch(deleteFromTotalSpend(item.cost_in_cents))
+	}
 
-    render() {
-        return (
-        <div> 
-            {this.props.shoppingList.map(item => {
-                return (
-                    <form key={item.id}>
-                        <div className="columns is-mobile">
-                            <div className="column">
-                                <input onChange={this.handleChange} className="input is-medium" type="text" name="name" placeholder={item.name} />
-                            </div>
-                            <div className="column">
-                                <input onChange={this.handleChange} className="input is-medium" type="text" name="cost_in_cents" placeholder={item.cost_in_cents} />
-                            </div>
-                            <div className="column">
-                                <a className="button is-medium is-primary is-outlined is-mobile" onClick={e => this.editItem(e, item)} type="submit" value="edit item">
-                                    Edit
-                                </a>
-                            </div>
-                            <div className="column">
-                                <a className="button is-medium is-primary is-outlined is-mobile" onClick=
-                                {e => this.deleteItem(e, item)} type="submit" value="edit item">
-                                    Delete
-                                </a>
-                            </div>
-                        </div>
-                    </form>
+	render() {
+		const {showForm} = this.state
+		return (
+			<div>
+				{this.props.shoppingList.map(item => {
+					return (
+						<React.Fragment>
+							{
+							showForm
+							?	<form key={item.id}>
+									<div className="columns is-mobile">
+										<div className="column">
+											<input onChange={this.handleChange} className="input is-medium" type="text" name="name" placeholder={item.name} />
+										</div>
+										<div className="column">
+											<input onChange={this.handleChange} className="input is-medium" type="text" name="cost_in_cents" placeholder={item.cost_in_cents} />
+										</div>
+										<div className="column">
+											<a className="button is-medium is-primary is-outlined is-mobile" onClick={e => this.editItem(e, item)} type="submit" value="edit item">
+												Save
+											</a>
+										</div>
+										<div className="column">
+											<a className="button is-medium is-primary is-outlined is-mobile" onClick=
+												{e => this.deleteItem(e, item)} type="submit" value="edit item">
+												Delete
+											</a>
+										</div>
+									</div>
+								</form>
 
-                )
-            })} 
-        </div>
-        )
-    }
+							: <ul>
+									<li className="is-size-5 has-text-weight-semibold">Item: {item.name}</li>
+                  <li className="is-size-5">Cost: {item.cost_in_cents}</li>
+								</ul>
+							}
+							
+							<button className="button is-medium is-primary is-outlined is-mobile" onClick={this.toggleForm}>{showForm ? "Save" : "Edit"}</button>
+						
+						</React.Fragment>
+					)
+				})} 
+			</div>
+
+		)
+	}
 }
   
 const mapStateToProps = (state) => {
