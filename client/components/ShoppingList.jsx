@@ -52,15 +52,15 @@ export class ShoppingList extends React.Component {
                  <AddedItems />  
             </div> 
            <div className="field has-addons">
-                 
+             
                <input onChange={this.handleChange} className="input is-medium" type="text" value={this.state.name} name="name" placeholder="Enter item" />
                <input onChange={this.handleChange} className="input is-medium" type="text" value={this.state.cost} name="cost" placeholder="Enter cost" />
-             
-               <div className="control">
-                <a className="button is-medium is-primary is-outlined is-mobile" onClick={this.addItem} type="submit" value="add item">
+            
+            <div className="control">
+                <a className="button is-medium is-warning is-outlined is-mobile" onClick={this.addItem} type="submit" value="add item">
                  Add
                 </a>
-             </div>
+            </div>
            </div>
          </div>
       </div>
