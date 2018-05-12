@@ -25,7 +25,9 @@ class BudgetSetting extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    const budget = this.state
+    let budget = this.state.budget*100
+
+    //** Convert budget in dollars to cents **
     this.props.dispatch(addBudget(budget))
     this.props.dispatch(navigate('budget'))
     
