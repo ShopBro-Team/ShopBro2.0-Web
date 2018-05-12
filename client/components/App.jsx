@@ -1,5 +1,6 @@
 import React from 'react'
 import {HashRouter as Router, Route} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 import Login from './Login'
 import Register from './Register'
@@ -14,7 +15,7 @@ import { ShoppingList } from './ShoppingList';
 const App = ({auth}) => (
   <Router>
     <div className='app-container has-text-centered is-block-flex-tablet is-block-flex-mobile'>
-      <img src="/image/logo.png" alt="logo" width="13%" height="13%"/>
+    <Link to="/"><img src="/image/logo.png" alt="logo" width="13%" height="13%"/></Link>
       <div className='container'>
       </div>
       <Route exact path='/' component={props => auth.isAuthenticated
