@@ -7,6 +7,7 @@ import BudgetSetting from './BudgetSetting'
 import Budget from './Budget'
 import ShoppingList from './ShoppingList'
 import Alert from './Alert'
+import Celebration from './Celebration'
 
 //ISSUE: budgetView needs to reset to 'setting' everytime there is a new user or
 //where a user logs in that has not click on the 'next button'.
@@ -32,12 +33,13 @@ function Main (props) {
       {(props.budget - props.totalSpend)< 0 && <Alert />} 
       </div>
       
-
-       <div>
+      {/* Done button saves shopping list to database and celebrates if underbudget */}
+      <div>
           <button onClick={()=> props.dispatch(saveShoppingList(props.budget, 
-            (props.budget - props.totalSpend), new Date(), props.shoppingList))}>Done
+            (props.budget - props.totalSpend), new Date(), props.shoppingList))}>
+            {props.budget - props.totalSpend> 0 ? <Link className="nav-item" to="/celebration">Done</Link> : "Done"}  
           </button>  
-       </div> 
+      </div> 
 
     </div>
   )

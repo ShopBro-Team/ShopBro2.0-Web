@@ -7,6 +7,7 @@ import Main from './Main'
 import Budget from './Budget'
 
 import {connect} from 'react-redux'
+import Celebration from './Celebration';
 import { ShoppingList } from './ShoppingList';
 
 const App = ({auth}) => (
@@ -22,6 +23,7 @@ const App = ({auth}) => (
       <Route path="/main" component={Main} />
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
+      <Route path="/celebration" component={Celebration} />
       <Route path="/budget" component={Budget} />
       <Route path="/shoppinglist" component={ShoppingList} />
 
