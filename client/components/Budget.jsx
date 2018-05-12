@@ -22,12 +22,13 @@ class Budget extends React.Component {
     let progress = this.props.totalSpend *100/this.props.budget
 
 
-    return (<div>
+    return (<div className="level">
 
       {progress < 50 ? (
-      <progress className="progress is-success" value={progress} max="100">25%</progress> ):
-      ( <progress className="progress is-danger" value={progress} max="100">25%</progress> )
+      <progress className="progress is-large is-success" value={progress} max="100">25%</progress> ):
+      ( <progress className="progress is-large is-danger" value={progress} max="100">25%</progress> )
       }
+      <button className="button is-normal is-outlined is-mobile is-success" onClick={this.editBudget.bind(this)}>Edit Budget</button>
       
           
       </div>)
@@ -36,13 +37,13 @@ class Budget extends React.Component {
   render () {
   return (
     <div className="section"> 
-      <h1>Show budget progress</h1>
       <div className="container">
       {this.renderProgressBar()}
       </div>
-      <p>This is your budget: {this.props.budget} </p> 
-      <p>This is your remaining money: {this.props.budget - this.props.totalSpend}</p>
-      <button onClick={this.editBudget.bind(this)}>Edit Button</button>
+      <p className="has-text-warning is-size-2">Your Budget is: ${this.props.budget} </p> 
+      <br/>
+      <p className="has-text-warning is-size-2">You have</p>
+      <p className="has-text-warning has-text-weight-bold is-size-2"> ${this.props.budget - this.props.totalSpend} left</p>
     </div>
   )
 }
