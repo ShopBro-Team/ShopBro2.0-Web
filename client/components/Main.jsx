@@ -44,17 +44,6 @@ function Main (props) {
     </div>
   )
 }
-// }
-
-//props.shoppingList
-// const mapStateToProps = ({auth,budgetView}) => {
-
-//   return {
-//     auth,
-//     budgetView
-//   }
-// }
-// the above is what Steve wrote to solve Dana and Rosie's problem re navigating, the below is more in line with how we are used to write mapStateToProps and how we are suggesting to write this
 
 const mapStateToProps = (state) => {
   return {
