@@ -82,10 +82,10 @@ class AddedItems extends React.Component {
 				: <form key={item.id}>
 					<div className="columns is-mobile">
 						<div className="column">
-							<p className="had-text-warning is-size-2">{item.name}</p>
+							<p className="is-size-2 has-text-warning">{item.name}</p>
 						</div>
 						<div className="column">
-						<p className="had-text-warning is-size-2">{item.cost_in_cents/100}</p>
+						<p className="is-size-2 has-text-warning">{item.cost_in_cents/100}</p>
 						</div>
 					</div>
 					<div className="column">
