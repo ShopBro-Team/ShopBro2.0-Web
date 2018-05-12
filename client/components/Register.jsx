@@ -10,7 +10,12 @@ class Register extends React.Component {
       user_name: '',
       user_email: '',
       password: '',
-      confirm_password: ''
+      confirm_password: '',
+      messagePassword : '',
+      messageEmail : '',
+      messageUserName : '',
+      valid : true      
+
     }
     this.updateDetails = this.updateDetails.bind(this)
     this.submit = this.submit.bind(this)
@@ -24,9 +29,16 @@ class Register extends React.Component {
     e.preventDefault()
     e.target.reset()
     let {user_name, user_email, password, confirm_password} = this.state
-    let validationStatus = validateRegister(user_name, user_email, password, confirm_password)
-    console.log('register', validationStatus)
-    if (true) this.props.dispatch(registerUserRequest({user_name, user_email, password}))
+    
+    let checkValid = validateRegister(user_name, user_email, password, confirm_password)
+    this.setState({
+      messagePassword : checkValid.messagePassword,
+      messageEmail : checkValid.messageEmail,
+      messageUserName : checkValid.messageUserName, 
+      valid : checkValid.valid    
+    })
+    
+    if (this.state.valid) this.props.dispatch(registerUserRequest({user_name, user_email, password}))
   }
 
   render() {
@@ -38,6 +50,7 @@ class Register extends React.Component {
         <label>Email:
           <input className="input" type="text" name="user_email" onChange={this.updateDetails}/>
         </label><br/>
+        {this.state.messageEmail.length > 0 && <p>{this.state.messageEmail}</p>}
         <label>Password:
           <input className="input" type="password" name="password" onChange={this.updateDetails}/>
         </label><br/>
