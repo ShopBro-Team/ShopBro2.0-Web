@@ -40,8 +40,10 @@ class Budget extends React.Component {
       <div className="container">
       {this.renderProgressBar()}
       </div>
-      <p>This is your budget: {this.props.budget} </p> 
-      <p>This is your remaining money: {this.props.budget - this.props.totalSpend}</p>
+      {/* <p>This is your budget: $ {() => this.calculateRemainingBudget.bind(this)} </p> */}
+      {/* Display budget and remaining money in dollars. Held in store as cents. */}
+      <p>This is your budget: {this.props.budget/100} </p> 
+      <p>This is your remaining money: {(this.props.budget - this.props.totalSpend)/100}</p>
       <button onClick={this.editBudget.bind(this)}>Edit Button</button>
     </div>
   )
@@ -49,8 +51,10 @@ class Budget extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+  
+  //Was budget: state.budget.budget - deleted second .budget to get budget in cents to work. Confusing.
   return {
-    budget: state.budget.budget,
+    budget: state.budget,
     totalSpend: state.totalSpend
   }
 }
