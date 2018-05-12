@@ -25,7 +25,7 @@ class Budget extends React.Component {
     return (<div>
 
       {progress < 50 ? (
-      <progress className="progress is-warning" value={progress} max="100">25%</progress> ):
+      <progress className="progress is-success" value={progress} max="100">25%</progress> ):
       ( <progress className="progress is-danger" value={progress} max="100">25%</progress> )
       }
       
