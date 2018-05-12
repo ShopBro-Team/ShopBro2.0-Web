@@ -34,10 +34,26 @@ export class ShoppingList extends React.Component {
 			name: '',
 			cost: 0  // IMPORTANT: Initial value must be 0 (not empty ' '), so user can add item without cost and the totalSpend calc will still work (else it sends NaN as value and calc will not work) //
 		})
-
-		// NOTE: TO DO - Need to add functionality to reset add buttons to placeholder values - use reset? //
 		
 	}
+    addItem(e) {
+        //This function add the item to the store
+        e.preventDefault()
+        //NOTE: It may be better to assign id to item in reducer - may cause problems with unique ids
+        //**Converted item cost to from dollars to cents**
+        let item = {id: this.state.id++, 
+                    name: this.state.name,
+                    cost_in_cents: this.state.cost*100}
+        //console.log(item.id)      
+        this.props.dispatch(addShoppingListItem(item))
+        this.props.dispatch(addToTotalSpend(item.cost_in_cents))
+        this.setState({
+            name: '',
+            cost: 0  // PLEASE DON'T MAKE THIS EMPTY ''. As these input fields appear, need default cost value to be a number, or will send NaN to totalSpend calc and stop it working.
+        })
+        //NOTE: Need to add functionality to reset add buttons to placeholder values - use reset?
+      
+    }
 
 	// NOTE: The call to AddedItems may be better off in the Main component? //
 
