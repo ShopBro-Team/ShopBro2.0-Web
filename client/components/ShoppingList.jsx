@@ -57,30 +57,27 @@ export class ShoppingList extends React.Component {
 
 	// NOTE: The call to AddedItems may be better off in the Main component? //
 
-	render() {
-		return <div>
-			<br/>
-			<div className="column is-mobile">
-				<div>
-					{/* Renders items as they are created/edited/removed from the list. */}
-					<AddedItems />  
-				</div> 
-				{/* Renders the initial input fields and add button to start the shopping list and it the starting point for all new items being added to the shopping list. */}
-				<div className="field has-addons">
-					{/* Input field for shopping item */}
-					<input onChange={this.handleChange} className="input is-medium" type="text" value={this.state.name} name="name" placeholder="Enter item" />
-					{/* Input field for the cost of the item */}
-					<input onChange={this.handleChange} className="input is-medium" type="text" value={this.state.cost} name="cost" placeholder="Enter cost" />
-					<div className="control">
-						{/* Button to add the item */}
-						<a className="button is-medium is-primary is-outlined is-mobile" onClick={this.addItem} type="submit" value="add item">
-							Add
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	}
+    render() {
+      return <div>
+        <br/>
+         <div className="column is-mobile">
+            <div>
+                 <AddedItems />  
+            </div> 
+           <div className="field has-addons">
+             
+               <input onChange={this.handleChange} className="input is-medium" type="text" value={this.state.name} name="name" placeholder="Enter item" />
+               <input onChange={this.handleChange} className="input is-medium" type="text" value={this.state.cost} name="cost" placeholder="Enter cost" />
+            
+            <div className="control">
+                <a className="button is-medium is-warning is-outlined is-mobile" onClick={this.addItem} type="submit" value="add item">
+                 Add
+                </a>
+            </div>
+           </div>
+         </div>
+      </div>
+    }
 }
 
 const mapStateToProps = (state) => {
