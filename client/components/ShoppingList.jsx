@@ -61,10 +61,15 @@ export class ShoppingList extends React.Component {
 		return <div>
 			<br/>
 			<div className="column is-mobile">
-				<div>
-					{/* Renders items as they are created/edited/removed from the list. */}
-					<AddedItems />  
-				</div> 
+				{/* NOTE: Updated so that the map over the AddedItems in the shopping list happens in this ShoppingList.jsx component, instead of AddedItems.jsx component. This meant we could isolate the toggle of viewing value or input box to the individual items, rather than the whole list. */}
+				<div> 
+					<h2>Shopping List</h2>
+					{this.props.shoppingList.map(item => {
+					return (
+						<AddedItems item={item} key={item.id} />
+					)})}
+				</div>
+
 				{/* Renders the initial input fields and add button to start the shopping list and it the starting point for all new items being added to the shopping list. */}
 				<div className="field has-addons">
 					{/* Input field for shopping item */}
