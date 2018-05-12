@@ -1,7 +1,6 @@
 import React from 'react' 
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-
 import {navigate} from '../actions/navigate'
 import {addBudget} from '../actions/budget'
 
@@ -14,7 +13,6 @@ class BudgetSetting extends React.Component {
     }
     this.updateBudget = this.updateBudget.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-
   }
 
   updateBudget(e) {
@@ -36,17 +34,17 @@ class BudgetSetting extends React.Component {
 
   render() {
     return ( 
-      <div> 
+      <div className="container"> 
         <form onSubmit={this.handleSubmit}>
-        <label>Set your budget $</label>
-        <input className="is-normal is-" name="budget" type="text" placeholder="your budget" onChange={this.updateBudget}/>
-        <input className="button is-normal is-light" type="submit" />
-        {/* Added the className 'button is-normal is-light' via bulma styling */}
+        <label className="has-text-warning is-size-2 ">Set your budget $</label>
+        <input className="input is-normal" name="budget" type="text" placeholder="your budget" onChange={this.updateBudget}/>
+        <input className="button is-normal is-light" type="submit"/>
         </form>
-      </div>
+     </div>
     )
   }
 }
+
 
 export default connect()(BudgetSetting)
 
