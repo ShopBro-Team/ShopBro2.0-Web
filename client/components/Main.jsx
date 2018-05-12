@@ -46,10 +46,11 @@ function Main (props) {
 }
 
 const mapStateToProps = (state) => {
+  //Was budget: state.budget.budget - deleted second .budget to get budget in cents to work. Confusing.
   return {
     auth: state.auth,
     budgetView: state.budgetView,
-    budget: state.budget.budget,
+    budget: state.budget,
     totalSpend: state.totalSpend,
     shoppingList: state.shoppingList
   }

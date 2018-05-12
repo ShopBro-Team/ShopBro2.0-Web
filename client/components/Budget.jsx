@@ -44,18 +44,23 @@ class Budget extends React.Component {
       <div className="container">
       {this.renderProgressBar()}
       </div>
-      <p className="has-text-warning is-size-2">Your Budget is: ${this.props.budget} </p> 
+      {/* <p>This is your budget: $ {() => this.calculateRemainingBudget.bind(this)} </p> */}
+      {/* Display budget and remaining money in dollars. Held in store as cents. */}
+      <p className="has-text-warning is-size-2">Your Budget is: $ {this.props.budget/100} </p> 
       <br/>
       <p className="has-text-warning is-size-2">You have</p>
-      <p className="has-text-warning has-text-weight-bold is-size-2"> ${this.props.budget - this.props.totalSpend} left</p>
+      <p className="has-text-warning has-text-weight-bold is-size-2">$ {(this.props.budget - this.props.totalSpend)/100} left</p>
+      
     </div>
   )
 }
 }
 
 const mapStateToProps = (state) => {
+  
+  //Was budget: state.budget.budget - deleted second .budget to get budget in cents to work. Confusing.
   return {
-    budget: state.budget.budget,
+    budget: state.budget,
     totalSpend: state.totalSpend
   }
 }
