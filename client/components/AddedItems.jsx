@@ -24,10 +24,12 @@ class AddedItems extends React.Component {
     editItem(e, item) {
         e.preventDefault()
 
+        //**Converts edited dollars to cents**
+        // Using or operator (||) to only update field if the field has been changed
         let updateItem = {
             id: item.id,
             name: this.state.name || this.props.shoppingList[item.id].name,
-            cost_in_cents: this.state.cost_in_cents || this.props.shoppingList[item.id].cost_in_cents
+            cost_in_cents: this.state.cost_in_cents || this.props.shoppingList[item.id].cost_in_cents*100
         }
 
         this.props.dispatch(editShoppingListItem(updateItem))
@@ -55,7 +57,8 @@ class AddedItems extends React.Component {
                                 <input onChange={this.handleChange} className="input is-medium" type="text" name="name" placeholder={item.name} />
                             </div>
                             <div className="column">
-                                <input onChange={this.handleChange} className="input is-medium" type="text" name="cost_in_cents" placeholder={item.cost_in_cents} />
+                                {/* Converts cost in cents to dollars for display purposes */}
+                                <input onChange={this.handleChange} className="input is-medium" type="text" name="cost_in_cents" placeholder={item.cost_in_cents/100} />
                             </div>
                             <div className="column">
                                 <a className="button is-medium is-primary is-outlined is-mobile" onClick={e => this.editItem(e, item)} type="submit" value="edit item">

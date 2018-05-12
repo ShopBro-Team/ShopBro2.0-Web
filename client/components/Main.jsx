@@ -55,10 +55,11 @@ function Main (props) {
 // the above is what Steve wrote to solve Dana and Rosie's problem re navigating, the below is more in line with how we are used to write mapStateToProps and how we are suggesting to write this
 
 const mapStateToProps = (state) => {
+  //Was budget: state.budget.budget - deleted second .budget to get budget in cents to work. Confusing.
   return {
     auth: state.auth,
     budgetView: state.budgetView,
-    budget: state.budget.budget,
+    budget: state.budget,
     totalSpend: state.totalSpend,
     shoppingList: state.shoppingList
   }
