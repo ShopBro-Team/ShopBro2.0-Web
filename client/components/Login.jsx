@@ -24,17 +24,20 @@ class Login extends React.Component {
   }
   render() {
     return (
-      <div class="field is-grouped">
+      <div class="column">
         <form className="Login container" onSubmit={this.submit}>
-          <label>Username:
-             <input className="input" type="text" name="user_name" onChange={this.updateDetails}/>
+          <label className="is-size-2">Username:
+        <input className="input is-medium" type="text" name="user_name" onChange={this.updateDetails}/>
+          </label>
+            <br/>
+          <label className="is-size-2">Password:
+        <input className="input is-medium" type="password" name="password" onChange={this.updateDetails}/>
           </label><br/>
-          <label>Password:
-              <input className="input" type="password" name="password" onChange={this.updateDetails}/>
-          </label><br/>
-              <input className="button is-success" type="submit" /><Link to= '/register'><a className="button is-light">Register</a></Link>
-        </form>
-      </div> 
+      <div className="buttons is-centered">
+      <input className="button is-success is-large" type="submit" /><Link to= '/register'><a className="button is-light is-large">Register</a></Link>
+      </div>
+    </form>
+  </div>  
     )
   }
 }
@@ -43,15 +46,70 @@ export default connect()(Login)
 
 
 
-{/* <div class="field is-horizontal">
-<div class="field-label is-normal">
-  <label class="label">Username</label>
+
+
+/* <div class="column">
+<form className="Login container" onSubmit={this.submit}>
+  <label>Username:
+     <input className="input" type="text" name="user_name" onChange={this.updateDetails}/>
+  </label><br/>
+  <label>Password:
+      <input className="input" type="password" name="password" onChange={this.updateDetails}/>
+  </label><br/>
+      <input className="button is-success" type="submit" /><Link to= '/register'><a className="button is-light">Register</a></Link>
+</form>
+</div>  */
+
+
+/* <div className="field is-horizontal">
+<div className="column is-two-third">
+  <label className="label">Username</label>
+  <label className="label">Password</label>
 </div>
-<div class="field-body">
-  <div class="field">
-    <div class="control">
-      <input class="input" type="text" placeholder="username" />
+<div className="field-body">
+  <div className="field">
+    <div className="column is-one-fifth">
+      <input className="input is-normal" type="text" name="user_name" placeholder="username" onChange={this.updateDetails} />
+      <input className="input is-normal" type="password" name="password" placeholder="password" onChange={this.updateDetails} />
     </div>
   </div>
- </div> 
-</div> */}
+</div> 
+</div>  */
+
+/* <div>
+<div className="columns is-mobile is-centered">
+      <div className="column is-two-thirds">        
+        <div className="level">
+          <div className="level-item has-text-centered">
+            <label className="label is-size-2">Username</label>
+          </div>
+          <div className="level-item has-text-centeredy">
+            <div className="control">
+                <input className="input is-size-2" type="text" name="user_name" placeholder="Normal sized input" onChange={this.updateDetails}/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div className="columns is-mobile is-centered">
+      <div className="column is-two-thirds">        
+        <div className="level">
+          <div className="level-item has-text-centered">
+            <label className="label is-size-2">Password</label>
+          </div>
+          <div className="level-item has-text-centeredy">
+            <div className="control">
+                <input className="input is-size-2" type="password" name="password" placeholder="Normal sized input" onChange={this.updateDetails}/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br/>
+     <div className="buttons is-centered" >
+      <input className="button is-success is-normal" type="submit" /><Link to= '/register'>
+      <a className="button is-light is-normal">Register</a></Link>
+     </div>
+  </div> */
