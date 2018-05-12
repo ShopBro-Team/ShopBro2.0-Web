@@ -9,7 +9,7 @@ class Alert extends React.Component{
     render() {
         return <div>
         <div className="notification is-danger">
-            <p className= "has-text-primary has-text-weight-bold">You have gone over your budget!  You may want to remove some items.</p>
+            <p className= "has-text-primary has-text-weight-bold is-size-2">You have gone over your budget!  You may want to remove some items.</p>
         </div>
     </div>
     }
