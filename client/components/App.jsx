@@ -9,10 +9,13 @@ import Budget from './Budget'
 import {connect} from 'react-redux'
 import { ShoppingList } from './ShoppingList';
 
+
 const App = ({auth}) => (
   <Router>
     <div className='app-container has-text-centered'>
-      <h1 className="title is-1">Shop Bro</h1>
+      <img src="/image/logo.png" alt="logo" width="13%" height="13%"/>
+      <div className='container'>
+      </div>
       <Route exact path='/' component={props => auth.isAuthenticated
         ? <Main {...props} />
         : <Login {...props} />
@@ -31,6 +34,6 @@ const App = ({auth}) => (
 
 const mapStateToProps = ({auth}) => ({auth})
 
-export default connect(mapStateToProps)(App)
+export default connect(mapStateToProps)(App) 
 
 //Master Thursday

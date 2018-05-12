@@ -30,7 +30,7 @@ class Budget extends React.Component {
     return (<div>
 
       {progress < 50 ? (
-      <progress className="progress is-warning" value={progress} max="100">25%</progress> ):
+      <progress className="progress is-success" value={progress} max="100">25%</progress> ):
       ( <progress className="progress is-danger" value={progress} max="100">25%</progress> )
       }
       
@@ -47,10 +47,10 @@ class Budget extends React.Component {
       
       </div>
       {/* <p>This is your budget: $ {() => this.calculateRemainingBudget.bind(this)} </p> */}
-      <p>This is your budget: {this.props.budget} </p> 
+      <p classname="p is-warning">This is your budget: {this.props.budget} </p> 
       <p>This is your remaining money: {this.props.budget - this.props.totalSpend}</p>
       {/* commented for trialling  */}
-      <button className="button is-normal is-light" onClick={this.editBudget.bind(this)}>Edit Button</button>
+      <button className="button is-info is-light" onClick={this.editBudget.bind(this)}>Edit Button</button>
       {/* Added the classname 'button is-normal is-light' via bulma styling */}
     </div>
   )
