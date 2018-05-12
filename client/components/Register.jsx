@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {registerUserRequest} from '../actions/register'
+import validateRegister from '../utils/register'
 
 class Register extends React.Component {
   constructor(props) {
@@ -14,15 +15,20 @@ class Register extends React.Component {
     this.updateDetails = this.updateDetails.bind(this)
     this.submit = this.submit.bind(this)
   }
+
   updateDetails(e) {
     this.setState({[e.target.name]: e.target.value})
   }
+
   submit(e) {
     e.preventDefault()
     e.target.reset()
     let {user_name, user_email, password, confirm_password} = this.state
-    if (password == confirm_password) this.props.dispatch(registerUserRequest({user_name, user_email, password}))
+    let validationStatus = validateRegister(user_name, user_email, password, confirm_password)
+    console.log('register', validationStatus)
+    if (true) this.props.dispatch(registerUserRequest({user_name, user_email, password}))
   }
+
   render() {
     return (
       <form className="Register container" onSubmit={this.submit}>
