@@ -12,10 +12,9 @@ export class ShoppingList extends React.Component {
         this.state = {
             id: 0,
             name: '',
-            cost: ''
+            cost: 0 // PLEASE DON'T MAKE THIS EMPTY ''. Set initial cost as 0, so user can add item without cost and the totalSpend calc will still work (otherwise, it sends NaN)
         }
         this.handleChange = this.handleChange.bind(this)
-        // this.handleChangeTwo = this.handleChangeTwo.bind(this)
         this.addItem = this.addItem.bind(this)
     }
 
@@ -37,7 +36,7 @@ export class ShoppingList extends React.Component {
         this.props.dispatch(addToTotalSpend(item.cost_in_cents))
         this.setState({
             name: '',
-            cost: ''
+            cost: 0  // PLEASE DON'T MAKE THIS EMPTY ''. As these input fields appear, need default cost value to be a number, or will send NaN to totalSpend calc and stop it working.
         })
         //NOTE: Need to add functionality to reset add buttons to placeholder values - use reset?
       

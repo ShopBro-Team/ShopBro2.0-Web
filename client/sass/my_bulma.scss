@@ -3,12 +3,20 @@
 
 //the colors below can be customized to suit the ShopBro color pallette.
 
-$primary: #BE8AD1;
-$success: #88B56A;
-$info: #70B7D8;
-$warning: #BF9B59;
-$danger: #912D2D;
-$dark: #3F3F3F;
+
+//ERROR: WHEN PERSONALIZED COLOUR IS IMPORTED AUTH REGISER PAGE THROWS ERROR. COLOUR CHANGES FUNCTION BREAKS
+$info: #f2d8b5;
+$success: #f4bf44;
+$danger:#ad471a;
+$warning: #313744;
+$primary: #ffffff;
+
+// $primary: #BE8AD1;
+// $success: #88B56A;
+// $info: #70B7D8;
+// $warning: #BF9B59;
+// $danger: #912D2D;
+// $dark: #3F3F3F;
 
 //Please note: the order these 2 utility packs below are imported matters.  Files are read synchronously.
 @import "~bulma/sass/utilities/derived-variables";

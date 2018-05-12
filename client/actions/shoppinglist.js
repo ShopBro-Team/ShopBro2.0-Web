@@ -1,5 +1,6 @@
 
 import request from '../utils/api'
+import shoppingList from '../reducers/shoppingList';
 
 export function saveShoppingList (budget_in_cents, total_savings_in_cents, date, items) {
 
@@ -11,7 +12,6 @@ export function saveShoppingList (budget_in_cents, total_savings_in_cents, date,
     let data =  {
         budget_in_cents, total_savings_in_cents, date, items
       } 
-    console.log('action',data)  
     request ('post', 'v1/shoppinglists', data)
   }
 }
@@ -45,17 +45,7 @@ export function deleteFromTotalSpend (cost) {
   }
 }
 
-// export function editTotalSpend (item) {
-//   return {
-//     type: 'EDIT_TOTALSPEND',
-//     item
-//   }
-// }
-//Rosie and Annika work in progress
-
-
 export function deleteShoppingListItem (item_id) {
-console.log(item_id, 'ASSD')
   return {
     type: 'DELETE_ITEM',
     item_id
