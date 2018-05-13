@@ -88,6 +88,7 @@ class AddedItems extends React.Component {
 							</a>
 						</div>
 					</div>
+					<br/>
 				</form>
 						 
 				: <form key={item.id}>
@@ -110,6 +111,7 @@ class AddedItems extends React.Component {
 						Delete
 						</a>
 					</div>
+					<br/>
 				</form>
 						}
 			</div>				
