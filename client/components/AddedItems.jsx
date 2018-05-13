@@ -35,7 +35,7 @@ class AddedItems extends React.Component {
             cost_in_cents: this.state.cost_in_cents*100 || this.props.shoppingList[item.id].cost_in_cents
 				}
 
-				// Below code calculates the value to be dispatched to addToTotalSpend when item edited (the difference between original value and new value).
+				// **Below code calculates the value to be dispatched to addToTotalSpend when item edited (the difference between original value and new value)**
 				// originalCost to take existing value in shoppingList object and compares this to the new value entered into input box, via the checkNewCost function.
 				// checkNewCost function compares original and new cost. If the do not match, then take the value from updateItem object (above). Otherwise, take the value from the originalCost variable. This result is then used in the calculation that makes up the diffCost value which is dispatched into addToTotalSpend.
 				// Solves previous bug where if value wasn't updated during the edit (e.g. only item name updated), then value coming in was producing NaN value in totalSpend.
