@@ -1,8 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
-
-
+import ShoppingListInfo from './ShoppingListInfo'
 
 
 
@@ -28,7 +27,7 @@ class ListOfSavings extends React.Component {
     return (
       <div>
         {/* this will need to become a map function to display all shopping trips for a particular user*/}
-        <button>Date</button>
+        <Link to="/shoppinglistinfo"><button>Date</button></Link>
         {/* Ideally this will be this.props.shoppingList.date */}
         {this.renderProgressBar()} 
         <p>You saved $40</p>

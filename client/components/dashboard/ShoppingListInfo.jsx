@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-
+import {connect} from 'react-redux'
 
 
 class ShoppingListInfo extends React.Component {
@@ -13,4 +13,14 @@ class ShoppingListInfo extends React.Component {
   }
 }
 
-export default ShoppingListInfo
+const mapStateToProps = (state) => {
+  
+  return {
+    budget: state.budget,
+    totalSpend: state.totalSpend,
+    shoppingList: state.shoppingList
+  }
+}
+
+
+export default connect(mapStateToProps)(ShoppingListInfo) 
