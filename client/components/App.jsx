@@ -12,9 +12,10 @@ import Celebration from './Celebration';
 import { ShoppingList } from './ShoppingList';
 
 
+
 const App = ({auth}) => (
   <Router>
-    <div className='app-container has-text-centered is-block-flex-tablet is-block-flex-mobile'>
+    <div className='app-container has-text-centered is-block-flex-tablet is-block-flex-mobile' >
       <img src="/image/logo.png" alt="logo" width="20%" height="20%"/>
       <div className='container'>
       </div>

@@ -24,17 +24,17 @@ class Login extends React.Component {
   }
   render() {
     return (
-      <div class="column">
+      <div className="column">
         <form className="Login container" onSubmit={this.submit}>
           <label className="is-size-2">Username:
-        <input className="input is-medium" type="text" name="user_name" onChange={this.updateDetails}/>
+        <input className="input is-medium has-text-centered" type="text" name="user_name" onChange={this.updateDetails}/>
           </label>
             <br/>
           <label className="is-size-2">Password:
-        <input className="input is-medium" type="password" name="password" onChange={this.updateDetails}/>
+        <input className="input is-medium has-text-centered" type="password" name="password" onChange={this.updateDetails}/>
           </label><br/>
       <div className="buttons is-centered">
-      <input className="button is-success is-large" type="submit" /><Link to= '/register'><a className="button is-light is-large">Register</a></Link>
+      <input className="button is-success is-large" type="submit" /><a className="button is-light is-large"><Link to= '/register'>Register</Link></a>
       </div>
     </form>
   </div>  

@@ -39,7 +39,7 @@ class BudgetSetting extends React.Component {
       <div className="container"> 
         <form onSubmit={this.handleSubmit}>
         <label className="has-text-warning is-size-3 ">Set your budget $</label>
-        <input className="input is-medium" name="budget" type="text" placeholder="Your budget" onChange={this.updateBudget}/>
+        <input className="input is-medium" name="budget" type="number" placeholder="Your budget" onChange={this.updateBudget}/>
         <br/>
         <br/>
         <input className="button is-medium is-warning has-text-primary" type="submit"/>

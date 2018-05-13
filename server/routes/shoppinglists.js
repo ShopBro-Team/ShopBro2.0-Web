@@ -22,7 +22,24 @@ router.post('/', decode, (req,res)=>{
       //You get back the id of the new shopping list - just used for debugging  
       return res.status(201).json(shop)
     })
-    .catch(err => res.status(500).send({message: "Server STEVE Error"}))
+    .catch(err => res.status(500).send({message: "Server Error"}))
   })
+
+router.get('/',decode, (req,res) => {
+  db.getShoppinglistsbyUserId(req.user.user_id, req.app.get('db'))
+    .then(shoppinglists => res.json(shoppinglists))
+    .catch(err => res.status(500).send({message: "Server Error"}))
+})  
+
+router.get('/:id', (req,res) => {
+  db.getShoppinglistbyId(req.params.id, req.app.get('db'))
+    .then(shoppinglist => res.json(shoppinglist))
+    .catch(err => res.status(500).send({message: "Server Error"}))
+})
   
-  module.exports = router
+module.exports = router
+
+  // router.get('/', decode, (req, res) => {
+  //   spellsDb.getSpells(req.user.user_id)
+  //     .then(spells => res.json(spells))
+  // })
