@@ -78,7 +78,7 @@ export class ShoppingList extends React.Component {
 					{/* Input field for shopping item */}
 					<input onChange={this.handleChange} className="input is-medium" type="text" value={this.state.name} name="name" placeholder="Enter item" />
 					{/* Input field for the cost of the item */}
-					<input onChange={this.handleChange} className="input is-medium" type="text" value={this.state.cost} name="cost" placeholder="Enter cost" />
+					<input onChange={this.handleChange} className="input is-medium" type="number" value={this.state.cost} name="cost" placeholder="Enter cost" />
 					<div className="control">
 						{/* Button to add the item */}
 						<a className="button is-medium is-dark is-outlined is-mobile" onClick={this.addItem} type="submit" value="add item">
