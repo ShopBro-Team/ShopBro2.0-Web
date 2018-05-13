@@ -22,6 +22,15 @@ Its ShopBro 2.0
 2. As a user I want to save my shopping list once it is done
 3. As a user I want to see a dashboard shoing past shopping activities
 
+##STRETCH MVP:
+- [ ] 1. As a dev team, we will define our API & Routes
+- [ ] 2. As a user, I want to see a footer on every page that links me to the dashboard, main and settings
+- [ ] 3. As a user, the first thing I want to see is my total savings on my dashboard
+- [ ] 4. As a user, I want to see each shop I have done listed on dashboard with a progress bar highlight how much I saved during that shop. 
+- [ ] 5. I also want to be able to delete all data for each shopping instance from the dashboard.
+- [ ] 6. I want to view the details of my shopping list from dashboard when I click on the date
+
+
 ##Errors we have come across and how to fix them:
 
 1. Authy error (it wasn't showing user_email address):
