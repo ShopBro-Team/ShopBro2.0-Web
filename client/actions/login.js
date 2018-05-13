@@ -18,7 +18,7 @@ export function receiveLogin (user) {
   }
 }
 
-function loginError (message) {
+export function loginError (message) {
   return {
     type: 'LOGIN_FAILURE',
     isFetching: false,
@@ -46,3 +46,4 @@ export function loginUser (creds) {
       )
   }
 }
+

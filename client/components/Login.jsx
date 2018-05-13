@@ -33,6 +33,8 @@ class Login extends React.Component {
           <label className="is-size-2">Password:
         <input className="input is-medium" type="password" name="password" onChange={this.updateDetails}/>
           </label><br/>
+          {(!this.props.auth.isAuthenticated && !this.props.auth.isFetching) && <p>Username or Password is wrong</p>}
+          {console.log("hel", this.props.auth)}
       <div className="buttons is-centered">
       <input className="button is-success is-large" type="submit" /><a className="button is-light is-large"><Link to= '/register'>Register</Link></a>
       </div>
@@ -42,7 +44,14 @@ class Login extends React.Component {
   }
 }
 
-export default connect()(Login)
+const mapStateToProps = (state) => {
+  console.log(state.auth.isAuthenticated)
+  return {
+    auth: state.auth.isFetching
+  }
+}
+
+export default connect(mapStateToProps)(Login)
 
 
 
