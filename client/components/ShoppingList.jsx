@@ -11,7 +11,7 @@ export class ShoppingList extends React.Component {
 		this.state = { // This sets the initial state of the input boxes //
 			id: 0,
 			name: '',
-			cost: 0 // IMPORTANT: Initial value must be 0 (not empty ' '), so user can add item without cost and the totalSpend calc will still work (else it sends NaN as value and calc will not work) //
+			cost: '' // IMPORTANT: Initial value must be 0 (not empty ' '), so user can add item without cost and the totalSpend calc will still work (else it sends NaN as value and calc will not work) //
 		}
 		this.handleChange = this.handleChange.bind(this)
 		this.addItem = this.addItem.bind(this)
@@ -32,7 +32,7 @@ export class ShoppingList extends React.Component {
 		this.props.dispatch(addToTotalSpend(item.cost_in_cents))
 		this.setState({  // This sets the state of the new input boxes on the page, ready to be updated by the user. //
 			name: '',
-			cost: 0  // IMPORTANT: Initial value must be 0 (not empty ' '), so user can add item without cost and the totalSpend calc will still work (else it sends NaN as value and calc will not work) //
+			cost: ''  // IMPORTANT: Initial value must be 0 (not empty ' '), so user can add item without cost and the totalSpend calc will still work (else it sends NaN as value and calc will not work) //
 		})
 		
 	}
@@ -49,7 +49,7 @@ export class ShoppingList extends React.Component {
         this.props.dispatch(addToTotalSpend(item.cost_in_cents))
         this.setState({
             name: '',
-            cost: 0  // PLEASE DON'T MAKE THIS EMPTY ''. As these input fields appear, need default cost value to be a number, or will send NaN to totalSpend calc and stop it working.
+            cost: ''  // PLEASE DON'T MAKE THIS EMPTY ''. As these input fields appear, need default cost value to be a number, or will send NaN to totalSpend calc and stop it working.
         })
         //NOTE: Need to add functionality to reset add buttons to placeholder values - use reset?
       

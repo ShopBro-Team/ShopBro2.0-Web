@@ -34,19 +34,24 @@ class AddedItems extends React.Component {
             name: this.state.name || this.props.shoppingList[item.id].name,
             cost_in_cents: this.state.cost_in_cents*100 || this.props.shoppingList[item.id].cost_in_cents
 				}
+
+				// Below code calculates the value to be dispatched to addToTotalSpend when item edited (the difference between original value and new value).
+				// originalCost to take existing value in shoppingList object and compares this to the new value entered into input box, via the checkNewCost function.
+				// checkNewCost function compares original and new cost. If the do not match, then take the value from updateItem object (above). Otherwise, take the value from the originalCost variable. This result is then used in the calculation that makes up the diffCost value which is dispatched into addToTotalSpend.
+				// Solves previous bug where if value wasn't updated during the edit (e.g. only item name updated), then value coming in was producing NaN value in totalSpend.
 				
-        // Below code and up to diffCost is sending through the value to add to total spend, which takes in previous and updated csot of the item. If only update name of item and not cost, this was causing an error and resulted in totalSpend being NaN. By checking if updated cost is NaN first before putting it into the diffCost calculation, this solves the issue.
 				let originalCost = this.props.shoppingList[item.id].cost_in_cents
 				let newCost = this.state.cost_in_cents*100
-				let updatedCost = checkValue(newCost)
-				
-				function checkValue(data) {
-					if (isNaN(data)) {
-						return 0
-				} return data	}
 
-				let diffCost = updatedCost - originalCost
+				function checkNewCost () {
+					if (originalCost !== newCost) {
+						return updateItem.cost_in_cents
+					} else {
+						return originalCost
+					}
+				}
 
+				let diffCost = checkNewCost() - originalCost
 			
 		this.props.dispatch(editShoppingListItem(updateItem)) // Send updated item object to editShoppingListItem //
 		this.props.dispatch(addToTotalSpend(diffCost)) // Send the value of the difference in cost to addToTotalSpend //
