@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import TotalSavings from './TotalSavings'
 import ListOfSavings from './ListOfSavings'
+import Footer from './Footer'
 
 
 class Dashboard extends React.Component {
@@ -12,6 +13,7 @@ class Dashboard extends React.Component {
         </h1>
         <TotalSavings/>
         <ListOfSavings/>
+        <Footer/>
       </div>
     )
   }
