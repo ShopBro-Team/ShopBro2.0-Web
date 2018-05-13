@@ -32,7 +32,7 @@ class Budget extends React.Component {
     </div> )
       }
       <div className="column is-one-fifth">
-      <button className="button is-medium is-outlined is-mobile is-warning" onClick={this.editBudget.bind(this)}>Edit Budget</button></div>
+      <button className="button is-medium is-outlined is-mobile is-dark" onClick={this.editBudget.bind(this)}>Edit Budget</button></div>
       
           
       </div>)
