@@ -57,27 +57,35 @@ export class ShoppingList extends React.Component {
 
 	// NOTE: The call to AddedItems may be better off in the Main component? //
 
-    render() {
-      return <div>
-        <br/>
-         <div className="column is-mobile">
-            <div>
-                 <AddedItems />  
-            </div> 
-           <div className="field has-addons">
-             
-               <input onChange={this.handleChange} className="input is-medium" type="text" value={this.state.name} name="name" placeholder="Enter item" />
-               <input onChange={this.handleChange} className="input is-medium" type="text" value={this.state.cost} name="cost" placeholder="Enter cost" />
-            
-            <div className="control">
-                <a className="button is-medium is-warning is-outlined is-mobile" onClick={this.addItem} type="submit" value="add item">
-                 Add
-                </a>
-            </div>
-           </div>
-         </div>
-      </div>
-    }
+	render() {
+		return <div>
+			<br/>
+			<div className="column is-mobile">
+				{/* NOTE: Updated so that the map over the AddedItems in the shopping list happens in this ShoppingList.jsx component, instead of AddedItems.jsx component. This meant we could isolate the toggle of viewing value or input box to the individual items, rather than the whole list. */}
+				<div> 
+					<h2>Shopping List</h2>
+					{this.props.shoppingList.map(item => {
+					return (
+						<AddedItems item={item} key={item.id} />
+					)})}
+				</div>
+
+				{/* Renders the initial input fields and add button to start the shopping list and it the starting point for all new items being added to the shopping list. */}
+				<div className="field has-addons">
+					{/* Input field for shopping item */}
+					<input onChange={this.handleChange} className="input is-medium" type="text" value={this.state.name} name="name" placeholder="Enter item" />
+					{/* Input field for the cost of the item */}
+					<input onChange={this.handleChange} className="input is-medium" type="text" value={this.state.cost} name="cost" placeholder="Enter cost" />
+					<div className="control">
+						{/* Button to add the item */}
+						<a className="button is-medium is-warning is-outlined is-mobile" onClick={this.addItem} type="submit" value="add item">
+							Add
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	}
 }
 
 const mapStateToProps = (state) => {
