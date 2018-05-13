@@ -12,7 +12,7 @@ export default function validateRegister(user_name, user_email, password, confir
   let isUserNameOK = validateUserName(user_name)
   
   if (!isPasswordOK) { 
-    validationStatus.messagePassword = 'Sorry passwords not match'
+    validationStatus.messagePassword = 'Sorry, passwords do not match'
     validationStatus.valid = false
   } 
   
