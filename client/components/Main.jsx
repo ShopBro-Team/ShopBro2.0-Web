@@ -33,7 +33,7 @@ function Main (props) {
         <div className="level-right">
           <button className="button" onClick={() => props.dispatch(logoutUser())}>Logout</button>
         </div>
-        <p className="is-size-2 has-text-warning has-text-weight-bold">Kia ora {capitalizeFirstLetter(userName)}</p> 
+        <p className="is-size-2 has-text-warning has-text-weight-bold">Kia ora "{capitalizeFirstLetter(userName)}"</p> 
         {props.auth.isAuthenticated
           ? <div>
               {console.log(props.budgetView)}
