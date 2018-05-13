@@ -38,3 +38,17 @@ test('ADD_BUDGET works', () => {
     expect(actual).toEqual(expected)
   
   })
+
+  test ('RESET_APP resets state', () => {
+    const expected = ''
+  
+    const initialState = '438.20'
+  
+    const action = {
+      type: "RESET_APP"
+    }
+  
+  const actual = budget(initialState, action)
+  expect(actual).toEqual(expected)
+  
+  })
