@@ -33,10 +33,21 @@ class AddedItems extends React.Component {
             id: item.id,
             name: this.state.name || this.props.shoppingList[item.id].name,
             cost_in_cents: this.state.cost_in_cents*100 || this.props.shoppingList[item.id].cost_in_cents
-        }
-        //Multipled this.state.cost_in_cents by 100 to account for dollars to cents conversion
-				let diffCost = this.state.cost_in_cents*100 - this.props.shoppingList[item.id].cost_in_cents
+				}
+				
+        // Below code and up to diffCost is sending through the value to add to total spend, which takes in previous and updated csot of the item. If only update name of item and not cost, this was causing an error and resulted in totalSpend being NaN. By checking if updated cost is NaN first before putting it into the diffCost calculation, this solves the issue.
+				let originalCost = this.props.shoppingList[item.id].cost_in_cents
+				let newCost = this.state.cost_in_cents*100
+				let updatedCost = checkValue(newCost)
+				
+				function checkValue(data) {
+					if (isNaN(data)) {
+						return 0
+				} return data	}
 
+				let diffCost = updatedCost - originalCost
+
+			
 		this.props.dispatch(editShoppingListItem(updateItem)) // Send updated item object to editShoppingListItem //
 		this.props.dispatch(addToTotalSpend(diffCost)) // Send the value of the difference in cost to addToTotalSpend //
 		this.toggleForm() // Toggle the view from input fields back to text, showing the now updated values of item and cost //
