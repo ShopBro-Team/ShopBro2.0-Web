@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logoutUser} from '../actions/logout'
-import { saveShoppingList } from '../actions/shoppinglist'
+import { saveShoppingList, resetApp } from '../actions/shoppinglist'
 import BudgetSetting from './BudgetSetting'
 import Budget from './Budget'
 import ShoppingList from './ShoppingList'
@@ -22,6 +22,12 @@ function Main (props) {
     return data.charAt(0).toUpperCase() + data.slice(1);
   }
 
+  function done() {
+    props.dispatch(saveShoppingList(props.budget, 
+      (props.budget - props.totalSpend), new Date(), props.shoppingList))
+    props.dispatch(resetApp())
+  }
+
   return (
     <div className="Nav hero is-small is-info">
       <div className="hero-body">
@@ -31,6 +37,7 @@ function Main (props) {
         <p className="is-size-2 has-text-warning has-text-weight-bold">Kia ora {capitalizeFirstLetter(userName)}</p> 
         {props.auth.isAuthenticated
           ? <div>
+              {console.log(props.budgetView)}
               {props.budgetView === 'setting' ? <BudgetSetting /> : <Budget />}
             </div>
           : <div className="columns nav-menu">
@@ -44,8 +51,7 @@ function Main (props) {
       
       {/* Done button saves shopping list to database and celebrates if underbudget */}
       <div>
-          <button className="button is-large is-warning has-text-white" onClick={()=> props.dispatch(saveShoppingList(props.budget, 
-            (props.budget - props.totalSpend), new Date(), props.shoppingList))}>
+          <button className="button is-large is-warning has-text-white" onClick={() => done()}>
             {props.budget - props.totalSpend> 0 ? <Link className="nav-item" to="/celebration">Done</Link> : "Done"}  
           </button> 
           <br/> 

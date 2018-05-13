@@ -51,3 +51,10 @@ export function deleteShoppingListItem (item_id) {
     item_id
   }
 }
+
+//Use the action.type 'RESET_APP' to reset all relevant reducer states.
+export function resetApp() {
+  return {
+    type: 'RESET_APP'
+  }  
+}
