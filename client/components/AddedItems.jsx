@@ -67,49 +67,55 @@ class AddedItems extends React.Component {
 			<div>
 				{showInputField
 					? 			
-					<form key={item.id}>
-						<div className="columns is-mobile">
-							<div className="column">
+					 
+					  <form key={item.id}>				  
+						<div className="columns is-mobile is-centered">
+							<div className="column is-offset-2">
 								<input onChange={this.handleChange} className="input is-medium" type="text" name="name" placeholder={item.name} />
 							</div>
 							<div className="column">
 								{/* Converts cost in cents to dollars for display purposes */}
 								<input onChange={this.handleChange} className="input is-medium" type="text" name="cost_in_cents" placeholder={item.cost_in_cents/100} />
 							</div>
-							<div className="column">
-							<a className="button is-medium is-primary is-outlined is-mobile" onClick={e => this.editItem(e, item)} type="submit" value="edit item">
-							Save
-							</a>
+							<div className="column is-one-third">
+								<div className="buttons">
+									<a className="button is-medium is-primary is-outlined is-mobile" onClick={e => this.editItem(e, item)} type="submit" value="edit item">
+									Save
+									</a>
+								{/* </div>
+								<div className="column"> */}
+									<a className="button is-medium is-primary is-outlined is-mobile" onClick=
+									{e => this.deleteItem(e, item)} type="submit" value="edit item">
+									Delete
+									</a>
+								</div>
+							</div>
 						</div>
-						<div className="column">
-							<a className="button is-medium is-primary is-outlined is-mobile" onClick=
-							{e => this.deleteItem(e, item)} type="submit" value="edit item">
-							Delete
-							</a>
-						</div>
-					</div>
-					<br/>
-				</form>
+					  <br/>
+					 </form>
+									
 						 
 				: <form key={item.id}>
-					<div className="columns is-mobile">
-						<div className="column">
-							<p className="is-size-2 has-text-warning">{item.name}</p>
+				   
+					<div className="columns is-mobile ">	
+						<div className="column is-offset-2">
+							<p className="is-size-3 has-text-warning has-background-light">{item.name}</p>
 						</div>
 						<div className="column">
-						<p className="is-size-2 has-text-warning">{item.cost_in_cents/100}</p>
+						<p className="is-size-3 has-text-warning has-background-light">{item.cost_in_cents/100}</p>
 						</div>
-					</div>
-					<div className="column">
-						<a className="button is-medium is-primary is-outlined is-mobile" onClick={this.toggleForm} type="submit" value="edit item">
+					
+					<div className="column is-one-third">
+					  <div className="buttons">
+						<a className="button is-medium is-dark is-outlined is-mobile" onClick={this.toggleForm} type="submit" value="edit item">
 						Edit
 						</a>
-					</div>
-					<div className="column">
-						<a className="button is-medium is-primary is-outlined is-mobile" onClick=
+						<a className="button is-medium is-dark is-outlined is-mobile" onClick=
 						{e => this.deleteItem(e, item)} type="submit" value="edit item">
 						Delete
 						</a>
+					  </div>
+					</div>
 					</div>
 					<br/>
 				</form>

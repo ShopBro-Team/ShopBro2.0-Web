@@ -23,7 +23,7 @@ function Main (props) {
   }
 
   return (
-    <div className="Nav hero is-small is-info">
+    <div className="Nav hero is-small is-success">
       <div className="hero-body">
         <div className="level-right">
           <button className="button" onClick={() => props.dispatch(logoutUser())}>Logout</button>
