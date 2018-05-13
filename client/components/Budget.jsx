@@ -3,6 +3,9 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {navigate} from '../actions/navigate'
 
+//*NOTE* Added getShoppingLists as a test
+import { getShoppingLists, getShoppingListById } from '../actions/dashboard'
+
 class Budget extends React.Component {
   constructor(props) {
     super(props)
@@ -10,6 +13,12 @@ class Budget extends React.Component {
      
     }
     this.renderProgressBar = this.renderProgressBar.bind(this)
+  }
+
+  //*NOTE* : Added componentDidMount as a test
+  componentDidMount () {
+    this.props.dispatch(getShoppingLists())
+    this.props.dispatch(getShoppingListById(4))
   }
 
   editBudget(event){
@@ -57,11 +66,17 @@ class Budget extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+
+  //*NOTE* : Added dashboardShoppinglist as a test
+  console.log('TEST',state)
   
   //Was budget: state.budget.budget - deleted second .budget to get budget in cents to work. Confusing.
   return {
     budget: state.budget,
-    totalSpend: state.totalSpend
+    totalSpend: state.totalSpend,
+
+    dashboardShoppingLists: state.dashboardShoppingLists,
+    dashboardShoppingListById: state.dashboardShoppingListById
   }
 }
 

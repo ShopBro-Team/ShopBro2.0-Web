@@ -39,7 +39,3 @@ router.get('/:id', (req,res) => {
   
 module.exports = router
 
-  // router.get('/', decode, (req, res) => {
-  //   spellsDb.getSpells(req.user.user_id)
-  //     .then(spells => res.json(spells))
-  // })
