@@ -1,28 +1,41 @@
+// ~*~ This component adds a new item to the shopping list ~*~ //
 import React from 'react' 
 import {connect} from 'react-redux'
 import { addShoppingListItem, addToTotalSpend } from '../actions/shoppinglist'
 
 import AddedItems from './AddedItems'
 
-//This component adds a new item to the shopping list
-
 export class ShoppingList extends React.Component {
-    constructor (props) {
-        super(props)
-        this.state = {
-            id: 0,
-            name: '',
-            cost: 0 // PLEASE DON'T MAKE THIS EMPTY ''. Set initial cost as 0, so user can add item without cost and the totalSpend calc will still work (otherwise, it sends NaN)
-        }
-        this.handleChange = this.handleChange.bind(this)
-        this.addItem = this.addItem.bind(this)
-    }
+	constructor (props) {
+		super(props)
+		this.state = { // This sets the initial state of the input boxes //
+			id: 0,
+			name: '',
+			cost: 0 // IMPORTANT: Initial value must be 0 (not empty ' '), so user can add item without cost and the totalSpend calc will still work (else it sends NaN as value and calc will not work) //
+		}
+		this.handleChange = this.handleChange.bind(this)
+		this.addItem = this.addItem.bind(this)
+	}
 
+	handleChange(e) {
+		this.setState({[e.target.name]: e.target.value})
+	}
 
-    handleChange(e) {
-        this.setState({[e.target.name]: e.target.value})
-    }
-
+	addItem(e) {
+		// This function adds the item to the store //
+		e.preventDefault()
+		//NOTE: It may be better to assign id to item in reducer - may cause problems with unique ids //
+		let item = {id: this.state.id++, 
+								name: this.state.name,
+								cost_in_cents: this.state.cost}
+		this.props.dispatch(addShoppingListItem(item))
+		this.props.dispatch(addToTotalSpend(item.cost_in_cents))
+		this.setState({  // This sets the state of the new input boxes on the page, ready to be updated by the user. //
+			name: '',
+			cost: 0  // IMPORTANT: Initial value must be 0 (not empty ' '), so user can add item without cost and the totalSpend calc will still work (else it sends NaN as value and calc will not work) //
+		})
+		
+	}
     addItem(e) {
         //This function add the item to the store
         e.preventDefault()
@@ -42,7 +55,7 @@ export class ShoppingList extends React.Component {
       
     }
 
-    //NOTE: The call to AddedItems may be better off in the Main component
+	// NOTE: The call to AddedItems may be better off in the Main component? //
 
     render() {
       return <div>
@@ -68,10 +81,9 @@ export class ShoppingList extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    //console.log(state)
-    return {
-        shoppingList: state.shoppingList
-    }
+	return {
+		shoppingList: state.shoppingList
+	}
 }
 
 export default connect(mapStateToProps)(ShoppingList)
