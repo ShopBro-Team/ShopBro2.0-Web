@@ -1,6 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
+import { resetApp } from '../actions/shoppinglist'
+
 
 
 
@@ -12,6 +14,11 @@ function Celebration (props) {
     return data.charAt(0).toUpperCase() + data.slice(1);
   }
 
+  function reset(){
+  props.dispatch(resetApp())
+  }
+
+
   return (
     <div className="Nav hero is-small is-info">
       <div className="hero-body">
@@ -20,7 +27,7 @@ function Celebration (props) {
         <img src="https://media.giphy.com/media/LCdPNT81vlv3y/giphy.gif" alt="goldgif"/>
       </div>
       <div>
-      <button className="button is-medium is-warning has-text-primary"><Link to="/main">Close</Link></button>
+      <button className="button is-medium is-warning has-text-primary" onClick={reset}><Link to="/main">Close</Link></button>
       <br/>
       <br/>
     </div>

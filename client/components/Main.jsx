@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logoutUser} from '../actions/logout'
-import { saveShoppingList, resetApp } from '../actions/shoppinglist'
+import { saveShoppingList } from '../actions/shoppinglist'
 import BudgetSetting from './BudgetSetting'
 import Budget from './Budget'
 import ShoppingList from './ShoppingList'
@@ -25,7 +25,6 @@ function Main (props) {
   function done() {
     props.dispatch(saveShoppingList(props.budget, 
       (props.budget - props.totalSpend), new Date(), props.shoppingList))
-    props.dispatch(resetApp())
   }
 
   return (
