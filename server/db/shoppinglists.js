@@ -5,10 +5,23 @@
 function addShoppinglist (shoppinglist, db) {
   return db('shoppinglists')
     .insert(shoppinglist)
-  }
+}
 
+function getShoppinglistsbyUserId (user_id, db) {
+  return db('shoppinglists')
+    .select()
+    .where('user_id', user_id)  
+}    
+
+function getShoppinglistbyId(id, db) {
+  return db('shoppinglists')
+    .select()
+    .where('id', id)
+}    
 
 //Need to use ES2015 module exports as requiring in in routes file  
 module.exports = {
-  addShoppinglist
+  addShoppinglist,
+  getShoppinglistsbyUserId,
+  getShoppinglistbyId
 }
