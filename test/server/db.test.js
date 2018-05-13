@@ -1,5 +1,5 @@
 const testEnv = require('./test-environment')
-const db = require('../../server/db/users')
+const db = require('../../server/db/shoppinglists')
 
 
 let testDb = null
@@ -11,10 +11,18 @@ beforeEach(() => {
 
 afterEach(() => testEnv.cleanup(testDb))
 
-test('test usertable db', () => {
-  // One for each letter of the alphabet!
-  const expected = '4'
-  return db.
-  
+test('addShoppinglist adds a shoppinglist', () => {
+  //Arrange
+  const shoppinglist = [{user_id: 1, budget_in_cents: 100, total_savings_in_cents: 10}]
+  const expected = 1
+  //Act - need to use return when testing with Promises
+  return db.addShoppinglist(shoppinglist, testDb)
+    .then(addedShoppinglist => {
+      // console.log("addedShoppinglist", addedShoppinglist)
+      const actual = addedShoppinglist.length
+      //Assert
+      expect(actual).toBe(expected)
+    })
+    .catch(err => expect(err).toBeNull())
 })
 
