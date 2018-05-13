@@ -8,7 +8,7 @@ function createUser (user_name, user_email, password, db) {
         .insert({user_name: user_name.toLowerCase(), user_email, hash}) 
         .then(user_id => resolve(user_id))
     })
-
+    
   })
 }
 
