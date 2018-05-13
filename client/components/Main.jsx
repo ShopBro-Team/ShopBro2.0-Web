@@ -8,6 +8,7 @@ import Budget from './Budget'
 import ShoppingList from './ShoppingList'
 import Alert from './Alert'
 import Celebration from './Celebration'
+import Footer from './dashboard/Footer'
 
 //ISSUE: budgetView needs to reset to 'setting' everytime there is a new user or
 //where a user logs in that has not click on the 'next button'.
@@ -28,6 +29,7 @@ function Main (props) {
   }
 
   return (
+    <div>
     <div className="Nav hero is-small is-success">
       <div className="hero-body">
         <div className="level-right">
@@ -56,6 +58,8 @@ function Main (props) {
           <br/> 
           <br/> 
       </div> 
+    </div>
+    <Footer/>
     </div>
   )
 }
