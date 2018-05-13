@@ -1,10 +1,12 @@
 @import "~bulma/sass/utilities/initial-variables";
 @import "~bulma/sass/utilities/functions";
 
+
+//Font has been updated.
+$family-serif: "Calibri", "Georgia", serif;
+$family-primary: $family-serif;
+
 //the colors below can be customized to suit the ShopBro color pallette.
-
-
-//ERROR: WHEN PERSONALIZED COLOUR IS IMPORTED AUTH REGISER PAGE THROWS ERROR. COLOUR CHANGES FUNCTION BREAKS
 $info: #f2d8b5;
 $success: #f4bf44;
 $danger:#ad471a;
