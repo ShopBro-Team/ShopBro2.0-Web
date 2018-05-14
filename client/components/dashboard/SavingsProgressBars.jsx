@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import ShoppingListInfo from './ShoppingListInfo'
-import {deleteShoppingListByIdInStore} from '../../actions/dashboard'
+import {deleteShoppingListById} from '../../actions/dashboard'
 import { getShoppingListById } from '../../actions/dashboard'
 
 
@@ -20,7 +20,7 @@ class SavingsProgressBars extends React.Component {
 
   deleteItem(e, item) {
 		e.preventDefault()
-		this.props.dispatch(deleteShoppingListByIdInStore(item.id))
+		this.props.dispatch(deleteShoppingListById(item.id))
   }
 
   
