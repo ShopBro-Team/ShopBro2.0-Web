@@ -17,11 +17,30 @@ function getShoppinglistbyId(id, db) {
   return db('shoppinglists')
     .select()
     .where('id', id)
-}    
+} 
+
+function deleteShoppinglistById(id, db) {
+  return db('shoppinglists')
+    .select()
+    .where('id', id)
+    .delete()
+
+} 
+
+function getTotalsByUserId (user_id, db) {
+  console.log('dbTots', user_id)
+  return db('shoppinglists')
+    .select('user_id', db.raw("SUM(total_savings_in_cents) as total_savings"),
+      db.raw("SUM(budget_in_cents) as total_budget"))
+    .where('user_id', user_id)
+    .groupByRaw('user_id')     
+}
 
 //Need to use ES2015 module exports as requiring in in routes file  
 module.exports = {
   addShoppinglist,
   getShoppinglistsbyUserId,
-  getShoppinglistbyId
+  getShoppinglistbyId,
+  deleteShoppinglistById,
+  getTotalsByUserId
 }
