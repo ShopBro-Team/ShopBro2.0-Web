@@ -7,6 +7,7 @@ import budget from './budget'
 import totalSpend from './totalSpend'
 import dashboardShoppingLists from './dashboardShoppingLists'
 import dashboardShoppingListById from './dashboardShoppingListById'
+import dashboardShoppingListTotals from './dashboardShoppingListTotals'
 
 export default combineReducers({
   auth,
@@ -15,5 +16,6 @@ export default combineReducers({
   budget,
   totalSpend,
   dashboardShoppingLists,
-  dashboardShoppingListById
+  dashboardShoppingListById,
+  dashboardShoppingListTotals
 })
