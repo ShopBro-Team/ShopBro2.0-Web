@@ -40,6 +40,7 @@ const App = ({auth}) => (
       <Route path="/footer" component={Footer} />
       <Route path="/settings" component={Settings} />
       <Route path="/shoppinglistinfo" component={ShoppingListInfo} /> 
+      {auth.isAuthenticated && <Footer />}
     </div>
   </Router>
 )

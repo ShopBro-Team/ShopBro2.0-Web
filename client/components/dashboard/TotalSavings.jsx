@@ -16,7 +16,7 @@ function TotalSavings (props) {
  
     return (
       <div>
-        <h1>Hello {capitalizeFirstLetter(userName)} this is your Total Savings: $50</h1>
+        <h1>Hello {capitalizeFirstLetter(userName)} this is your Total Savings: CHANGE THE THIS{this.props.dashboardShoppingLists.Harrison}</h1>
       </div>
     )
 }
@@ -24,8 +24,7 @@ function TotalSavings (props) {
 const mapStateToProps = (state) => {
   return {
     auth: state.auth,
-    // totalSavings: state.totalSavings
-    //the above reducer has not been created yet steve suggested that he would bring in with api
+    dashboardShoppingLists: state.dashboardShoppingLists
   }
 }
 
