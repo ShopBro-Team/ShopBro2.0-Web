@@ -7,6 +7,14 @@ import ShoppingListInfo from './ShoppingListInfo'
 
 class ListOfSavings extends React.Component {
 
+  //need to think about which reducer we're dispatching the delete action to!!! so eventually this will look like this.props.dispatch(deleteItem(item.id)) or something along these lines THINK ABOUT THIS BEFORE HITTING THE DELETE BUTTON!!!
+  // remember to add this to the imports at the top
+  //quick check with Harrison, no need to bind the deleteItem function as we're calling it using fat arrow function in our return
+  deleteItem(e, item) {
+		e.preventDefault()
+		this.props.dispatch()
+	}
+
   renderProgressBar() {
     // let progress = this.props.totalSpend *100/this.props.budget
     let progress = 45
@@ -32,7 +40,14 @@ class ListOfSavings extends React.Component {
         {this.renderProgressBar()} 
         <p>You saved $40</p>
         {/* <p>You saved ${this.props.budget - this.props.totalSpend}</p> */}
-        <button>Delete</button>
+        <div className="column is-one-third">
+					<button>
+          	<a className="button is-medium is-primary is-outlined is-mobile" onClick=
+						{e => this.deleteItem(e, item)} type="submit" value="edit item">
+						Delete
+						</a>
+					</button>
+				</div>
         {/* This will have onClick function that triggers delete action call */}
       </div>
     )

@@ -16,15 +16,18 @@ function TotalSavings (props) {
  
     return (
       <div>
-        <h1>Hello {capitalizeFirstLetter(userName)} this is your Total Savings: CHANGE THE THIS{this.props.dashboardShoppingLists.Harrison}</h1>
+        <p>Bring the below in once pulled in new changes</p>
+        {/* <h1>Hello {capitalizeFirstLetter(userName)} this is your Total Savings: CHANGE THE THIS{this.props.dashboardShoppingLists.Harrison}</h1> */}
       </div>
     )
 }
 
+{/* Bring the below in once pulled in new changes */}
+
 const mapStateToProps = (state) => {
   return {
     auth: state.auth,
-    dashboardShoppingLists: state.dashboardShoppingLists
+    // dashboardShoppingLists: state.dashboardShoppingLists
   }
 }
 

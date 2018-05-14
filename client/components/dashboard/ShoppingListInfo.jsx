@@ -7,7 +7,9 @@ class ShoppingListInfo extends React.Component {
   render() {
     return (
       <div>
-        <h1>Hello Username? from ShoppingListInfo</h1>
+        <h1>Hello Username? this is your shoppinglist for DATE</h1>
+        <p>TOTAL BUDGET - TOTA SPEND - TOTAL SAVINGS</p>
+        <p>map over items of this shoppinglist and spit out</p>
       </div>
     )
   }
