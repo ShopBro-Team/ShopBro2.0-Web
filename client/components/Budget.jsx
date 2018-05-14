@@ -4,7 +4,8 @@ import {Link} from 'react-router-dom'
 import {navigate} from '../actions/navigate'
 
 //*NOTE* Added imports from dashboard action as a test
-import { getShoppingLists, getShoppingListById } from '../actions/dashboard'
+import { getShoppingLists, getShoppingListById, 
+  deleteShoppingListById, getShoppingListTotals } from '../actions/dashboard'
 
 class Budget extends React.Component {
   constructor(props) {
@@ -19,6 +20,8 @@ class Budget extends React.Component {
   componentDidMount () {
     this.props.dispatch(getShoppingLists())
     this.props.dispatch(getShoppingListById(4))
+    this.props.dispatch(getShoppingListTotals())
+    this.props.dispatch(deleteShoppingListById(11))
   }
 
   editBudget(event){
@@ -76,7 +79,8 @@ const mapStateToProps = (state) => {
     totalSpend: state.totalSpend,
 
     dashboardShoppingLists: state.dashboardShoppingLists,
-    dashboardShoppingListById: state.dashboardShoppingListById
+    dashboardShoppingListById: state.dashboardShoppingListById,
+    dashboardShoppingListTotals: state.dashboardShoppingListTotals
   }
 }
 

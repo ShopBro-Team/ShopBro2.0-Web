@@ -14,5 +14,6 @@ server.use(express.static(path.join(__dirname, '../public')))
 
 server.use('/api/auth', require('./routes/auth'))
 server.use('/api/v1/shoppinglists', require('./routes/shoppinglists'))
+server.use('/api/v1/shoppingliststotals', require('./routes/shoppingliststotals'))
 
 module.exports = server
