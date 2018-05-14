@@ -1,38 +1,66 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
+import {getShoppingListById } from '../../actions/dashboard'
 
 
 function capitalizeFirstLetter(data) {
   return data.charAt(0).toUpperCase() + data.slice(1);
 }
 
-// class ShoppingListInfo extends React.Component {
-  function ShoppingListInfo (props) {
+class ShoppingListInfo extends React.Component {
+  // function ShoppingListInfo (props) {
 
-  let userName = props.auth.user.user_name
+  constructor(props) {
+    super(props)
+    this.state = {
+      userName : props.auth.user.user_name
+    }
+    // this.renderProgressBar = this.renderProgressBar.bind(this)
+  }
 
 
+  componentDidMount () {
+    this.props.dispatch(getShoppingListById(56))
+  }
 
-  console.log ("Check me ,", props.dashboardShoppingListById)
 
+  // console.log ("Check me ,", props.dashboardShoppingListById)
+  // console.log ("Item this ,", props.dashboardShoppingListById.length > 0 && props.dashboardShoppingListById[0].items)
+  // console.log ("cosole x", x)
 
-  // render() {
+  render() {
     return (
 
 
       <div>
-        <h1>Hello {capitalizeFirstLetter(userName)}? this is your shoppinglist for DATE</h1>
-        <p>TOTAL BUDGET - TOTA SPEND - TOTAL SAVINGS</p>
-        <p>Date: {props.dashboardShoppingListById.length > 0 && props.dashboardShoppingListById[0].date}</p>
-        <p>map over items of this shoppinglist and spit out</p>
+        <h1>Hello {capitalizeFirstLetter(this.state.userName)}? this is your shoppinglist for {this.props.dashboardShoppingListById.length > 0 && this.props.dashboardShoppingListById[0].date}</h1>
+        <p>Total Budget: {this.props.dashboardShoppingListById.length > 0 && this.props.dashboardShoppingListById[0].budget_in_cents}</p>
+        <p>Total Savings: {this.props.dashboardShoppingListById.length > 0 && this.props.dashboardShoppingListById[0].total_savings_in_cents}</p>
+        <p>Date: {this.props.dashboardShoppingListById.length > 0 && this.props.dashboardShoppingListById[0].date}</p>
+        {/* Above is a life cycle and it is async so what it means is that if props.dashboard... is true it will wait and render */}
+        <div> 
+
+          {/* SoMETHING NOT RIGHT WITH MAP<<<<<< IT IS GETTING RIGHT DATA THOUGH......... */}
+          { this.props.dashboardShoppingListById.length > 0 && this.props.dashboardShoppingListById[0].items.map(item => {
+            return (
+              <div key={item.id}>
+              {item.name}
+              {/* &ns */}
+              {item.cost_in_cents/100}
+              </div>
+            )
+          })
+        }
+
+        </div>
       </div>
     )
   }
-// }
+}
 
 const mapStateToProps = (state) => {
-  console.log (state)
+  console.log ('Info_state', state)
   return {
     auth: state.auth,
     // budget: state.budget,
