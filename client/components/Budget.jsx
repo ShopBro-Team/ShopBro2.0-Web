@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {navigate} from '../actions/navigate'
 
-//*NOTE* Added getShoppingLists as a test
+//*NOTE* Added imports from dashboard action as a test
 import { getShoppingLists, getShoppingListById } from '../actions/dashboard'
 
 class Budget extends React.Component {
@@ -67,7 +67,7 @@ class Budget extends React.Component {
 
 const mapStateToProps = (state) => {
 
-  //*NOTE* : Added dashboardShoppinglist as a test
+  //*NOTE* : Added dashboardShoppinglist and dashboardShoppingListById as a test
   console.log('TEST',state)
   
   //Was budget: state.budget.budget - deleted second .budget to get budget in cents to work. Confusing.
