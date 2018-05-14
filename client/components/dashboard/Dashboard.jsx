@@ -2,9 +2,18 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import TotalSavings from './TotalSavings'
 import ListOfSavings from './ListOfSavings'
+import {connect} from 'react-redux'
+
+import { getShoppingListById, getShoppingLists} from '../../actions/dashboard'
 
 class Dashboard extends React.Component {
-  render() {
+
+    componentDidMount() {
+      this.props.dispatch(getShoppingLists(55))
+      this.props.dispatch(getShoppingListById())
+    }
+
+    render() {
     return (
       <div>
         <h1>Hello World from Dashboard
@@ -16,4 +25,12 @@ class Dashboard extends React.Component {
   }
 }
 
-export default Dashboard
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth,
+    dashboardShoppingLists: state.dashboardShoppingLists,
+    dashboardShoppingListById: state.dashboardShoppingListById
+  }
+}
+
+export default connect(mapStateToProps)(Dashboard)
