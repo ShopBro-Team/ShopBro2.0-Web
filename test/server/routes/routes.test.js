@@ -1,10 +1,10 @@
 const request = require('supertest')
-const cheerio = require('cheerio')
+// const cheerio = require('cheerio')
 
 
 
 // const server = require('../../client/components/App')
-const server = require('../../server/server')
+const server = require('../../../server/server')
 
 
 
