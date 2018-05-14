@@ -22,3 +22,17 @@ test('Navigate moves to right destination', () => {
 
   expect(actual).toEqual(expected)
 })
+
+test ('RESET_APP resets state', () => {
+  const expected = 'setting'
+
+  const initialState = 'budget'
+
+  const action = {
+    type: "RESET_APP"
+  }
+
+const actual = budgetView(initialState, action)
+expect(actual).toEqual(expected)
+
+})

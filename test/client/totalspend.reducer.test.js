@@ -42,4 +42,34 @@ test('DELETE_FROM_TOTALSPEND works', () => {
 
 })
 
+test ('RESET_APP resets state', () => {
+  const expected = 0
+
+  const initialState = 28.53
+
+  const action = {
+    type: "RESET_APP"
+  }
+
+const actual = totalSpend(initialState, action)
+expect(actual).toEqual(expected)
+
+})
+
+test ('LOGOUT_SUCCESS resets state', () => {
+  const expected = 0
+
+  const initialState = 15
+
+  const action = {
+      type: 'LOGOUT_SUCCESS',
+      isFetching: false,
+      isAuthenticated: false
+  }
+
+const actual = totalSpend(initialState, action)
+expect(actual).toEqual(expected)
+
+})
+
 
