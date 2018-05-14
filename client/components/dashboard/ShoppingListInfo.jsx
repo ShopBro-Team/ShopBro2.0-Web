@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {getShoppingListById } from '../../actions/dashboard'
 
+import {logoutUser} from '../../actions/logout'
 
 function capitalizeFirstLetter(data) {
   return data.charAt(0).toUpperCase() + data.slice(1);
@@ -30,7 +31,11 @@ class ShoppingListInfo extends React.Component {
   render() {
     return (
       <div>
+        <div className="level-right">
+          <button className="button" onClick={() => this.props.dispatch(logoutUser())}>Logout</button>
+        </div>
         <h1 className = "is-size-4">Hello {capitalizeFirstLetter(this.state.userName)}, this is your shoppinglist for {this.props.dashboardShoppingListById.length > 0 && this.reverseString(this.props.dashboardShoppingListById[0].date.slice(0,10))}</h1>
+
         <p className = "is-size-4">Total Budget: ${this.props.dashboardShoppingListById.length > 0 && this.props.dashboardShoppingListById[0].budget_in_cents/100}</p>
         <p className = "is-size-4">Total Savings: ${this.props.dashboardShoppingListById.length > 0 && this.props.dashboardShoppingListById[0].total_savings_in_cents/100}</p>
         {/* Above is a life cycle and it is async so what it means is that if props.dashboard... is true it will wait and render */}
