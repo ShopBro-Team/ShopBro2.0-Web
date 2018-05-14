@@ -28,6 +28,7 @@ function Main (props) {
   }
 
   return (
+    <div>
     <div className="Nav hero is-small is-success">
       <div className="hero-body">
         <div className="level-right">
@@ -56,6 +57,7 @@ function Main (props) {
           <br/> 
           <br/> 
       </div> 
+    </div>
     </div>
   )
 }

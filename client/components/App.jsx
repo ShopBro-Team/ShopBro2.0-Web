@@ -6,6 +6,11 @@ import Login from './Login'
 import Register from './Register'
 import Main from './Main'
 import Budget from './Budget'
+import Dashboard from './dashboard/Dashboard'
+import Footer from './dashboard/Footer'
+import Settings from './dashboard/Settings'
+import ShoppingListInfo from './dashboard/ShoppingListInfo'
+
 
 import {connect} from 'react-redux'
 import Celebration from './Celebration';
@@ -31,7 +36,11 @@ const App = ({auth}) => (
       <Route path="/celebration" component={Celebration} />
       <Route path="/budget" component={Budget} />
       <Route path="/shoppinglist" component={ShoppingList} />
-
+      <Route path="/dashboard" component={Dashboard} />
+      <Route path="/footer" component={Footer} />
+      <Route path="/settings" component={Settings} />
+      <Route path="/shoppinglistinfo" component={ShoppingListInfo} /> 
+      {auth.isAuthenticated && <Footer />}
     </div>
   </Router>
 )
