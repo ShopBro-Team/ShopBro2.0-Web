@@ -46,7 +46,7 @@ class ShoppingListInfo extends React.Component {
             return (
               <div key={item.id}>
               {item.name}
-              {/* &ns */}
+              &nbsp;
               {item.cost_in_cents/100}
               </div>
             )
