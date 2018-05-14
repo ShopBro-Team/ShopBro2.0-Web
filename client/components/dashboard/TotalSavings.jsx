@@ -16,8 +16,7 @@ function TotalSavings (props) {
  
     return (
       <div>
-        <p>Bring the below in once pulled in new changes</p>
-        {/* <h1>Hello {capitalizeFirstLetter(userName)} this is your Total Savings: CHANGE THE THIS{this.props.dashboardShoppingLists.Harrison}</h1> */}
+        <h1>Hello {capitalizeFirstLetter(userName)} this is your Total Savings: </h1>
       </div>
     )
 }
