@@ -34,7 +34,6 @@ router.get('/',decode, (req,res) => {
 router.get('/:id', (req,res) => {
   db.getShoppinglistbyId(req.params.id, req.app.get('db'))
     .then(shoppinglist => {
-      console.log ("GOT HERE",shoppinglist)
       let shoppinglist_to_send = {
         //NOTE: user_id obtained from decoded auth token. This approach
         //mimics Harrisons game. Refer to decode in token.js
@@ -45,7 +44,6 @@ router.get('/:id', (req,res) => {
         'date':shoppinglist[0].date,
         'items':JSON.parse(shoppinglist[0].items)     
       }
-      console.log(shoppinglist_to_send)
       return res.json([shoppinglist_to_send])})
     .catch(err => res.status(500).send({message: "Server Error"}))
 })

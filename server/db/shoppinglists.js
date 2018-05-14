@@ -28,7 +28,6 @@ function deleteShoppinglistById(id, db) {
 } 
 
 function getTotalsByUserId (user_id, db) {
-  console.log('dbTots', user_id)
   return db('shoppinglists')
     .select('user_id', db.raw("SUM(total_savings_in_cents) as totalsavings"),
       db.raw("SUM(budget_in_cents) as totalbudget"))
