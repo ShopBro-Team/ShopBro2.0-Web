@@ -36,6 +36,12 @@ router.get('/:id', (req,res) => {
     .then(shoppinglist => res.json(shoppinglist))
     .catch(err => res.status(500).send({message: "Server Error"}))
 })
+
+router.delete('/:id', (req,res) => {
+  db.deleteShoppinglistById(req.params.id, req.app.get('db'))
+    .then(shoppinglist => res.json(shoppinglist))
+    .catch(err => res.status(500).send({message: "Server Error"}))
+})
   
 module.exports = router
 
