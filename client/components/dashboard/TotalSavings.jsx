@@ -16,7 +16,9 @@ function TotalSavings (props) {
  
     return (
       <div>
-        <h1>Hello {capitalizeFirstLetter(userName)} this is your Total Savings: </h1>
+        {/* {props.totals.legth > 0 && props.totals[0].total_savings} */}
+        <h1>Hello {capitalizeFirstLetter(userName)} this is your Total Savings : $  
+         {props.totals[0] && (props.totals[0].totalsavings/100).toFixed(2)}</h1>
       </div>
     )
 }

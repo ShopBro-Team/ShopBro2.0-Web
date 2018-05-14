@@ -4,13 +4,14 @@ import TotalSavings from './TotalSavings'
 import ListOfSavings from './ListOfSavings'
 import {connect} from 'react-redux'
 
-import { getShoppingListById, getShoppingLists} from '../../actions/dashboard'
+import { getShoppingListById, getShoppingLists, getShoppingListTotals} from '../../actions/dashboard'
 
 class Dashboard extends React.Component {
 
     componentDidMount() {
       this.props.dispatch(getShoppingLists())
-      this.props.dispatch(getShoppingListById())
+      // this.props.dispatch(getShoppingListById())
+      this.props.dispatch(getShoppingListTotals())
     }
 
   render() {
@@ -18,7 +19,7 @@ class Dashboard extends React.Component {
       <div>
         <h1>Hello World from Dashboard
         </h1>
-        <TotalSavings/>
+        <TotalSavings totals={this.props.dashboardShoppingListTotals}/>
         <ListOfSavings/>
       </div>
     )
@@ -29,7 +30,8 @@ const mapStateToProps = (state) => {
   return{
     auth: state.auth,
     dashboardShoppingLists: state.dashboardShoppingLists,
-    dashboardShoppingListById: state.dashboardShoppingListById
+    dashboardShoppingListById: state.dashboardShoppingListById,
+    dashboardShoppingListTotals: state.dashboardShoppingListTotals
   }
 }
 
