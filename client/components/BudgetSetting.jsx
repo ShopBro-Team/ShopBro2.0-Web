@@ -3,13 +3,15 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {navigate} from '../actions/navigate'
 import {addBudget} from '../actions/budget'
-
+import validateCostInput from '../utils/costInput'
 
 class BudgetSetting extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      budget: ''
+      budget: '',
+      messageCost: '',
+      valid: true
     }
     this.updateBudget = this.updateBudget.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -26,11 +28,20 @@ class BudgetSetting extends React.Component {
   handleSubmit(event) {
     event.preventDefault()
     let budget = this.state.budget*100
-
-    //** Convert budget in dollars to cents **
-    this.props.dispatch(addBudget(budget))
-    this.props.dispatch(navigate('budget'))
-    
+  
+    // validate that budget value is not a negative number before sending to props	
+		let checkValid = validateCostInput(budget)
+	
+		this.setState({
+			messageCost : checkValid.messageCost,
+			valid : checkValid.valid
+		})
+		console.log("checking if valid: ",checkValid, checkValid.valid)
+		if(checkValid.valid) {
+      //** Convert budget in dollars to cents **
+      this.props.dispatch(addBudget(budget))
+      this.props.dispatch(navigate('budget'))
+    }
   }
   //interacts with redux state: adds budget from component's state to redux global state and navigates to budget page
 
@@ -43,6 +54,8 @@ class BudgetSetting extends React.Component {
         <br/>
         <br/>
         <input className="button is-medium is-warning has-text-primary" type="submit"/>
+        <br/>
+				{this.state.messageCost && <p>{this.state.messageCost}</p>}
         </form>
      </div>
     )

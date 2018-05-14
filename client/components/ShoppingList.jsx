@@ -2,6 +2,7 @@
 import React from 'react' 
 import {connect} from 'react-redux'
 import { addShoppingListItem, addToTotalSpend } from '../actions/shoppinglist'
+import validateCostInput from '../utils/costInput'
 
 import AddedItems from './AddedItems'
 
@@ -11,7 +12,9 @@ export class ShoppingList extends React.Component {
 		this.state = { // This sets the initial state of the input boxes //
 			id: 0,
 			name: '',
-			cost: '' // IMPORTANT: Initial value must be 0 (not empty ' '), so user can add item without cost and the totalSpend calc will still work (else it sends NaN as value and calc will not work) //
+			cost: '',
+			messageCost: '',
+    	valid: true
 		}
 		this.handleChange = this.handleChange.bind(this)
 		this.addItem = this.addItem.bind(this)
@@ -21,21 +24,6 @@ export class ShoppingList extends React.Component {
 		this.setState({[e.target.name]: e.target.value})
 	}
 
-	addItem(e) {
-		// This function adds the item to the store //
-		e.preventDefault()
-		//NOTE: It may be better to assign id to item in reducer - may cause problems with unique ids //
-		let item = {id: this.state.id++, 
-								name: this.state.name,
-								cost_in_cents: this.state.cost}
-		this.props.dispatch(addShoppingListItem(item))
-		this.props.dispatch(addToTotalSpend(item.cost_in_cents))
-		this.setState({  // This sets the state of the new input boxes on the page, ready to be updated by the user. //
-			name: '',
-			cost: ''  // IMPORTANT: Initial value must be 0 (not empty ' '), so user can add item without cost and the totalSpend calc will still work (else it sends NaN as value and calc will not work) //
-		})
-		
-	}
     addItem(e) {
         //This function add the item to the store
         e.preventDefault()
@@ -43,14 +31,25 @@ export class ShoppingList extends React.Component {
         //**Converted item cost to from dollars to cents**
         let item = {id: this.state.id++, 
                     name: this.state.name,
-                    cost_in_cents: this.state.cost*100}
-        //console.log(item.id)      
-        this.props.dispatch(addShoppingListItem(item))
-        this.props.dispatch(addToTotalSpend(item.cost_in_cents))
-        this.setState({
-            name: '',
-            cost: ''  // PLEASE DON'T MAKE THIS EMPTY ''. As these input fields appear, need default cost value to be a number, or will send NaN to totalSpend calc and stop it working.
-        })
+                    cost_in_cents: this.state.cost*100}      
+
+				this.setState({
+					name: '',
+					cost: '' , 
+				})
+				// validate that cost value is not a negative number before sending to props	
+				let costToCheck = this.state.cost*100
+				let checkValid = validateCostInput(costToCheck)
+				
+				this.setState({
+					messageCost : checkValid.messageCost,
+					valid : checkValid.valid
+				})
+				console.log("checking if valid: ",checkValid, checkValid.valid)
+				if(checkValid.valid) {
+					this.props.dispatch(addShoppingListItem(item))
+					this.props.dispatch(addToTotalSpend(item.cost_in_cents))
+				}
         //NOTE: Need to add functionality to reset add buttons to placeholder values - use reset?
       
     }
@@ -78,7 +77,7 @@ export class ShoppingList extends React.Component {
 					{/* Input field for shopping item */}
 					<input onChange={this.handleChange} className="input is-medium" type="text" value={this.state.name} name="name" placeholder="Enter item" />
 					{/* Input field for the cost of the item */}
-					<input onChange={this.handleChange} className="input is-medium" type="number" value={this.state.cost} name="cost" placeholder="Enter cost" />
+					<input onChange={this.handleChange} className="input is-medium" type="number" min="0" value={this.state.cost} name="cost" placeholder="Enter cost" />
 					<div className="control">
 						{/* Button to add the item */}
 						<a className="button is-medium is-dark is-outlined is-mobile" onClick={this.addItem} type="submit" value="add item">
@@ -87,6 +86,8 @@ export class ShoppingList extends React.Component {
 					</div>
 				</div>
 			</div>
+			<br/>
+				{this.state.messageCost && <p>{this.state.messageCost}</p>}
 			</div>
 		
 	}
