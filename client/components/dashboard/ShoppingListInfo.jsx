@@ -19,8 +19,8 @@ const mapStateToProps = (state) => {
   
   return {
     auth: state.auth,
-    budget: state.budget,
-    totalSpend: state.totalSpend,
+    // budget: state.budget,
+    // totalSpend: state.totalSpend,
     shoppingList: state.shoppingList,
     dashboardShoppingListById: state.dashboardShoppingListById
   }
