@@ -36,6 +36,7 @@ export function getShoppingListById(id) {
   return (dispatch) => {
     return request( 'get', `v1/shoppinglists/${id}` )
       .then (res => {
+          console.log(res.body)
           dispatch(receiveShoppingListById(res.body))
       })
       .catch(err => {
