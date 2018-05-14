@@ -9,11 +9,11 @@ import { getShoppingListById, getShoppingLists} from '../../actions/dashboard'
 class Dashboard extends React.Component {
 
     componentDidMount() {
-      this.props.dispatch(getShoppingLists(55))
+      this.props.dispatch(getShoppingLists())
       this.props.dispatch(getShoppingListById())
     }
 
-    render() {
+  render() {
     return (
       <div>
         <h1>Hello World from Dashboard
@@ -26,7 +26,7 @@ class Dashboard extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return {
+  return{
     auth: state.auth,
     dashboardShoppingLists: state.dashboardShoppingLists,
     dashboardShoppingListById: state.dashboardShoppingListById
