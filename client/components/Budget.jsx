@@ -4,8 +4,8 @@ import {Link} from 'react-router-dom'
 import {navigate} from '../actions/navigate'
 
 //*NOTE* Added imports from dashboard action as a test
-import { getShoppingLists, getShoppingListById, 
-  deleteShoppingListById, getShoppingListTotals } from '../actions/dashboard'
+// import { getShoppingLists, getShoppingListById, 
+//   deleteShoppingListById, getShoppingListTotals } from '../actions/dashboard'
 
 class Budget extends React.Component {
   constructor(props) {
@@ -17,12 +17,12 @@ class Budget extends React.Component {
   }
 
   //*NOTE* : Added componentDidMount as a test
-  componentDidMount () {
-    this.props.dispatch(getShoppingLists())
-    this.props.dispatch(getShoppingListById(4))
-    this.props.dispatch(getShoppingListTotals())
-    this.props.dispatch(deleteShoppingListById(11))
-  }
+  // componentDidMount () {
+  //   this.props.dispatch(getShoppingLists())
+  //   this.props.dispatch(getShoppingListById(4))
+  //   this.props.dispatch(getShoppingListTotals())
+  //   this.props.dispatch(deleteShoppingListById(11))
+  // }
 
   editBudget(event){
     event.preventDefault()
@@ -76,11 +76,11 @@ const mapStateToProps = (state) => {
   //Was budget: state.budget.budget - deleted second .budget to get budget in cents to work. Confusing.
   return {
     budget: state.budget,
-    totalSpend: state.totalSpend,
+    totalSpend: state.totalSpend
 
-    dashboardShoppingLists: state.dashboardShoppingLists,
-    dashboardShoppingListById: state.dashboardShoppingListById,
-    dashboardShoppingListTotals: state.dashboardShoppingListTotals
+    // dashboardShoppingLists: state.dashboardShoppingLists,
+    // dashboardShoppingListById: state.dashboardShoppingListById,
+    // dashboardShoppingListTotals: state.dashboardShoppingListTotals
   }
 }
 
