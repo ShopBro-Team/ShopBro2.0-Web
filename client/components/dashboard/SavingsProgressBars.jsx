@@ -14,7 +14,7 @@ class SavingsProgressBars extends React.Component {
     this.state = {
 
     }
-    this.renderProgressBar = this.renderProgressBar.bind(this)
+    // this.renderProgressBar = this.renderProgressBar.bind(this)
     // Harrison says we don't need to bind this as we are using the =>. We should do this throughout our code. Wednesday refactor.
   }
 
@@ -22,6 +22,15 @@ class SavingsProgressBars extends React.Component {
 		e.preventDefault()
 		this.props.dispatch(deleteShoppingListByIdInStore(item.id))
   }
+
+  
+  reverseString(str) {
+    var array = []
+    array = str.split("-")
+    array.reverse()
+    str = array.join('.')
+    return str
+}
 
 
 
@@ -46,11 +55,12 @@ class SavingsProgressBars extends React.Component {
   render() {
     const {item} = this.props
     let date = item.date.slice(0,10)
+    let newDate = this.reverseString(date)
     
     return (
       <div>
           <div>
-            <Link to='/shoppinglistinfo/'><button className="button is-medium is-warning is-outlined is-mobile" onClick={() => this.props.dispatch(getShoppingListById(item.id))}>{date}</button></Link>
+            <Link to='/shoppinglistinfo/'><button className="button is-medium is-warning is-outlined is-mobile" onClick={() => this.props.dispatch(getShoppingListById(item.id))}>{newDate}</button></Link>
             <br/>
             <br/>
             <br/>
