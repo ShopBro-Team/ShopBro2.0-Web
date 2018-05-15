@@ -41,7 +41,8 @@ export function loginUser (creds) {
           dispatch(receiveLogin(userInfo))
           console.log(userInfo) 
         }
-      }).catch(err => alert("Try Again!")
+      }).catch(err => { return dispatch(loginError(err)) 
+        alert("Try Again!") }
 
       )
   }
