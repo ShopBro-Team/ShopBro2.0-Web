@@ -2,8 +2,10 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {logoutUser} from '../../actions/logout'
-
+//Imported from https://www.npmjs.com/package/react-circular-progressbar
 import CircularProgressbar from 'react-circular-progressbar'
+
+//Circular progress bar showing percentage savings
 
 function TotalSavings (props) {
 
@@ -22,13 +24,13 @@ function TotalSavings (props) {
         <div className='columns is-mobile is-centered'>
         <div className='column is-5'>
         {console.log(props.totals[0])}
+
         {props.totals[0] && <CircularProgressbar  percentage={(props.totals[0].totalsavings / props.totals[0].totalbudget)*100} 
           textForPercentage={perc => `$${props.totals[0].totalsavings / 100}`} 
           styles={{
             path: { stroke: `rgba(244, 191, 68)`},
             text: { fill: `rgba(49 ,55 ,68)`}
-          }}
-          className="is-3"/>}
+          }}/>}
         </div>
         </div>
         {/* <Progress type="circle" percent={100} status="success" /> */}
