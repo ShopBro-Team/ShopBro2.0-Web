@@ -36,8 +36,8 @@ class ShoppingListInfo extends React.Component {
         </div>
         <h1 className = "is-size-4">Hello {capitalizeFirstLetter(this.state.userName)}, this is your shoppinglist for {this.props.dashboardShoppingListById.length > 0 && this.reverseString(this.props.dashboardShoppingListById[0].date.slice(0,10))}</h1>
 
-        <p className = "is-size-4">Total Budget: ${this.props.dashboardShoppingListById.length > 0 && this.props.dashboardShoppingListById[0].budget_in_cents/100}</p>
-        <p className = "is-size-4">Total Savings: ${this.props.dashboardShoppingListById.length > 0 && this.props.dashboardShoppingListById[0].total_savings_in_cents/100}</p>
+        <p className = "is-size-4">Total Budget: ${this.props.dashboardShoppingListById.length > 0 && (this.props.dashboardShoppingListById[0].budget_in_cents/100).toFixed(2)}</p>
+        <p className = "is-size-4">Total Savings: ${this.props.dashboardShoppingListById.length > 0 && (this.props.dashboardShoppingListById[0].total_savings_in_cents/100).toFixed(2)}</p>
         {/* Above is a life cycle and it is async so what it means is that if props.dashboard... is true it will wait and render */}
         <hr/>
         <p className = "is-size-4">Shopping Items: </p>
