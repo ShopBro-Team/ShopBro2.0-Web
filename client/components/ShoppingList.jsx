@@ -25,10 +25,10 @@ export class ShoppingList extends React.Component {
 	}
 
     addItem(e) {
-        //This function add the item to the store
+        //This function adds the item to the store
         e.preventDefault()
         //NOTE: It may be better to assign id to item in reducer - may cause problems with unique ids
-        //**Converted item cost to from dollars to cents**
+        //**Converted item cost from dollars to cents**
         let item = {id: this.state.id++, 
                     name: this.state.name,
                     cost_in_cents: this.state.cost*100}      
@@ -45,7 +45,6 @@ export class ShoppingList extends React.Component {
 					messageCost : checkValid.messageCost,
 					valid : checkValid.valid
 				})
-				console.log("checking if valid: ",checkValid, checkValid.valid)
 				if(checkValid.valid) {
 					this.props.dispatch(addShoppingListItem(item))
 					this.props.dispatch(addToTotalSpend(item.cost_in_cents))
@@ -60,7 +59,7 @@ export class ShoppingList extends React.Component {
 		return <div>
 			<br/>
 			<div className="column is-mobile is-centered">
-				{/* NOTE: Updated so that the map over the AddedItems in the shopping list happens in this ShoppingList.jsx component, instead of AddedItems.jsx component. This meant we could isolate the toggle of viewing value or input box to the individual items, rather than the whole list. */}
+				{/* NOTE: Updated so that the map over the AddedItems in the shopping list happens in the ShoppingList.jsx component, instead of AddedItems.jsx component. This means we can isolate the toggle of viewing value or input box to the individual items, rather than the whole list. */}
 				
 					<h2 className="title is-3">Shopping List</h2>
 					<br/>
@@ -89,7 +88,6 @@ export class ShoppingList extends React.Component {
 			<br/>
 				{this.state.messageCost && <p>{this.state.messageCost}</p>}
 			</div>
-		
 	}
 }
 
