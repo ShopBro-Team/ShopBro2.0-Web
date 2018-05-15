@@ -88,65 +88,75 @@ class AddedItems extends React.Component {
 		const {item} = this.props
 		return (
 			<div>
-				{showInputField
-					? 			
-					 
-					  <form key={item.id}>				  
-						<div className="columns is-mobile is-centered">
-							<div className="column is-offset-2">
-								<input onChange={this.handleChange} className="input is-medium" type="text" name="name" placeholder={item.name} />
-							</div>
-							<div className="column">
-								{/* Converts cost in cents to dollars for display purposes */}
-								<input onChange={this.handleChange} className="input is-medium" type="number" name="cost_in_cents" placeholder={`$${(item.cost_in_cents/100).toFixed(2)}`} />
-							</div>
-							<div className="column is-one-third">
-								<div className="buttons">
-									<a className="button is-medium is-primary is-outlined is-mobile" onClick={e => this.editItem(e, item)} type="submit" value="edit item">
-									Save
-									</a>
-								{/* </div>
-								<div className="column"> */}
-									<a className="button is-medium is-primary is-outlined is-mobile" onClick=
-									{e => this.deleteItem(e, item)} type="submit" value="edit item">
-									Delete
-									</a>
+				<div className="columns is-mobile is-centered">
+					<div className="column is-offset-2">
+						Items
+					</div>
+					<div className="column">
+						Costs
+					</div>	
+				</div>	
+				<div>
+					{showInputField
+						? 			
+						
+						<form key={item.id}>				  
+							<div className="columns is-mobile is-centered">
+								<div className="column">
+									<input onChange={this.handleChange} className="input is-medium" type="text" name="name" placeholder={item.name} />
+								</div>
+								<div className="column">
+									{/* Converts cost in cents to dollars for display purposes */}
+									<input onChange={this.handleChange} className="input is-medium" type="number" name="cost_in_cents" placeholder={`$${(item.cost_in_cents/100).toFixed(2)}`} />
+								</div>
+								<div className="column is-one-third">
+									<div className="buttons">
+										<a className="button is-medium is-primary is-outlined is-mobile" onClick={e => this.editItem(e, item)} type="submit" value="edit item">
+										Save
+										</a>
+									{/* </div>
+									<div className="column"> */}
+										<a className="button is-medium is-primary is-outlined is-mobile" onClick=
+										{e => this.deleteItem(e, item)} type="submit" value="edit item">
+										Delete
+										</a>
+									</div>
 								</div>
 							</div>
-						</div>
-					  <br/>
 						<br/>
-				{this.state.messageCost && <p>{this.state.messageCost}</p>}
+							<br/>
+					{this.state.messageCost && <p>{this.state.messageCost}</p>}
 
-					 </form>
-									
-						 
-				: <form key={item.id}>
-				   
-					<div className="columns is-mobile is-centered ">	
-						<div className="column is-offset-2">
-							<p className="is-size-3 has-text-warning has-background-light">{item.name}</p>
-						</div>
-						<div className="column">
-						<p className="is-size-3 has-text-warning has-background-light">{`$${(item.cost_in_cents/100).toFixed(2)}`}</p>
-						</div>
+						</form>
+										
+							
+					: <form key={item.id}>
 					
-					<div className="column is-one-third">
-					  <div className="buttons">
-						<a className="button is-medium is-dark is-outlined is-mobile" onClick={this.toggleForm} type="submit" value="edit item">
-						Edit
-						</a>
-						<a className="button is-medium is-dark is-outlined is-mobile" onClick=
-						{e => this.deleteItem(e, item)} type="submit" value="edit item">
-						Delete
-						</a>
-					  </div>
-					</div>
-					</div>
-					<br/>
-				</form>
-						}
-			</div>				
+						<div className="columns is-mobile is-centered ">	
+							<div className="column is-offset-2">
+								<p className="is-size-3 has-text-warning has-background-light">{item.name}</p>
+							</div>
+							<div className="column">
+							<p className="is-size-3 has-text-warning has-background-light">{`$${(item.cost_in_cents/100).toFixed(2)}`}</p>
+							</div>
+						
+						<div className="column is-one-third">
+						<div className="buttons">
+							<a className="button is-medium is-dark is-outlined is-mobile" onClick={this.toggleForm} type="submit" value="edit item">
+							Edit
+							</a>
+							<a className="button is-medium is-dark is-outlined is-mobile" onClick=
+							{e => this.deleteItem(e, item)} type="submit" value="edit item">
+							Delete
+							</a>
+						</div>
+						</div>
+						</div>
+						<br/>
+					</form>
+							}
+				</div>	
+			</div>			
 		)
 	}
 }
