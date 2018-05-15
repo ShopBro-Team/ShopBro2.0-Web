@@ -5,6 +5,8 @@ import {navigate} from '../actions/navigate'
 import {addBudget} from '../actions/budget'
 import validateCostInput from '../utils/costInput'
 
+
+
 class BudgetSetting extends React.Component {
   constructor(props){
     super(props)
@@ -16,6 +18,8 @@ class BudgetSetting extends React.Component {
     this.updateBudget = this.updateBudget.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
+
+
 
   updateBudget(e) {
     this.setState({
@@ -43,6 +47,8 @@ class BudgetSetting extends React.Component {
       this.props.dispatch(navigate('budget'))
     }
   }
+
+
   //interacts with redux state: adds budget from component's state to redux global state and navigates to budget page
 
   render() {

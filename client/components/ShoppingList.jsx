@@ -74,8 +74,10 @@ export class ShoppingList extends React.Component {
 			<div className="column is-mobile is-centered">	
 				<div className="field has-addons">
 					{/* Input field for shopping item */}
+					<label>Item:</label>
 					<input onChange={this.handleChange} className="input is-medium" type="text" value={this.state.name} name="name" placeholder="Enter item" />
 					{/* Input field for the cost of the item */}
+					<label>Cost: $</label>
 					<input onChange={this.handleChange} className="input is-medium" type="number" min="0" value={this.state.cost} name="cost" placeholder="Enter cost" />
 					<div className="control">
 						{/* Button to add the item */}
