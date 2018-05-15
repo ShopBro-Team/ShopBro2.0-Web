@@ -9,8 +9,9 @@ function addShoppinglist (shoppinglist, db) {
 
 function getShoppinglistsbyUserId (user_id, db) {
   return db('shoppinglists')
-    .select()
-    .where('user_id', user_id)  
+    .select() 
+    .where('user_id', user_id)
+    .orderBy('id', 'desc') 
 }    
 
 function getShoppinglistbyId(id, db) {
@@ -24,7 +25,6 @@ function deleteShoppinglistById(id, db) {
     .select()
     .where('id', id)
     .delete()
-
 } 
 
 function getTotalsByUserId (user_id, db) {
