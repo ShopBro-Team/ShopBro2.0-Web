@@ -57,6 +57,7 @@ export function deleteShoppingListById (id) {
     return request('delete', `v1/shoppinglists/${id}`)
       .then (res => {
         dispatch(deleteShoppingListByIdInStore(id))
+        dispatch(getShoppingListTotals())
       })
       .catch(err => {
         dispatch(showError(err.message))

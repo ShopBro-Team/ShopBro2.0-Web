@@ -22,7 +22,7 @@ function TotalSavings (props) {
           <button className="button" onClick={() => props.dispatch(logoutUser())}>Logout</button>
         </div>
         <div className='columns is-mobile is-centered'>
-        <div className='column is-5'>
+        <div className='column is-3'>
         {console.log(props.totals[0])}
 
         {props.totals[0] && <CircularProgressbar  percentage={(props.totals[0].totalsavings / props.totals[0].totalbudget)*100} 

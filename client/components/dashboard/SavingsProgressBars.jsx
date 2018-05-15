@@ -20,7 +20,7 @@ class SavingsProgressBars extends React.Component {
 
   deleteItem(e, item) {
 		e.preventDefault()
-		this.props.dispatch(deleteShoppingListById(item.id))
+    this.props.dispatch(deleteShoppingListById(item.id))
   }
 
   
