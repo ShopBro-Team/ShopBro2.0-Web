@@ -66,7 +66,7 @@ class SavingsProgressBars extends React.Component {
             <br/>
             {this.renderProgressBar()}
             <br/>
-            <p>Total Savings: ${item.total_savings_in_cents/100}</p>
+            <p>Total Savings: ${(item.total_savings_in_cents/100).toFixed(2)}</p>
             <br/>
             <button>
               <a className="button is-medium is-warning is-outlined is-mobile"  onClick=

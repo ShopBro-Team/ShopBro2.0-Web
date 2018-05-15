@@ -58,10 +58,10 @@ class Budget extends React.Component {
       </div>
       {/* <p>This is your budget: $ {() => this.calculateRemainingBudget.bind(this)} </p> */}
       {/* Display budget and remaining money in dollars. Held in store as cents. */}
-      <p className="has-text-warning is-size-4">Your Budget is: $ {this.props.budget/100} </p> 
+      <p className="has-text-warning is-size-4">Your Budget is: $ {(this.props.budget/100).toFixed(2)} </p> 
       <br/>
       <p className="has-text-warning is-size-4">You have</p>
-      <p className="has-text-warning has-text-weight-bold is-size-4">$ {(this.props.budget - this.props.totalSpend)/100} left</p>
+      <p className="has-text-warning has-text-weight-bold is-size-4">$ {((this.props.budget - this.props.totalSpend)/100).toFixed(2)} left</p>
       
     </div>
   )
