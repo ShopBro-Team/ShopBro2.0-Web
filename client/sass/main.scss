@@ -1,5 +1,10 @@
 //import bulma
-@import './my_bulma.scss'
+@import './my_bulma.scss';
 
+@import '~bulma-carousel/dist/bulma-carousel.sass';
 
+@import '~font-awesome/scss/_variables.scss';
 
+$fa-font-path: '~font-awesome/fonts';
+
+@import '~font-awesome/scss/font-awesome.scss';

@@ -49,12 +49,15 @@
     "bcrypt": "^2.0.1",
     "body-parser": "^1.15.2",
     "bulma": "^0.7.1",
+    "bulma-carousel": "^2.0.14",
     "cheerio": "^1.0.0-rc.2",
     "cors": "^2.8.3",
     "css-loader": "^0.28.11",
     "dotenv": "^4.0.0",
     "express": "^4.14.0",
     "express-jwt": "^5.3.0",
+    "file-loader": "^1.1.11",
+    "font-awesome": "^4.7.0",
     "jest": "^22.4.3",
     "jsdom": "^11.0.0",
     "jsonwebtoken": "^7.4.3",
@@ -74,6 +77,7 @@
     "sass-loader": "^7.0.1",
     "style-loader": "^0.21.0",
     "superagent": "^2.2.0",
+    "url-loader": "^1.0.1",
     "webpack": "^2.3.3",
     "webpack-dev-server": "^2.4.2"
   }
