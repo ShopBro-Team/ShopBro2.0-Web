@@ -48,7 +48,7 @@ class ShoppingListInfo extends React.Component {
               <div key={item.id}>
               {capitalizeFirstLetter(item.name)}
               : &nbsp;$
-              {item.cost_in_cents/100}
+              {(item.cost_in_cents/100).toFixed(2)}
               </div>
             )
           })
