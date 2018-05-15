@@ -26,8 +26,9 @@ function TotalSavings (props) {
           textForPercentage={perc => `$${props.totals[0].totalsavings / 100}`} 
           styles={{
             path: { stroke: `rgba(244, 191, 68)`},
-            text: { fill: `rgba(49 ,55 ,68)` }
-          }}/>}
+            text: { fill: `rgba(49 ,55 ,68)`}
+          }}
+          className="is-3"/>}
         </div>
         </div>
         {/* <Progress type="circle" percent={100} status="success" /> */}
