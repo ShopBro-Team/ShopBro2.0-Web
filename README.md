@@ -163,3 +163,47 @@ res STATUS 500
   | Budget | View for user to see the progress bar showoing the remaining budget | SL |
   | List (Button will be rendered on Main) | View for user to create a shopping list.  To add, edit and delete cost and items to the shopping list | SL |
   | Alert | Notification to tell the user they have gone over their budeget | SL |
+
+## Dashboard Carousel
+
+bulma-carousel used to display historic shopping savings in the dashboard view. This is a bulma extension and once set up is pretty simple to play with. Set up was tricky though (thanks Harrison!). This looke like:
+  | File Updated | Detail |
+  | package.json | Add to dependencies: bulma-carousel, file-loader, font-awesome, url-loader   (Note: Either type into package.json and run yarn after saving. Or add via terminal directly using yarn add and this will update the package.json file.) | 
+  | webpack.config.js | Add code:  `
+  {
+  test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+        loader: 'url-loader?limit=100000'
+      },` under `module` |
+      | main.scss (under client / sass folder) | Add code: `
+      @import '~bulma-carousel/dist/bulma-carousel.sass';
+
+@import '~font-awesome/scss/_variables.scss';
+
+$fa-font-path: '~font-awesome/fonts';
+
+@import '~font-awesome/scss/font-awesome.scss';` |
+
+The bulma documentation had the code required for various types of carousels and this was then just a matter of putting it into the ListOfSavings.jsx, that was already mapping through our list of completed shops. https://wikiki.github.io/components/carousel/
+
+Refer to ListOfSavings.jsx for actual code. The parts related to the carousel were:
+- `import carojs from '../../../node_modules/bulma-carousel/dist/bulma-carousel.min.js'`
+- `componentDidMount() {
+    var carousels = carojs.attach(); // carousels now contains an array of all Carousel instances 
+  } `
+- Divs sitting outside of the map:
+    `<div className='carousel carousel-animated carousel-animate-slide' data-autoplay="true">
+          <div className='carousel-container'>`
+- and 1x div sitting within the map:
+    `<div className='carousel-item has-background is-active'>`
+- Then the navigation sitting outtside of the map again: 
+    `{/* bulma-carousel navigation arrows */}
+          <div className="carousel-navigation is-centered">
+            <div className="carousel-nav-left">
+              <i className="fa fa-chevron-left" aria-hidden="true"></i>
+            </div>
+            <div className="carousel-nav-right">
+              <i className="fa fa-chevron-right" aria-hidden="true"></i>
+              </div>
+            </div>`
+Any questions, ask Rosie! 
+
