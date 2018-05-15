@@ -16,7 +16,11 @@ function register (req, res, next) {
     .catch(err => res.status(500).send({message: err.message}))
 }
 
-router.post('/login', token.issue)
+router.post('/login', login, token.issue)
+function login (req, res, next) {
+  console.log(req.body)
+  next()
+}
 
 router.get('/', function (req,res) {
   res.redirect('/login')
