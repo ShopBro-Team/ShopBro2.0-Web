@@ -45,7 +45,8 @@ router.get('/:id', (req,res) => {
         'items':JSON.parse(shoppinglist[0].items)     
       }
       return res.json([shoppinglist_to_send])})
-    .catch(err => res.status(500).send({message: "Server Error"}))
+    .catch(err => {console.log('catch')
+    res.status(500).send({message: "Server Error"})})
 })
 
 router.delete('/:id', (req,res) => {
