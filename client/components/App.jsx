@@ -16,7 +16,7 @@ import {connect} from 'react-redux'
 import Celebration from './Celebration';
 import { ShoppingList } from './ShoppingList';
 
-
+// import Carousel from './dashboard/Carousel'  // this was harrison playing with bulma-carousel demo data
 
 const App = ({auth}) => (
   <Router>
@@ -49,4 +49,4 @@ const mapStateToProps = ({auth}) => ({auth})
 
 export default connect(mapStateToProps)(App) 
 
-//Master Thursday
+// export default connect(mapStateToProps)(() => <Carousel />)  // this was Harrison playing with bulma-carousel
