@@ -14,15 +14,15 @@ class ListOfSavings extends React.Component {
   render() {
     return (
       <div className="column is-mobile is-centered">	
-        <div className='carousel carousel-animated carousel-animate-slide' data-size="5">
+        <div className='carousel carousel-animated carousel-animate-slide' data-autoplay="true">
           <div className='carousel-container'>
 
             {this.props.dashboardShoppingLists.length > 0 &&this.props.dashboardShoppingLists.map(item => {
               return (
 
-                <div className='carousel-item is-active'>
+                <div className='carousel-item has-background is-active'>
                 
-                  <SavingsProgressBars item={item} key={item.id} />
+                  <SavingsProgressBars className="is-background" item={item} key={item.id} />
                 
                 </div>
               )
