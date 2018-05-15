@@ -49,24 +49,24 @@ class Register extends React.Component {
   render() {
     return (
       <form className="Register container" onSubmit={this.submit}>
-        <label className="is-size-2">Username:
-          <input className="input is-medium has-text-centered" type="text" name="user_name" onChange={this.updateDetails}/>
+        <label className="is-size-4">Username:
+          <input className="input is-nomral has-text-centered" type="text" name="user_name" onChange={this.updateDetails}/>
         </label><br/>
         {this.state.messageUserName && <p>{this.state.messageUserName}</p>}
-        <label className="is-size-2">Email:
-          <input className="input is-medium has-text-centered" type="text" name="user_email" onChange={this.updateDetails}/>
+        <label className="is-size-4">Email:
+          <input className="input is-nomral has-text-centered" type="text" name="user_email" onChange={this.updateDetails}/>
         </label><br/>
         {this.state.messageEmail && <p>{this.state.messageEmail}</p>}
-        <label className="is-size-2">Password:
-          <input className="input is-medium has-text-centered" type="password" name="password" onChange={this.updateDetails}/>
+        <label className="is-size-4">Password:
+          <input className="input is-nomral has-text-centered" type="password" name="password" onChange={this.updateDetails}/>
         </label><br/>
-        <label className="is-size-2">Confirm:
-          <input className="input is-medium has-text-centered" type="password" name="confirm_password" onChange={this.updateDetails}/>       
+        <label className="is-size-4">Confirm:
+          <input className="input is-nomral has-text-centered" type="password" name="confirm_password" onChange={this.updateDetails}/>       
         </label><br/>
         {this.state.messagePassword && <p>{this.state.messagePassword}</p>}
-
+        <br/>
         <div className="buttons is-centered">
-          <input className="button is-success is-large" type="submit" /><a className="button is-light is-large"><Link to= '/login'>Cancel</Link></a>
+          <input className="button is-success is-normal" type="submit" /><a className="button is-light is-normal"><Link to= '/login'>Cancel</Link></a>
         </div>
       </form>
     )

@@ -1,4 +1,4 @@
-import budgetView from '../../client/reducers/budget-View'
+import budgetView from '../../../client/reducers/budget-View'
 
 test('BudgetView Reducer initial state', () => {
   const expected = 'setting'

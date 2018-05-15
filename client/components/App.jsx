@@ -16,12 +16,12 @@ import {connect} from 'react-redux'
 import Celebration from './Celebration';
 import { ShoppingList } from './ShoppingList';
 
-
+// import Carousel from './dashboard/Carousel'  // this was harrison playing with bulma-carousel demo data
 
 const App = ({auth}) => (
   <Router>
     <div className='app-container has-text-centered is-block-flex-tablet is-block-flex-mobile' >
-      <img src="/image/logo.png" alt="logo" width="20%" height="20%"/>
+      <img src="/image/144.png" alt="logo" width="120px"/>
       <div className='container'>
       </div>
       <Route exact path='/' component={props => auth.isAuthenticated
@@ -49,4 +49,4 @@ const mapStateToProps = ({auth}) => ({auth})
 
 export default connect(mapStateToProps)(App) 
 
-//Master Thursday
+// export default connect(mapStateToProps)(() => <Carousel />)  // this was Harrison playing with bulma-carousel

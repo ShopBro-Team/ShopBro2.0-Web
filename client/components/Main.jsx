@@ -3,10 +3,10 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logoutUser} from '../actions/logout'
 import { saveShoppingList } from '../actions/shoppinglist'
-import BudgetSetting from './BudgetSetting'
+import BudgetSettingContainer from '../containers/BudgetSettingContainer'
 import Budget from './Budget'
 import ShoppingList from './ShoppingList'
-import Alert from './Alert'
+import AlertContainer from '../containers/AlertContainer'
 import Celebration from './Celebration'
 
 import { resetApp } from '../actions/shoppinglist'
@@ -45,7 +45,7 @@ function Main (props) {
         {props.auth.isAuthenticated
           ? <div>
               {console.log(props.budgetView)}
-              {props.budgetView === 'setting' ? <BudgetSetting /> : <Budget />}
+              {props.budgetView === 'setting' ? <BudgetSettingContainer /> : <Budget />}
             </div>
           : <div className="columns nav-menu">
             <Link className="nav-item" to="/login">Login</Link>&nbsp;
@@ -53,7 +53,7 @@ function Main (props) {
           </div>
         }
         <ShoppingList />
-      {(props.budget - props.totalSpend)< 0 && <Alert />} 
+      {(props.budget - props.totalSpend)< 0 && <AlertContainer />} 
       </div>
       
       {/* Done button saves shopping list to database and celebrates if underbudget */}

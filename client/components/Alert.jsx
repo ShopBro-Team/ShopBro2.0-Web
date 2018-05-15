@@ -16,7 +16,7 @@ class Alert extends React.Component{
 }
 
 
-export default connect()(Alert)
+export default Alert
 
 /* <br/>
             <div className="buttons is-centered">
