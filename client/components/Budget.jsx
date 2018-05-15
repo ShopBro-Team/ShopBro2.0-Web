@@ -43,7 +43,6 @@ class Budget extends React.Component {
       ( <div className="column is-four-fifths"><progress className="progress is-normal is-info" value={progress} max="100">25%</progress>
     </div> )
       }
-      <br/>
       <div className="column is-one-fifth">
       <button className="button is-normal is-outlined is-mobile is-dark" onClick={this.editBudget.bind(this)}>Edit Budget</button></div>
       
@@ -53,7 +52,8 @@ class Budget extends React.Component {
 
   render () {
   return (
-    <div className="section"> 
+    <div className="section-padding-medium"> 
+    <br/>
       <div className="container">
       {this.renderProgressBar()}
       </div>
