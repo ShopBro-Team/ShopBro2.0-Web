@@ -17,7 +17,8 @@
     "knex": "knex"
   },
   "jest": {
-    "collectCoverage": true
+    "collectCoverage": true,
+    "setupTestFrameworkScriptFile":"./test/client/localStorageMock"
   },
   "ava": {
     "require": "babel-register",
