@@ -21,7 +21,7 @@ import { ShoppingList } from './ShoppingList';
 const App = ({auth}) => (
   <Router>
     <div className='app-container has-text-centered is-block-flex-tablet is-block-flex-mobile' >
-      <img src="/image/logo.png" alt="logo" width="20%" height="20%"/>
+      <img src="/image/144.png" alt="logo" width="120px"/>
       <div className='container'>
       </div>
       <Route exact path='/' component={props => auth.isAuthenticated
