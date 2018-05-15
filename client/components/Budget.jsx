@@ -43,8 +43,9 @@ class Budget extends React.Component {
       ( <div className="column is-four-fifths"><progress className="progress is-normal is-info" value={progress} max="100">25%</progress>
     </div> )
       }
+      <br/>
       <div className="column is-one-fifth">
-      <button className="button is-medium is-outlined is-mobile is-dark" onClick={this.editBudget.bind(this)}>Edit Budget</button></div>
+      <button className="button is-normal is-outlined is-mobile is-dark" onClick={this.editBudget.bind(this)}>Edit Budget</button></div>
       
           
       </div>)
@@ -58,10 +59,11 @@ class Budget extends React.Component {
       </div>
       {/* <p>This is your budget: $ {() => this.calculateRemainingBudget.bind(this)} </p> */}
       {/* Display budget and remaining money in dollars. Held in store as cents. */}
-      <p className="has-text-warning is-size-4">Your Budget is: $ {(this.props.budget/100).toFixed(2)} </p> 
       <br/>
-      <p className="has-text-warning is-size-4">You have</p>
-      <p className="has-text-warning has-text-weight-bold is-size-4">$ {((this.props.budget - this.props.totalSpend)/100).toFixed(2)} left</p>
+      <p className="has-text-warning is-size-6">Your Budget is: $ {(this.props.budget/100).toFixed(2)} </p> 
+      <br/>
+      <p className="has-text-warning is-size-6">You have</p>
+      <p className="has-text-warning has-text-weight-bold is-size-5">$ {((this.props.budget - this.props.totalSpend)/100).toFixed(2)} left</p>
       
     </div>
   )

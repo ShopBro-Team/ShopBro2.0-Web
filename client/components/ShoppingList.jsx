@@ -60,7 +60,7 @@ export class ShoppingList extends React.Component {
 			<br/>
 			<div className="column is-mobile is-centered">
 				{/* NOTE: Updated so that the map over the AddedItems in the shopping list happens in the ShoppingList.jsx component, instead of AddedItems.jsx component. This means we can isolate the toggle of viewing value or input box to the individual items, rather than the whole list. */}
-				
+					
 					<h2 className="title is-3">Shopping List</h2>
 					<br/>
 				
@@ -74,10 +74,10 @@ export class ShoppingList extends React.Component {
 			<div className="column is-mobile is-centered">	
 				<div className="field has-addons">
 					{/* Input field for shopping item */}
-					<label>Item:</label>
+					<label className="">Item:</label>
 					<input onChange={this.handleChange} className="input is-medium" type="text" value={this.state.name} name="name" placeholder="Enter item" />
 					{/* Input field for the cost of the item */}
-					<label>Cost: $</label>
+					<label className="">Cost: $</label>
 					<input onChange={this.handleChange} className="input is-medium" type="number" min="0" value={this.state.cost} name="cost" placeholder="Enter cost" />
 					<div className="control">
 						{/* Button to add the item */}
