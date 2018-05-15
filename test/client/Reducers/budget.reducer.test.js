@@ -1,4 +1,4 @@
-import budget from '../../client/reducers/budget'
+import budget from '../../../client/reducers/budget'
 
 test('Budget Reducer initial state', () => {
   const expected = ''

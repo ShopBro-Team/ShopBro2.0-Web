@@ -17,7 +17,8 @@
     "knex": "knex"
   },
   "jest": {
-    "collectCoverage": true
+    "collectCoverage": true,
+    "setupTestFrameworkScriptFile": "./test/client/localStorageMock"
   },
   "ava": {
     "require": "babel-register",
@@ -74,6 +75,7 @@
     "react-router-dom": "^4.1.1",
     "react-test-renderer": "^15.5.4",
     "redux": "^3.6.0",
+    "redux-mock-store": "^1.5.1",
     "redux-thunk": "^2.2.0",
     "sass-loader": "^7.0.1",
     "style-loader": "^0.21.0",

@@ -1,4 +1,4 @@
-import totalSpend from '../../client/reducers/totalSpend'
+import totalSpend from '../../../ client/reducers/totalSpend'
 
 test('TotalSpend Reducer initial state', () => {
   const expected = 0

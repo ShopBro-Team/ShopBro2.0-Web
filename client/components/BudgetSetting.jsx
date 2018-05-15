@@ -69,7 +69,7 @@ class BudgetSetting extends React.Component {
 }
 
 
-export default connect()(BudgetSetting)
+export default BudgetSetting
 
 
 

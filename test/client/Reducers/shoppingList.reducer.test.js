@@ -1,4 +1,4 @@
-import shoppingList from '../../client/reducers/shoppingList'
+import shoppingList from '../../../client/reducers/shoppingList'
 
 test('ShoppingList Reducer initial state', () => {
   const expected = []
