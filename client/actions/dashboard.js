@@ -9,7 +9,6 @@ export function receiveShoppingLists(shoppinglists){
   return {
       type: 'RECIEVE_SHOPPINGLISTS',
       shoppinglists
-
   }
 }
 
@@ -32,7 +31,6 @@ export function receiveShoppingListById(shoppinglist){
   return {
       type: 'RECIEVE_SHOPPINGLIST_BY_ID',
       shoppinglist
-
   }
 }
 
@@ -59,7 +57,7 @@ export function deleteShoppingListByIdInStore (id) {
 }
 
 // Dispatched in the deleteItem() function in the SavingsProgressBar.jsx and deletes the shopping list from both store and database
-// Also dispatches getSHoppingListTotals() once shopping list deleted, so that total savings is updated.
+// Also dispatches getShoppingListTotals() once shopping list deleted, so that total savings is updated.
 export function deleteShoppingListById (id) {
   return (dispatch) => {
     return request('delete', `v1/shoppinglists/${id}`)
@@ -73,6 +71,7 @@ export function deleteShoppingListById (id) {
     }
 }
 
+// Dispatched when getting the the totalsavings for all shopping events for a particular user - see dispatch in getShoppingListTotals() in Dashboard.jsx sitting in componentDidMount - used to update state in dashboardShoppingListTotals reducer
 export function receiveShoppingListTotals(shoppinglistTotals){
     return {
         type: 'RECIEVE_SHOPPINGLIST_TOTALS_BY_ID',
