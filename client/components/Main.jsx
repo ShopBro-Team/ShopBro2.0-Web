@@ -38,11 +38,11 @@ function Main (props) {
     <div>
     <div className="Nav hero is-small is-success">
       <div className="hero-body">
-        <div className="level-right has-text-centered"> 
         {/* I don't know how to make logout button to go top right */}
-          <button className="button is-small" onClick={() => props.dispatch(logoutUser())}>Logout</button>
-        </div>
-        <p className="is-size-4 has-text-warning has-text-weight-bold">Kia ora {capitalizeFirstLetter(userName)}</p> 
+        <button className="is-pulled-right button is-small" onClick={() => props.dispatch(logoutUser())}>Logout</button>
+
+        <p className=" title is-4 has-text-warning has-text-weight-bold">Kia ora {capitalizeFirstLetter(userName)}</p> 
+
         {props.auth.isAuthenticated
           ? <div>
               {console.log(props.budgetView)}
