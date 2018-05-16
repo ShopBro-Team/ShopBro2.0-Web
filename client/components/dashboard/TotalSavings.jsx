@@ -20,6 +20,8 @@ function TotalSavings (props) {
     <div>
       <div className="level-right">
         <button className="button is-small is-dark" onClick={() => props.dispatch(logoutUser())}>Logout</button>
+        <br/>
+        <br/>
       </div>
 
       <div className='columns is-mobile is-tablet is-centered'>
@@ -39,13 +41,13 @@ function TotalSavings (props) {
 
       </div>
 
-      <h1>Hello {capitalizeFirstLetter(userName)} this is your</h1>  
+      <h1 className="has-text-weight-bold">Hello {capitalizeFirstLetter(userName)}!</h1>  
         {props.totals[0] && 
           (props.totals[0].totalsavings > 0 
         ?
-          <h1>Total Savings : $ {(props.totals[0].totalsavings/100).toFixed(2)}</h1>
+          <h1>Your total Savings : $ {(props.totals[0].totalsavings/100).toFixed(2)}</h1>
         :
-          <h1>Total Overspend : $ {-(props.totals[0].totalsavings/100).toFixed(2)}</h1>)
+          <h1>Your total Overspend : $ {-(props.totals[0].totalsavings/100).toFixed(2)}</h1>)
         }
 
     </div>
