@@ -17,7 +17,7 @@ jest.mock('../../../server/db/shoppinglists', () => ({
         {id: 1, shoppinglist_id: 2}
     ]),
     getShoppinglistbyId: () => Promise.resolve([
-        {id: 1, user_id: 2}
+        {id: 1, user_id: 2, items: '[]'}
     ])
 }))
 
@@ -84,21 +84,21 @@ test('DELETE /v1/shoppinglist/:id works', () => {
     })
 })
 
-// test('GET /v1/shoppinglist/:id works', () => {
-//     var token = JWT.sign({ id:1,"name":"Harrison" }, secret);
-//     const headers = {
-//         Accept: 'application/json',
-//         Authorization: "Bearer "+token
-//     }
-//     return request(server)
-//     .get('/api/v1/shoppinglists/:id')
-//     .expect(200)
-//     .set(headers)
-//     .then(res => {
-//         expect(res.body.length).toBe(1)
-//     })
-//     .catch((err,res) => {
-//         expect(err).toBeFalsy()
-//     })
-// }) 
+test('GET /v1/shoppinglist/:id works', () => {
+    var token = JWT.sign({ id:1,"name":"Harrison" }, secret);
+    const headers = {
+        Accept: 'application/json',
+        Authorization: "Bearer "+token
+    }
+    return request(server)
+    .get('/api/v1/shoppinglists/:id')
+    .expect(200)
+    .set(headers)
+    .then(res => {
+        expect(res.body.length).toBe(1)
+    })
+    .catch((err,res) => {
+        expect(err).toBeFalsy()
+    })
+}) 
 // need to clarify with Harrison or Ross
