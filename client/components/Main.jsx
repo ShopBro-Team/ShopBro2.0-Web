@@ -54,7 +54,7 @@ function Main (props) {
       {/* Done button calls done function and saves shopping list to database and celebrates if underbudget */}
       <div className="completed">
           <button className="button is-normal is-warning has-text-white" onClick={() => done()}>
-            {props.budget - props.totalSpend> 0 ? <Link className="nav-item" to="/celebration">Done</Link> : 
+            {props.budget - props.totalSpend > 0.01 ? <Link className="nav-item" to="/celebration">Done</Link> : 
               <Link className="nav-item" to="/dashboard">Done</Link>}  
           </button> 
           <br/> 
