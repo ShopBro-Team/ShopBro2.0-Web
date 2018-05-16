@@ -16,6 +16,7 @@ $success: #f4bf44;
 $danger:#4C0000;
 $warning: #313744;
 $primary: #ffffff;
+$success-invert: findColorInvert($success) !default;
 
 // $primary: #BE8AD1;
 // $success: #88B56A;

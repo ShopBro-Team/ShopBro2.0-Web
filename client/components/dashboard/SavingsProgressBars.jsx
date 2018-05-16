@@ -44,9 +44,9 @@ class SavingsProgressBars extends React.Component {
 
       {progress < 50 ? (
       <div className="column is-four-fifths">
-      <progress className="progress is-normal is-warning" value={progress} max="100">25%</progress> 
+      <progress className="progress is-normal is-success" value={progress} max="100">25%</progress> 
       </div>):
-      ( <div className="column is-four-fifths"><progress className="progress is-normal is-info" value={progress} max="100">25%</progress>
+      ( <div className="column is-four-fifths"><progress className="progress is-normal is-warning" value={progress} max="100">25%</progress>
       </div> )
       }   
       </div>)
