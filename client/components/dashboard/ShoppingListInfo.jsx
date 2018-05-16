@@ -9,6 +9,8 @@ function capitalizeFirstLetter(data) {
   return data.charAt(0).toUpperCase() + data.slice(1);
 }
 
+//This component displays an historic shopping list as selected in the dashboard
+
 class ShoppingListInfo extends React.Component {
 
   constructor(props) {
@@ -19,6 +21,7 @@ class ShoppingListInfo extends React.Component {
     this.reverseString = this.reverseString.bind(this)
   }
 
+  //This function formats the date string  
   reverseString(str) {
     var array = []
     array = str.split("-")
@@ -40,8 +43,10 @@ class ShoppingListInfo extends React.Component {
              <br/>
               <p className = "is-size-6 has-text-weight-bold">Kia ora ano {capitalizeFirstLetter(this.state.userName)}!</p> 
               <p>This is your shoppinglist for {this.props.dashboardShoppingListById.length > 0 && this.reverseString(this.props.dashboardShoppingListById[0].date.slice(0,10))}</p>
-              <p className = "is-size-6 ">Total Budget: ${this.props.dashboardShoppingListById.length > 0 && (this.props.dashboardShoppingListById[0].budget_in_cents/100).toFixed(2)}</p>
-              <p className = "is-size-6 ">Total Savings: ${this.props.dashboardShoppingListById.length > 0 && (this.props.dashboardShoppingListById[0].total_savings_in_cents/100).toFixed(2)}</p>
+              <p className = "is-size-6 ">Total Budget: ${this.props.dashboardShoppingListById.length > 0 && 
+                (this.props.dashboardShoppingListById[0].budget_in_cents/100).toFixed(2)}</p>
+              <p className = "is-size-6 ">Total Savings: ${this.props.dashboardShoppingListById.length > 0 && 
+                (this.props.dashboardShoppingListById[0].total_savings_in_cents/100).toFixed(2)}</p>
               {/* Above is a life cycle and it is async so what it means is that if props.dashboard... is true it will wait and render */}
              <br/>
             </div>
@@ -57,6 +62,7 @@ class ShoppingListInfo extends React.Component {
                 </thead>
                 <tbody>
                   <tr>
+                  {/* Map over all items in historic shopping list */}
                   { this.props.dashboardShoppingListById.length > 0 && this.props.dashboardShoppingListById[0].items.map(item => {
                   return (
                     <div className="is-text-6" key={item.id}>
