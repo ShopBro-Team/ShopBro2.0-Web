@@ -22,11 +22,11 @@ function Celebration (props) {
   return (
     <div className="Nav hero is-small is-success">
       <div className="hero-body">
-        <p className="has-text-warning is-size-2">{capitalizeFirstLetter(userName)}, you have saved ${((props.budget - props.totalSpend)/100).toFixed(2)} today!</p>
+        <p className="has-text-warning is-size-4">{capitalizeFirstLetter(userName)}, you have saved ${((props.budget - props.totalSpend)/100).toFixed(2)} today!</p>
         <img src="https://media.giphy.com/media/l0ExhcMymdL6TrZ84/giphy.gif" alt="goldgif"/>
       </div>
       <div>
-      <button className="button is-medium is-warning has-text-primary" onClick={reset}><Link to="/main">Close</Link></button>
+      <button className="button is-normal is-warning has-text-primary" onClick={reset}><Link to="/main">Close</Link></button>
       <br/>
       <br/>
     </div>
