@@ -4,17 +4,17 @@ Its ShopBro 2.0
 #User Stories
 
 ##MVP:
-- [ ] 1. As a user, I want to register an account
-- [ ] 2. As a user, I want to be able to login and logout
-- [ ] 3. As a user, I want to be able to set a budget
-- [ ] 4. As a user, I want to be able to create a list
-- [ ] 5. As a user, I want to be able to add and delete items on the shopping list
-- [ ] 6. As a user, I want to be able to add the price while I am shopping
-- [ ] 7. As a user I want to be able to update an item on the list
-- [ ] 8. As a user I wnat to be able to see a running total of the remaining budget (e.g. progress bar or total remaining budget)
-- [ ] 9. I want to say I've finished shopping (and celebrate when I've made a saving)
-- [ ] 10. As ShopBro 2.0 I want to alert a user they have spent over their budget
-- [ ] 11. As ShopBro 2.0, if any items are above the overall budget, raise an 'are you sure' alert
+- [x] 1. As a user, I want to register an account
+- [x] 2. As a user, I want to be able to login and logout
+- [x] 3. As a user, I want to be able to set a budget
+- [x] 4. As a user, I want to be able to create a list
+- [x] 5. As a user, I want to be able to add and delete items on the shopping list
+- [x] 6. As a user, I want to be able to add the price while I am shopping
+- [x] 7. As a user I want to be able to update an item on the list
+- [x] 8. As a user I wnat to be able to see a running total of the remaining budget (e.g. progress bar or total remaining budget)
+- [x] 9. I want to say I've finished shopping (and celebrate when I've made a saving)
+- [x] 10. As ShopBro 2.0 I want to alert a user they have spent over their budget
+- [x] 11. As ShopBro 2.0, if any items are above the overall budget, raise an 'are you sure' alert
 
 
 ##Stretch
@@ -23,12 +23,12 @@ Its ShopBro 2.0
 3. As a user I want to see a dashboard shoing past shopping activities
 
 ##STRETCH MVP:
-- [ ] 1. As a dev team, we will define our API & Routes
-- [ ] 2. As a user, I want to see a footer on every page that links me to the dashboard, main and settings
-- [ ] 3. As a user, the first thing I want to see is my total savings on my dashboard
-- [ ] 4. As a user, I want to see each shop I have done listed on dashboard with a progress bar highlight how much I saved during that shop. 
-- [ ] 5. I also want to be able to delete all data for each shopping instance from the dashboard.
-- [ ] 6. I want to view the details of my shopping list from dashboard when I click on the date
+- [x] 1. As a dev team, we will define our API & Routes
+- [x] 2. As a user, I want to see a footer on every page that links me to the dashboard, main and settings
+- [x] 3. As a user, the first thing I want to see is my total savings on my dashboard
+- [x] 4. As a user, I want to see each shop I have done listed on dashboard with a progress bar highlight how much I saved during that shop. 
+- [x] 5. I also want to be able to delete all data for each shopping instance from the dashboard.
+- [x] 6. I want to view the details of my shopping list from dashboard when I click on the date
 
 
 ##Errors we have come across and how to fix them:
