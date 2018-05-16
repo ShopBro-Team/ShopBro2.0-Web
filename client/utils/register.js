@@ -22,7 +22,7 @@ export default function validateRegister(user_name, user_email, password, confir
   } 
   
   if (!isUserNameOK) { 
-    validationStatus.messageUserName = 'Pease enter a user name'
+    validationStatus.messageUserName = 'Please enter a user name'
     validationStatus.valid = false
   }   
 

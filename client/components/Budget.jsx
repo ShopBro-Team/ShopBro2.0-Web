@@ -34,33 +34,33 @@ class Budget extends React.Component {
           <progress className="progress is-normal is-info" value={progress} max="100">25%</progress>
         </div> 
       }
-      <div className="column is-one-fifth">
-      <button className="button is-normal is-outlined is-mobile is-dark" onClick={this.editBudget.bind(this)}>Edit Budget</button></div> 
+        <div className="column is-one-fifth">
+        <button className="button is-normal is-outlined is-mobile is-dark" onClick={this.editBudget.bind(this)}>Edit Budget</button>
+        </div> 
+        <br/>
       </div>)
   }
 
   render () {
     return (
-      <div className="section"> 
-
+      <div> 
         <div className="container">
           {this.renderProgressBar()}
         </div>
 
-        <p className="has-text-warning is-size-4">Your Budget is: $ {(this.props.budget/100).toFixed(2)} </p> 
+        <p className="has-text-warning is-size-6">Your Budget is: ${(this.props.budget/100).toFixed(2)} </p> 
         <br/>
-        <p className="has-text-warning is-size-4">You have</p>
+        {/* <p className="has-text-warning is-size-6">You have</p> */}
 
         { this.props.budget - this.props.totalSpend > 0
           ?
-          <p className="has-text-warning has-text-weight-bold is-size-4">
-            $ {((this.props.budget - this.props.totalSpend)/100).toFixed(2)} left </p> 
+          <p className="has-text-warning has-text-weight-bold is-size-6">
+            You have ${((this.props.budget - this.props.totalSpend)/100).toFixed(2)} left</p> 
           :
-          <p className="has-text-warning has-text-weight-bold is-size-4">
-            over spent by $ {((this.props.totalSpend - this.props.budget)/100).toFixed(2)} </p> 
+          <p className="has-text-danger has-text-weight-bold is-size-6">
+            You have over spent by ${((this.props.totalSpend - this.props.budget)/100).toFixed(2)}</p> 
         }
-              
-      </div>
+    </div>    
     )
   }
 }

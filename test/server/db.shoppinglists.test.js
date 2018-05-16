@@ -46,7 +46,7 @@ test('get shopping list by id', () => {
 test('get shopping list by user id', () => {
   //Arrange
   const expected_shoppinglists = 6
-  const expected_budget_first_list = 3000
+  const expected_budget_first_list = 10000
   const test_user_id = 55
   //Act - need to use return when testing with Promises
   return db.getShoppinglistsbyUserId(test_user_id, testDb)

@@ -15,4 +15,5 @@ const totalSpend = (state = 0, action) => {
 
   export default totalSpend
 
-
+//The total reducer here is to calculate user's money to when they are adding/delete items
+//Whereas Reset and Logout function is for when the user done and want to calculate their budget again /logout the list/total spend will come back to 0

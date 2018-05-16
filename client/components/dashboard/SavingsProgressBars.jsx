@@ -36,8 +36,8 @@ class SavingsProgressBars extends React.Component {
 
   renderProgressBar() {
     const {item} = this.props
-    let totalSpend = item.budget_in_cents - item.total_savings_in_cents
-    let progress = totalSpend*100/item.budget_in_cents
+    //let totalSpend = item.budget_in_cents - item.total_savings_in_cents
+    let progress = item.total_savings_in_cents*100/item.budget_in_cents
 
 
     return (<div className="columns">
@@ -46,7 +46,7 @@ class SavingsProgressBars extends React.Component {
       <div className="column is-four-fifths">
       <progress className="progress is-normal is-warning" value={progress} max="100">25%</progress> 
       </div>):
-      ( <div className="column is-four-fifths"><progress className="progress is-normal is-info" value={progress} max="100">25%</progress>
+      ( <div className="column is-four-fifths"><progress className="progress is-normal is-success" value={progress} max="100">25%</progress>
       </div> )
       }   
       </div>)
@@ -66,7 +66,12 @@ class SavingsProgressBars extends React.Component {
             <br/>
             {this.renderProgressBar()}
             <br/>
-            <p>Total Savings: ${(item.total_savings_in_cents/100).toFixed(2)}</p>
+            { item.total_savings_in_cents > 0 
+              ?
+              <p>Total Savings: ${(item.total_savings_in_cents/100).toFixed(2)}</p>
+              :
+              <p>Total Overspend: ${(-item.total_savings_in_cents/100).toFixed(2)}</p> 
+            }   
             <br/>
             <button>
               <a className="button is-medium is-warning is-outlined is-mobile"  onClick=
