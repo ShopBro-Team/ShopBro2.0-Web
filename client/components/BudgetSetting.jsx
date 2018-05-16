@@ -48,7 +48,6 @@ class BudgetSetting extends React.Component {
     }
   }
 
-
   //interacts with redux state: adds budget from component's state to redux global state and navigates to budget page
 
   render() {
@@ -72,20 +71,3 @@ class BudgetSetting extends React.Component {
 
 
 export default BudgetSetting
-
-
-
-// const BudgetSetting = (props) => {
-//   return (
-//     <div> 
-//       <h1>Set the budget</h1>
-//       {/* <input className="input" type="text"><Link to='/Budget'></Link></input>
-//       <button onClick="button is-success" type="next"><Link to='/Budget'>Next</Link></button> */}
-//     </div>
-//   )
-// }
-
-// export default BudgetSetting 
-
-//this needs to be a stateful components. Because this will be the child of main.jsx
-//and this does not
