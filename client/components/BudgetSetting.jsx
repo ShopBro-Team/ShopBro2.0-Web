@@ -71,3 +71,8 @@ class BudgetSetting extends React.Component {
 
 
 export default BudgetSetting
+
+//this component exports solely the react component, hence no {connect} being imported and export default connect()(Alert)
+//this gets done by container/AlertContainer.js
+
+//without this we wouldn't be able to test react by itself 
