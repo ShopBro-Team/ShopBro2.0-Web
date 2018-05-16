@@ -1,12 +1,10 @@
 import React from 'react'
-import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import Budget from './Budget'
 import ShoppingList from './ShoppingList'
 
 
 function Alert(props) {
-
   return (
     <div>  
       {!props.noBudget ?  
@@ -18,7 +16,11 @@ function Alert(props) {
           <p className= "has-text-primary title is-4">Don't forget to set your budget!</p>
         </div>}           
     </div>)
-
 }
 
 export default Alert
+
+//this component exorts solely the react component, hence no {connect} being imported and export default connect()(Alert)
+//this gets done by container/AlertContainer.js
+
+//without this we wouldn't be able to test react by itself 
