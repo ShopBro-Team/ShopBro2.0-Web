@@ -39,7 +39,7 @@ function TotalSavings (props) {
 
       </div>
 
-      <h1>Hello {capitalizeFirstLetter(userName)} this is your Total Savings : $ </h1>  
+      <h1>Hello {capitalizeFirstLetter(userName)} this is your</h1>  
         {props.totals[0] && 
           (props.totals[0].totalsavings > 0 
         ?

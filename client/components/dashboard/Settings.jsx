@@ -10,7 +10,18 @@ function Settings (props) {
     <div className="level-right">
       <button className="button" onClick={() => props.dispatch(logoutUser())}>Logout</button>
     </div>
-  <h1>Hello Settings</h1>
+    <h1 className= "title is-4 has-text-warning has-text-weight-bold">Settings</h1>
+    <p className= "level-item is-5 has-text-warning has-text-weight-medium">Save your Shopping List</p>
+    <div className="buttons has-addons is-centered">
+      <span className="button is-success has-text-warning">Yes</span>
+      <span className="button is-selected has-text-warning">No</span>
+     </div>
+     <br/>
+    <p className= "level-item is-5 has-text-warning has-text-weight-medium">Change user name</p>
+    <input className="input is-normal has-text-centered" type="text" name="name" placeholder="Change username" />
+    <br/>
+    <br/>
+    <button className="button is-centered is-small is-warning has-text-primary">Submit</button>
   </div>
   )
 }
