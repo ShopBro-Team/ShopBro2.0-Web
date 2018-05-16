@@ -6,5 +6,5 @@ import './setup-dom'
 
 test('Text renders on Alert', () => {
   const wrapper = shallow(<Alert />)
-  expect(wrapper.find('p').text()).toBe ('You have gone over your budget!  You may want to remove some items.')
+  expect(wrapper.find('p').text()).toBe ('You have gone over your budget.  Remove some items!')
 })
