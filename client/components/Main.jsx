@@ -2,28 +2,24 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logoutUser} from '../actions/logout'
-import { saveShoppingList } from '../actions/shoppinglist'
+import { saveShoppingList, resetApp } from '../actions/shoppinglist'
 import BudgetSettingContainer from '../containers/BudgetSettingContainer'
 import Budget from './Budget'
 import ShoppingList from './ShoppingList'
 import AlertContainer from '../containers/AlertContainer'
 import Celebration from './Celebration'
 
-import { resetApp } from '../actions/shoppinglist'
-
-//ISSUE: budgetView needs to reset to 'setting' everytime there is a new user or
-//where a user logs in that has not click on the 'next button'.
-
 
 function Main (props) {
 
-  //Code lines 18 - 23 calls in the user_name from the db and capitalizes the first letter.
+  //Code lines 16 - 20 call in the user_name from the db and capitalise the first letter
   let userName = props.auth.user.user_name
   
   function capitalizeFirstLetter(data) {
     return data.charAt(0).toUpperCase() + data.slice(1);
   }
 
+  //function done is called as button onClick and dispatches save shoppingList with the following arguments: budget, total savings, date and shoppinglist array [ item id, name and cost]. If clause: if our user has a positive savings amount then the resetApp function gets called from the Celebration.jsx component. However, if our user does not have a positive savings amoungt they won't get redirected to this componet, hence why resetApp needs to get dispatched from the done button.
   function done() {
     props.dispatch(saveShoppingList(props.budget, 
       (props.budget - props.totalSpend), new Date(), props.shoppingList))
@@ -34,12 +30,12 @@ function Main (props) {
 
   }
 
+  //props.auth.isAuthenticated checks if our user is authenticated, only if true can they progress to setting their budget, otherwise they see the Login and Register buttons which link to the relevant components. props.butdetView sets a nested ternary that navigates between BudgetSettingContainer and Budget. This is set as setting in initialState.
   return (
     <div>
     <div className="Nav hero is-small is-success">
      <button className="is-pulled-right button is-small is-dark" onClick={() => props.dispatch(logoutUser())}>Logout</button>
       <div className="hero-body">
-        {/* I don't know how to make logout button to go top right */}
         <p className="is-4 has-text-warning has-text-weight-bold">Kia ora {capitalizeFirstLetter(userName)}!</p> 
         <br/>
         {props.auth.isAuthenticated
@@ -55,7 +51,7 @@ function Main (props) {
       {(props.budget - props.totalSpend) < 0 && <AlertContainer noBudget={props.budget == 0} />} 
       </div>
       
-      {/* Done button saves shopping list to database and celebrates if underbudget */}
+      {/* Done button calls done function and saves shopping list to database and celebrates if underbudget */}
       <div className="completed">
           <button className="button is-normal is-warning has-text-white" onClick={() => done()}>
             {props.budget - props.totalSpend> 0 ? <Link className="nav-item" to="/celebration">Done</Link> : 
@@ -70,7 +66,6 @@ function Main (props) {
 }
 
 const mapStateToProps = (state) => {
-  //Was budget: state.budget.budget - deleted second .budget to get budget in cents to work. Confusing.
   return {
     auth: state.auth,
     budgetView: state.budgetView,
