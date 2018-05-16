@@ -76,6 +76,7 @@ class AddedItems extends React.Component {
 		}
 	}
 
+	//deleteItem gets called by clicking the delete button. It deletes the item both from our shoppingListItem array as well as updates the totalSpend integer
 	deleteItem(e, item) {
 		e.preventDefault()
 		this.props.dispatch(deleteShoppingListItem(item.id))
@@ -91,7 +92,6 @@ class AddedItems extends React.Component {
 				<div>
 					{showInputField
 						? 			
-						
 						<form key={item.id}>				  
 							<div className="columns is-mobile is-centered">
 							  <div className="level columns">
@@ -107,8 +107,6 @@ class AddedItems extends React.Component {
 										<a className="button is-normal is-primary is-outlined is-mobile" onClick={e => this.editItem(e, item)} type="submit" value="edit item">
 										Save
 										</a>
-									{/* </div>
-									<div className="column"> */}
 										<a className="button is-normal is-primary is-outlined is-mobile" onClick=
 										{e => this.deleteItem(e, item)} type="submit" value="edit item">
 										Delete
@@ -117,37 +115,35 @@ class AddedItems extends React.Component {
 								</div>
 							  </div>
 							</div>
-						<br/>
-						<br/>
-					{this.state.messageCost && <p>{this.state.messageCost}</p>}
+							<br/>
+							<br/>
+							{this.state.messageCost && <p>{this.state.messageCost}</p>}
 						</form>
 										
-					: <form key={item.id}>
-						<div className="columns is-mobile is-centered ">	
-						  <div className="level columns">
-							<div className="control column is-4">
-								<text className="is-size-6 has-text-warning">Item: {item.name}</text>
-							{/* </div>
-							<div className="control column is-4"> */}
-								<p className="is-size-6 has-text-warning">Cost: {`$${(item.cost_in_cents/100).toFixed(2)}`}</p>
-							</div>
-						
-							<div className="control column is-4">
-								<div className="buttons is-centered">
-									<a className="button is-normal is-dark is-outlined is-mobile" onClick={this.toggleForm} type="submit" value="edit item">
-									  Edit
-									</a>
-									<a className="button is-normal is-dark is-outlined is-mobile" onClick=
-									{e => this.deleteItem(e, item)} type="submit" value="edit item">
-									  Delete
-									</a>
+						: 
+						<form key={item.id}>
+							<div className="columns is-mobile is-centered ">	
+							<div className="level columns">
+								<div className="control column is-4">
+									<text className="is-size-6 has-text-warning">Item: {item.name}</text>
+									<p className="is-size-6 has-text-warning">Cost: {`$${(item.cost_in_cents/100).toFixed(2)}`}</p>
+								</div>
+								<div className="control column is-4">
+									<div className="buttons is-centered">
+										<a className="button is-normal is-dark is-outlined is-mobile" onClick={this.toggleForm} type="submit" value="edit item">
+										Edit
+										</a>
+										<a className="button is-normal is-dark is-outlined is-mobile" onClick=
+										{e => this.deleteItem(e, item)} type="submit" value="edit item">
+										Delete
+										</a>
+									</div>
 								</div>
 							</div>
-						  </div>
-						</div>
-						<br/>
-					</form>
-							}
+							</div>
+							<br/>
+						</form>
+					}
 				</div>	
 			</div>			
 		)
