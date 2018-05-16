@@ -37,11 +37,11 @@ function Main (props) {
   return (
     <div>
     <div className="Nav hero is-small is-success">
+     <button className="is-pulled-right button is-small is-dark" onClick={() => props.dispatch(logoutUser())}>Logout</button>
       <div className="hero-body">
-        <div className="level-right">
-          <button className="button" onClick={() => props.dispatch(logoutUser())}>Logout</button>
-        </div>
-        <p className="is-size-2 has-text-warning has-text-weight-bold">Kia ora {capitalizeFirstLetter(userName)}</p> 
+        {/* I don't know how to make logout button to go top right */}
+        <p className=" title is-4 has-text-warning has-text-weight-bold">Kia ora {capitalizeFirstLetter(userName)}</p> 
+
         {props.auth.isAuthenticated
           ? <div>
               {props.budgetView === 'setting' ? <BudgetSettingContainer /> : <Budget />}
@@ -57,7 +57,7 @@ function Main (props) {
       
       {/* Done button saves shopping list to database and celebrates if underbudget */}
       <div>
-          <button className="button is-large is-warning has-text-white" onClick={() => done()}>
+          <button className="button is-medium is-warning has-text-white" onClick={() => done()}>
             {props.budget - props.totalSpend> 0 ? <Link className="nav-item" to="/celebration">Done</Link> : 
               <Link className="nav-item" to="/dashboard">Done</Link>}  
           </button> 
