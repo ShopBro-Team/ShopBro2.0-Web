@@ -168,11 +168,9 @@ res STATUS 500
 
 bulma-carousel used to display historic shopping savings in the dashboard view. This is a bulma extension and once set up is pretty simple to play with. Set up was tricky though (thanks Harrison!). This looke like:
 
-| File Updated | Detail |
-| --- | --- |
-| package.json | Add to dependencies: bulma-carousel, file-loader, font-awesome, url-loader   (Note: Either type into package.json and run yarn after saving. Or add via terminal directly using yarn add and this will update the package.json file.) | 
-  | webpack.config.js | Add code:  `{test: "/"\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000'},` under `module` |
-| main.scss (under client / sass folder) | Add code: `@import '~bulma-carousel/dist/bulma-carousel.sass'; @import '~font-awesome/scss/_variables.scss'; $fa-font-path: '~font-awesome/fonts'; @import '~font-awesome/scss/font-awesome.scss';` |
+- (package.json) Add to dependencies: bulma-carousel, file-loader, font-awesome, url-loader   (Note: Either type into package.json and run yarn after saving. Or add via terminal directly using yarn add and this will update the package.json file.)
+- (webpack.config.js) Add code:  `{test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000'},` under `module` 
+- (main.scss - under client / sass folder) Add code: `@import '~bulma-carousel/dist/bulma-carousel.sass'; @import '~font-awesome/scss/_variables.scss'; $fa-font-path: '~font-awesome/fonts'; @import '~font-awesome/scss/font-awesome.scss';` 
 
 The bulma documentation had the code required for various types of carousels and this was then just a matter of putting it into the ListOfSavings.jsx, that was already mapping through our list of completed shops. https://wikiki.github.io/components/carousel/
 

@@ -5,22 +5,20 @@ import Budget from './Budget'
 import ShoppingList from './ShoppingList'
 
 
-class Alert extends React.Component{
-    render() {
-        return <div>
+function Alert(props) {
+
+  return (
+    <div>  
+      {!props.noBudget ?  
         <div className="notification is-info">
-            <p className= "has-text-primary has-text-weight-bold title is-3">You have gone over your budget!  You may want to remove some items.</p>
+          <p className= "has-text-primary has-text-weight-bold title is-3">You have gone over your budget!  You may want to remove some items.</p>
         </div>
-    </div>
-    }
+      :
+        <div className="notification is-info">
+          <p className= "has-text-primary title is-4">Don't forget to set your budget!</p>
+        </div>}           
+    </div>)
+
 }
 
-
 export default Alert
-
-/* <br/>
-            <div className="buttons is-centered">
-              <a className="button is-centered">Okay</a> 
-            </div> */
-//This function is for rendering okay button. Which we might need for the future reference
-//if we wanted to add more feature.
