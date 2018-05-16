@@ -6,7 +6,9 @@ import {connect} from 'react-redux'
 function Settings (props) {
 
   return (
-  <div>        
+  <div> 
+    <br/>   
+    <br/>    
     <div className="level-right">
     </div>
     <h1 className= "title is-4 has-text-warning has-text-weight-bold">Settings</h1>
@@ -20,7 +22,7 @@ function Settings (props) {
     <input className="input is-normal has-text-centered" type="text" name="name" placeholder="Change username" />
     <br/>
     <br/>
-    <button className="button is-centered is-small is-warning has-text-primary">Submit</button>
+    <button className="button is-centered is-small is-success has-text-warning">Submit</button>
   </div>
   )
 }

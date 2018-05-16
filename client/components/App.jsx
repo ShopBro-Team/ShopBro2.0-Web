@@ -19,7 +19,7 @@ import {logoutUser} from '../actions/logout'
 
 // import Carousel from './dashboard/Carousel'  // this was harrison playing with bulma-carousel demo data
 
-const App = ({auth}) => (
+const App = ({auth,dispatch}) => (
   <Router>
     <div className='app-container has-text-centered is-block-flex-tablet is-block-flex-mobile' >
       <div className="header columns is-centered">
@@ -27,7 +27,7 @@ const App = ({auth}) => (
         <img src="/image/144.png" alt="logo"  className="image"/>
           {auth.isAuthenticated 
           &&  <div className="Nav hero is-small is-success">
-         <button className="is-pulled-right button is-small is-warning has-text-primary" onClick={() => props.dispatch(logoutUser())}>Logout</button>
+         <button className="is-pulled-right button is-small is-warning has-text-primary" onClick={() => dispatch(logoutUser())}>Logout</button>
       </div>}
       </div>
       

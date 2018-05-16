@@ -33,8 +33,9 @@ class ShoppingListInfo extends React.Component {
     return (
       <div>
         <div className="level-right">
-          <button className="button" onClick={() => this.props.dispatch(logoutUser())}>Logout</button>
         </div>
+        <br/>
+        <br/>
         <h1 className = "is-size-4">Hello {capitalizeFirstLetter(this.state.userName)}, this is your shoppinglist for {this.props.dashboardShoppingListById.length > 0 && this.reverseString(this.props.dashboardShoppingListById[0].date.slice(0,10))}</h1>
 
         <p className = "is-size-4">Total Budget: ${this.props.dashboardShoppingListById.length > 0 && (this.props.dashboardShoppingListById[0].budget_in_cents/100).toFixed(2)}</p>

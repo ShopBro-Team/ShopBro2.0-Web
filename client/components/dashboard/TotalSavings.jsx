@@ -20,7 +20,7 @@ function TotalSavings (props) {
     <div>
       <div className="level-right">
       </div>
-
+      <br/>
       <div className='columns is-mobile is-tablet is-centered'>
         <div className=''>
         
