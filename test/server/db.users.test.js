@@ -17,9 +17,9 @@ jest.mock('../../server/auth/hash', () => ({
 }))
 
 test('createUser', () => {
-  return usersDb.createUser('engie', 'engie@this.com', testDb)
+  return usersDb.createUser('engie', 'engie@this.com', '', testDb)
     .then(id => {
-      expect(id).toEqual([2])
+      expect(id.length).toBe(1)
     })
 })
 

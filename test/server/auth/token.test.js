@@ -19,14 +19,6 @@ test('decode', (done) => {
   token.decode(null, null, doneFunction)
 })
 
-test('getSecret', () => {
-  const mockFunction = (err, secret) => {
-    expect(err).toBeFalsy()
-    expect(secret).toBe('TEST SECRET')
-  }
-
-  token.getSecret(null, null, mockFunction)
-})
 
 test('createToken', () => {
   const user = {
