@@ -55,11 +55,13 @@ class BudgetSetting extends React.Component {
     return ( 
       <div className="container"> 
         <form onSubmit={this.handleSubmit}>
-        <label className="has-text-warning is-size-3 ">Set your budget $</label>
-        <input onChange={this.updateBudget} className="input is-medium" name="budget" type="number" step="0.01" placeholder="Your budget"/>
+        <label className="has-text-warning is-size-5 ">Set your budget $</label>
         <br/>
         <br/>
-        <input className="button is-medium is-warning has-text-primary" type="submit"/>
+        <input onChange={this.updateBudget} className="input is-normal has-text-centered" name="budget" type="number" step="0.01" placeholder="Your budget"/>
+        <br/>
+        <br/>
+        <input className="button is-normal is-warning has-text-primary" type="submit"/>
         <br/>
 				{this.state.messageCost && <p>{this.state.messageCost}</p>}
         </form>

@@ -88,69 +88,62 @@ class AddedItems extends React.Component {
 		const {item} = this.props
 		return (
 			<div>
-				<div className="columns is-mobile is-centered">
-					<div className="column is-offset-2">
-						Items
-					</div>
-					<div className="column">
-						Costs
-					</div>	
-				</div>	
 				<div>
 					{showInputField
 						? 			
 						
 						<form key={item.id}>				  
 							<div className="columns is-mobile is-centered">
-								<div className="column">
-									<input onChange={this.handleChange} className="input is-medium" type="text" name="name" placeholder={item.name} />
+							  <div className="level columns">
+								<div className="control column is-4">
+									<input onChange={this.handleChange} className="input is-normal" type="text" name="name" placeholder={item.name} />
 								</div>
-								<div className="column">
+								<div className="control column is-4">
 									{/* Converts cost in cents to dollars for display purposes */}
-									<input onChange={this.handleChange} className="input is-medium" type="number" name="cost_in_cents" placeholder={`$${(item.cost_in_cents/100).toFixed(2)}`} />
+									<input onChange={this.handleChange} className="input is-normal" type="number" name="cost_in_cents" placeholder={`$${(item.cost_in_cents/100).toFixed(2)}`} />
 								</div>
-								<div className="column is-one-third">
-									<div className="buttons">
-										<a className="button is-medium is-primary is-outlined is-mobile" onClick={e => this.editItem(e, item)} type="submit" value="edit item">
+								<div className="control column is-4">
+									<div className="buttons is-centered">
+										<a className="button is-normal is-primary is-outlined is-mobile" onClick={e => this.editItem(e, item)} type="submit" value="edit item">
 										Save
 										</a>
 									{/* </div>
 									<div className="column"> */}
-										<a className="button is-medium is-primary is-outlined is-mobile" onClick=
+										<a className="button is-normal is-primary is-outlined is-mobile" onClick=
 										{e => this.deleteItem(e, item)} type="submit" value="edit item">
 										Delete
 										</a>
 									</div>
 								</div>
+							  </div>
 							</div>
 						<br/>
-							<br/>
+						<br/>
 					{this.state.messageCost && <p>{this.state.messageCost}</p>}
-
 						</form>
 										
-							
 					: <form key={item.id}>
-					
 						<div className="columns is-mobile is-centered ">	
-							<div className="column is-offset-2">
-								<p className="is-size-3 has-text-warning has-background-light">{item.name}</p>
+						  <div className="level columns">
+							<div className="control column is-4">
+								<text className="is-size-5 has-text-warning">Item: {item.name}</text>
 							</div>
-							<div className="column">
-							<p className="is-size-3 has-text-warning has-background-light">{`$${(item.cost_in_cents/100).toFixed(2)}`}</p>
+							<div className="control column is-4">
+								<p className="is-size-5 has-text-warning">Cost: {`$${(item.cost_in_cents/100).toFixed(2)}`}</p>
 							</div>
 						
-						<div className="column is-one-third">
-						<div className="buttons">
-							<a className="button is-medium is-dark is-outlined is-mobile" onClick={this.toggleForm} type="submit" value="edit item">
-							Edit
-							</a>
-							<a className="button is-medium is-dark is-outlined is-mobile" onClick=
-							{e => this.deleteItem(e, item)} type="submit" value="edit item">
-							Delete
-							</a>
-						</div>
-						</div>
+							<div className="control column is-4">
+								<div className="buttons is-centered">
+									<a className="button is-normal is-dark is-outlined is-mobile" onClick={this.toggleForm} type="submit" value="edit item">
+									  Edit
+									</a>
+									<a className="button is-normal is-dark is-outlined is-mobile" onClick=
+									{e => this.deleteItem(e, item)} type="submit" value="edit item">
+									  Delete
+									</a>
+								</div>
+							</div>
+						  </div>
 						</div>
 						<br/>
 					</form>
