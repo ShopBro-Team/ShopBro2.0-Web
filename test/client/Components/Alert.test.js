@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
 
-import Alert from '../../../client/components/alert'
+import Alert from '../../../client/components/Alert'
 import './setup-dom'
 
 test('Text renders on Alert', () => {

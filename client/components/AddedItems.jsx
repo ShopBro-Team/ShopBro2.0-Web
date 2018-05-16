@@ -96,11 +96,11 @@ class AddedItems extends React.Component {
 							<div className="columns is-mobile is-centered">
 							  <div className="level columns">
 								<div className="control column is-4">
-									<input onChange={this.handleChange} className="input is-normal" type="text" name="name" placeholder={item.name} />
+									<input onChange={this.handleChange} className="input is-normal has-text-centered" type="text" name="name" placeholder={item.name} />
 								</div>
 								<div className="control column is-4">
 									{/* Converts cost in cents to dollars for display purposes */}
-									<input onChange={this.handleChange} className="input is-normal" type="number" name="cost_in_cents" placeholder={`$${(item.cost_in_cents/100).toFixed(2)}`} />
+									<input onChange={this.handleChange} className="input is-normal has-text-centered" type="number" name="cost_in_cents" placeholder={`$${(item.cost_in_cents/100).toFixed(2)}`} />
 								</div>
 								<div className="control column is-4">
 									<div className="buttons is-centered">
@@ -126,10 +126,10 @@ class AddedItems extends React.Component {
 						<div className="columns is-mobile is-centered ">	
 						  <div className="level columns">
 							<div className="control column is-4">
-								<text className="is-size-5 has-text-warning">Item: {item.name}</text>
-							</div>
-							<div className="control column is-4">
-								<p className="is-size-5 has-text-warning">Cost: {`$${(item.cost_in_cents/100).toFixed(2)}`}</p>
+								<text className="is-size-6 has-text-warning">Item: {item.name}</text>
+							{/* </div>
+							<div className="control column is-4"> */}
+								<p className="is-size-6 has-text-warning">Cost: {`$${(item.cost_in_cents/100).toFixed(2)}`}</p>
 							</div>
 						
 							<div className="control column is-4">
