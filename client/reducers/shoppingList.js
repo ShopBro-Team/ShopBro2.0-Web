@@ -26,3 +26,7 @@ function shoppingList (state = [], action) {
 }
 
 export default shoppingList
+
+//This reducer is holding the function of Add, Edit, Create and Delete(CRUD) of Shopping list
+//Furthermore, RESET_APP is to reset the budget once the user is done adding the budget
+//Other than that, LOGOUT_SUCCESS is to make everything become clear again once the user logout

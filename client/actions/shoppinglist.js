@@ -16,6 +16,7 @@ export function saveShoppingList (budget_in_cents, total_savings_in_cents, date,
   }
 }
 
+//adds a new item to redux state (through our shoppinglist reducer)
 export function addShoppingListItem (item) {
   return {
     type: 'ADD_ITEM',
@@ -23,14 +24,23 @@ export function addShoppingListItem (item) {
   }
 }
 
+//edits an existing item (can be actual item or item's price in redux state (through our shoppinglist reducer)
 export function editShoppingListItem (item) {
-
   return {
     type: 'EDIT_ITEM',
     item
   }
 }
 
+//deletes an existing item from redux state (through our shoppinglist reducer, hence item_id)
+export function deleteShoppingListItem (item_id) {
+  return {
+    type: 'DELETE_ITEM',
+    item_id
+  }
+}
+
+//adds a new cost to our totalspend in redux store by adding the actual integer (through totalspend reducer)
 export function addToTotalSpend (cost) {
   return {
     type: 'ADD_TO_TOTALSPEND',
@@ -38,17 +48,11 @@ export function addToTotalSpend (cost) {
   }
 }
 
+//deletes an existing cost from our totalspend in redux store by subtracting an integer (through totalspend reducer)
 export function deleteFromTotalSpend (cost) { 
   return {
     type: 'DELETE_FROM_TOTALSPEND',
     cost
-  }
-}
-
-export function deleteShoppingListItem (item_id) {
-  return {
-    type: 'DELETE_ITEM',
-    item_id
   }
 }
 
