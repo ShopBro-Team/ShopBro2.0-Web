@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
+//Footer and navigation for app,  
 
 function Footer (props) {
  

@@ -5,17 +5,18 @@ import {logoutUser} from '../../actions/logout'
 //Imported from https://www.npmjs.com/package/react-circular-progressbar
 import CircularProgressbar from 'react-circular-progressbar'
 
-//Circular progress bar showing percentage savings
+//This component displays total historic savings i.e. savings over all saved shopping lists
 
 function TotalSavings (props) {
 
-  //Conditional statement required as logout threw a props.auth.user was undefined  
+  //Conditional statement required as logout threw a props.auth.user was undefined error 
   let userName =  props.auth.user != null ? props.auth.user.user_name : ''
 
   function capitalizeFirstLetter(data) {
     return data.charAt(0).toUpperCase() + data.slice(1);
   }
 
+  //NOTE: totals are brought in via props from the Dashboard component (not from the store)
   return (
     <div>
       <div className="level-right">
@@ -41,6 +42,7 @@ function TotalSavings (props) {
 
       </div>
 
+     {/* Ternary to deal with 'negative' savings */}
       <h1 className="has-text-weight-bold">Hello {capitalizeFirstLetter(userName)}!</h1>  
         {props.totals[0] && 
           (props.totals[0].totalsavings > 0 
@@ -51,7 +53,7 @@ function TotalSavings (props) {
         }
 
     </div>
-    )
+  )
 }
 
 {/* Bring the below in once pulled in new changes */}
@@ -59,7 +61,6 @@ function TotalSavings (props) {
 const mapStateToProps = (state) => {
   return {
     auth: state.auth,
-    // dashboardShoppingLists: state.dashboardShoppingLists
   }
 }
 
