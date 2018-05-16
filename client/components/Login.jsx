@@ -26,7 +26,6 @@ class Login extends React.Component {
     return (
       <div className="column">
       <br/>
-      {console.log (this.props.auth)}
         <form className="Login container" onSubmit={this.submit}>
           <label className="is-size-4">Username:
         <input className="input is-normal has-text-centered" type="text" name="user_name" onChange={this.updateDetails}/>
