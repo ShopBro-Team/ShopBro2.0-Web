@@ -8,8 +8,10 @@ function Settings (props) {
   return (
   <div>        
     <div className="level-right">
-      <button className="button" onClick={() => props.dispatch(logoutUser())}>Logout</button>
+      <button className="button is-small is-dark" onClick={() => props.dispatch(logoutUser())}>Logout</button>
+      <br/>
     </div>
+    <br/>
     <h1 className= "title is-4 has-text-warning has-text-weight-bold">Settings</h1>
     <p className= "level-item is-5 has-text-warning has-text-weight-medium">Save your Shopping List</p>
     <div className="buttons has-addons is-centered">
