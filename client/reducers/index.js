@@ -19,3 +19,6 @@ export default combineReducers({
   dashboardShoppingListById,
   dashboardShoppingListTotals
 })
+
+//This is the main reducers/ the boss of reducer that talks to other reducers 
+//Moreover, The combineReducers helper function turns an object whose values are different reducing functions into a single reducing function you can pass to createStore. 

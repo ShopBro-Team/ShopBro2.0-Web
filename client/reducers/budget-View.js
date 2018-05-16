@@ -12,3 +12,6 @@ const budgetView = (state = 'setting', action) => {
 }
 
 export default budgetView
+
+//This navigate reducers, will explain the function of 'NAVIGATION'. 
+//which will be pass/link to the navigate.js(actions) that will be doing reset the budget in our BudgetSetting.jsx Component 
