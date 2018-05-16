@@ -43,7 +43,10 @@ const App = ({auth}) => (
         <Route path="/settings" component={Settings} />
         <Route path="/shoppinglistinfo" component={ShoppingListInfo} /> 
       </div>
-      {auth.isAuthenticated && <Footer />}
+      {auth.isAuthenticated 
+        && 
+        <Footer />}
+        
     </div>
   </Router>
 )

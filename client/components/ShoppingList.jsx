@@ -63,7 +63,7 @@ export class ShoppingList extends React.Component {
 			<div className="column is-mobile is-centered">
 				{/* NOTE: Updated so that the map over the AddedItems in the shopping list happens in the ShoppingList.jsx component, instead of AddedItems.jsx component. This means we can isolate the toggle of viewing value or input box to the individual items, rather than the whole list. */}
 
-				<h2 className="title is-3">Shopping List</h2>
+				<h2 className="title is-4">Shopping List</h2>
 				<br />
 
 				{this.props.shoppingList.map(item => {
@@ -78,7 +78,7 @@ export class ShoppingList extends React.Component {
 					{/* Input field for shopping item */}
 				<div className="level columns">
 					<div className="control column is-4">
-						<input onChange={this.handleChange} className="input is-medium" type="text" value={this.state.name} name="name" placeholder="Enter item" />
+						<input onChange={this.handleChange} className="input is-normal" type="text" value={this.state.name} name="name" placeholder="Enter item" />
 						{/* <label className="label ">Item:</label> */}
 
 					</div>
@@ -87,14 +87,14 @@ export class ShoppingList extends React.Component {
 					
 					{/* Input field for the cost of the item */}
 					<div className="control column is-4">
-						<input onChange={this.handleChange} className="input is-medium" type="number" min="0" value={this.state.cost} name="cost" placeholder="Enter cost" />
+						<input onChange={this.handleChange} className="input is-normal" type="number" min="0" value={this.state.cost} name="cost" placeholder="Enter cost" />
 						{/* <label className="label">Cost: $</label> */}
 
 					</div>
 					
 					
 						{/* Button to add the item */}
-					<a className="button column is-4 is-fullwidth is-medium is-dark is-outlined is-mobile" onClick={this.addItem} type="submit" value="add item">
+					<a className="button column is-4 is-normal is-dark is-outlined is-mobile" onClick={this.addItem} type="submit" value="add item">
 						Add
 					</a>
 				</div>
