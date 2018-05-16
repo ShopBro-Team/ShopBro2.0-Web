@@ -14,8 +14,9 @@ $fa-font-path: '~font-awesome/fonts';
 
 .header {
     // top: 0;
-    width: 100vw;
+    width: 105%;
     top: 0;
+    left: 0;
     position: fixed;
     z-index: 1;
     background-color: white;
@@ -23,8 +24,8 @@ $fa-font-path: '~font-awesome/fonts';
         display:block;
         margin:auto;
     }
-    border-bottom: 1px solid black;
-    box-shadow: 1px 3px 3px #888888;
+    border-bottom: 1px #b6b6b6;
+    box-shadow: 1px 3px 3px #b6b6b6;
 }
 
 .page-content {
