@@ -21,7 +21,7 @@ function Settings (props) {
     <input className="input is-normal has-text-centered" type="text" name="name" placeholder="Change username" />
     <br/>
     <br/>
-    <button className="button is-centered is-small">Submit</button>
+    <button className="button is-centered is-small is-warning has-text-primary">Submit</button>
   </div>
   )
 }
