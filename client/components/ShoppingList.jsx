@@ -89,6 +89,7 @@ export class ShoppingList extends React.Component {
 					<a className="button column is-4 is-normal is-dark is-outlined is-mobile" onClick={this.addItem} type="submit" value="add item">
 						Add
 					</a>
+					<br/>
 				</div>
 			</div>
 			{this.state.messageCost && <p>{this.state.messageCost}</p>}
