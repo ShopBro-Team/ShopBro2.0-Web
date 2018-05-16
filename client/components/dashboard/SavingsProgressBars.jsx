@@ -36,8 +36,8 @@ class SavingsProgressBars extends React.Component {
 
   renderProgressBar() {
     const {item} = this.props
-    let totalSpend = item.budget_in_cents - item.total_savings_in_cents
-    let progress = totalSpend*100/item.budget_in_cents
+    //let totalSpend = item.budget_in_cents - item.total_savings_in_cents
+    let progress = item.total_savings_in_cents*100/item.budget_in_cents
 
 
     return (<div className="columns">
@@ -46,7 +46,7 @@ class SavingsProgressBars extends React.Component {
       <div className="column is-four-fifths">
       <progress className="progress is-normal is-warning" value={progress} max="100">25%</progress> 
       </div>):
-      ( <div className="column is-four-fifths"><progress className="progress is-normal is-info" value={progress} max="100">25%</progress>
+      ( <div className="column is-four-fifths"><progress className="progress is-normal is-success" value={progress} max="100">25%</progress>
       </div> )
       }   
       </div>)
