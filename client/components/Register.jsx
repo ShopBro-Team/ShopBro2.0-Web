@@ -16,7 +16,6 @@ class Register extends React.Component {
       messageEmail : '',
       messageUserName : '',
       valid : true      
-
     }
     this.updateDetails = this.updateDetails.bind(this)
     this.submit = this.submit.bind(this)
@@ -75,4 +74,4 @@ class Register extends React.Component {
 
 export default connect()(Register)
 
-//Add an email input in this component.
+//similar to login apart from that no redux mapStateToProps - since this is where we create a new user. Therefore collect all data through a form and store in state until hit submit button. Before data is being dispatched through registerUserRequest all data gets validated (the function for this sits in utils/register and prompts the user with error messages if errors). After submitting all state/targets get reset to empty strings.

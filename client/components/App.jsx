@@ -22,6 +22,7 @@ const App = ({auth}) => (
   <Router>
     <div className='app-container has-text-centered is-block-flex-tablet is-block-flex-mobile' >
       <div className="header columns is-centered">
+      <br/>
         <img src="/image/144.png" alt="logo"  className="image"/>
       </div>
       

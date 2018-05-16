@@ -39,7 +39,6 @@ class Login extends React.Component {
         <br/>
       <div className="buttons is-centered">
       <input className="button is-success is-normal" type="submit" /><a className="button is-light is-normal"><Link to= '/register'>Register</Link></a>
-      
       </div>
     </form>
   </div>  
@@ -55,4 +54,6 @@ const mapStateToProps = (state) => {
   }
   
 export default connect(mapStateToProps)(Login)  
+
+//collecting user data through form and saving this to local state until all information collected, then dispatching loginUser with the information from state which writes it to redux store
 

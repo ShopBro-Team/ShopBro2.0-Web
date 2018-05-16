@@ -3,6 +3,7 @@ var {decode} = require('../auth/token')
 
 var db = require('../db/shoppinglists')
 
+//Saves shopping list to database
 router.post('/', decode, (req,res)=>{
     let newShoppinglist = {
       //NOTE: user_id obtained from decoded auth token. This approach
@@ -25,24 +26,25 @@ router.post('/', decode, (req,res)=>{
     .catch(err => res.status(500).send({message: "Server Error"}))
   })
 
+//Get all the shopping lists for the logged on user
 router.get('/',decode, (req,res) => {
+  //TO DO: Need to JSON parse items (same as getShoppinglistbyId)
   db.getShoppinglistsbyUserId(req.user.user_id, req.app.get('db'))
     .then(shoppinglists => res.json(shoppinglists))
     .catch(err => res.status(500).send({message: "Server Error"}))
 })  
 
+//Get shopping list 
 router.get('/:id', (req,res) => {
   db.getShoppinglistbyId(req.params.id, req.app.get('db'))
     .then(shoppinglist => {
-      console.log('hello', shoppinglist)
       let shoppinglist_to_send = {
-        //NOTE: user_id obtained from decoded auth token. This approach
-        //mimics Harrisons game. Refer to decode in token.js
         'id': shoppinglist[0].id, 
         'user_id':shoppinglist[0].user_id,
         'budget_in_cents': shoppinglist[0].budget_in_cents,
         'total_savings_in_cents':shoppinglist[0].total_savings_in_cents,
         'date':shoppinglist[0].date,
+        //Need to convert JSON shopping list to JS object for use by app
         'items':JSON.parse(shoppinglist[0].items)     
       }
       return res.json([shoppinglist_to_send])})
@@ -50,6 +52,7 @@ router.get('/:id', (req,res) => {
     res.status(500).send({message: "Server Error"})})
 })
 
+//Delete shopping list
 router.delete('/:id', (req,res) => {
   db.deleteShoppinglistById(req.params.id, req.app.get('db'))
     .then(shoppinglist => res.json(shoppinglist))
