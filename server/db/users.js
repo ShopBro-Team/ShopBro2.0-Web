@@ -30,3 +30,8 @@ module.exports = {
   userExists,
   getUserByName
 }
+
+// This is the function of user authentication. 
+// createUser is when you register new account.
+// userExists is for the user who already registered. This function is to check whether the user_name is exist or not
+// getUserByName is to grab all the user in an array. 
