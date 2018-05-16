@@ -126,10 +126,10 @@ class AddedItems extends React.Component {
 						<div className="columns is-mobile is-centered ">	
 						  <div className="level columns">
 							<div className="control column is-4">
-								<text className="is-size-5 has-text-warning">Item: {item.name}</text>
+								<text className="is-size-6 has-text-warning">Item: {item.name}</text>
 							</div>
 							<div className="control column is-4">
-								<p className="is-size-5 has-text-warning">Cost: {`$${(item.cost_in_cents/100).toFixed(2)}`}</p>
+								<p className="is-size-6 has-text-warning">Cost: {`$${(item.cost_in_cents/100).toFixed(2)}`}</p>
 							</div>
 						
 							<div className="control column is-4">
