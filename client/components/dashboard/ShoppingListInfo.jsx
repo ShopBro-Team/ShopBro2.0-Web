@@ -33,7 +33,7 @@ class ShoppingListInfo extends React.Component {
     return (
       <div>
         <div className="buttons is-centered">
-          <button className="is-pulled-right button is-small is-dark" onClick={() => props.dispatch(logoutUser())}>Logout</button>
+          <button className="is-pulled-right button is-small is-dark" onClick={() => this.props.dispatch(logoutUser())}>Logout</button>
         </div>
          
             <div className="container has-background-success">
