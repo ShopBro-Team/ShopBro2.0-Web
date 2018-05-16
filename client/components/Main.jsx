@@ -44,16 +44,15 @@ function Main (props) {
 
         {props.auth.isAuthenticated
           ? <div>
-              {console.log(props.budgetView)}
               {props.budgetView === 'setting' ? <BudgetSettingContainer /> : <Budget />}
             </div>
           : <div className="columns nav-menu">
-            <Link className="nav-item" to="/login">Login</Link>&nbsp;
-            <Link className="nav-item" to="/register">Register</Link>
-          </div>
+              <Link className="nav-item" to="/login">Login</Link>&nbsp;
+              <Link className="nav-item" to="/register">Register</Link>
+            </div>
         }
         <ShoppingList />
-      {(props.budget - props.totalSpend)< 0 && <AlertContainer />} 
+      {(props.budget - props.totalSpend) < 0 && <AlertContainer noBudget={props.budget == 0} />} 
       </div>
       
       {/* Done button saves shopping list to database and celebrates if underbudget */}
