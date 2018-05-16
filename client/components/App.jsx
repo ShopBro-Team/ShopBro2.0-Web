@@ -15,6 +15,7 @@ import ShoppingListInfo from './dashboard/ShoppingListInfo'
 import {connect} from 'react-redux'
 import Celebration from './Celebration';
 import { ShoppingList } from './ShoppingList';
+import {logoutUser} from '../actions/logout'
 
 // import Carousel from './dashboard/Carousel'  // this was harrison playing with bulma-carousel demo data
 
@@ -24,6 +25,10 @@ const App = ({auth}) => (
       <div className="header columns is-centered">
       <br/>
         <img src="/image/144.png" alt="logo"  className="image"/>
+          {auth.isAuthenticated 
+          &&  <div className="Nav hero is-small is-success">
+         <button className="is-pulled-right button is-small is-warning has-text-primary" onClick={() => props.dispatch(logoutUser())}>Logout</button>
+      </div>}
       </div>
       
       <div className="page-content">
@@ -46,7 +51,8 @@ const App = ({auth}) => (
       </div>
       {auth.isAuthenticated 
         && 
-        <Footer />}
+        <Footer />
+        }
         
     </div>
   </Router>
