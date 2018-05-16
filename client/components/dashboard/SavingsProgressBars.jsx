@@ -51,7 +51,7 @@ class SavingsProgressBars extends React.Component {
     return (
       <div>
           <div>
-            <Link to='/shoppinglistinfo/'><button className="button is-medium is-warning is-outlined is-mobile" onClick={() => this.props.dispatch(getShoppingListById(item.id))}>{newDate}</button></Link>
+            <Link to='/shoppinglistinfo/'><button className="button is-normal is-warning is-outlined is-mobile" onClick={() => this.props.dispatch(getShoppingListById(item.id))}>{newDate}</button></Link>
             <br/>
             <br/>
             <br/>
@@ -65,7 +65,7 @@ class SavingsProgressBars extends React.Component {
             }   
             <br/>
             <button>
-              <a className="button is-medium is-warning is-outlined is-mobile"  onClick=
+              <a className="button is-normal is-light is-mobile"  onClick=
               {e => this.deleteItem(e, item)} type="submit" value="edit item">
               Delete
               </a>
