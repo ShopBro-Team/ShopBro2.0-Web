@@ -19,7 +19,7 @@ function TotalSavings (props) {
   return (
     <div>
       <div className="level-right">
-        <button className="button" onClick={() => props.dispatch(logoutUser())}>Logout</button>
+        <button className="button is-small is-dark" onClick={() => props.dispatch(logoutUser())}>Logout</button>
       </div>
 
       <div className='columns is-mobile is-tablet is-centered'>
