@@ -25,6 +25,12 @@ function getUserByName (user_name, db) {
     .first()
 }
 
+function deleteUserAccount (user_id, db) {
+  return db('users')
+    .where('user_id', user_id)
+    .delete()
+}
+
 module.exports = {
   createUser,
   userExists,
