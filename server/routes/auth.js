@@ -26,4 +26,8 @@ router.get('/', function (req,res) {
   res.redirect('/login')
 })
 
+// router.delete('/:id', (req, res) => {
+//   //Annika working on this
+// })
+
 module.exports = router
