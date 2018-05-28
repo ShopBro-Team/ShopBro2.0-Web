@@ -31,8 +31,7 @@
       "stage-0"
     ]
   },
-  "author": "EDA",
-  "license": "ISC",
+  "author": "ShopBro Team: Engie Matene, Steve Torrens, Minjoo Ruth Bai, Annika Phillip, Anugrah Danai Abiyoga",
   "devDependencies": {
     "ava": "^0.19.1",
     "enzyme": "^2.8.2",
