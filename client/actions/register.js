@@ -4,35 +4,22 @@ import {receiveLogin} from './login'
 
 // Annika working on deleting user account, might not need this after all
 //deletes an existing item from redux state (through our shoppinglist reducer, hence item_id)
-// export function deleteShoppingListItem (item_id) {
-//   return {
-//     type: 'DELETE_ITEM',
-//     item_id
-//   }
-// }
-
-// as above, this is plan b trialling reset first
-// Dispatched in the deleteUserAccountById() below and deletes the specific user in store
-// export function deleteUserAccountByIdInStore (user_id) {
-//   return {
-//     type: 'DELETE_SHOPPINGLIST_BY_ID',
-//     user_id
-//   }
-// }
-
-export function resetApp() {
+export function deleteAccount (user_id) {
   return {
-    type: 'RESET_APP'
-  }  
+    type: 'DELETE_ACCOUNT',
+    item_id
+  }
 }
+
 
 // Dispatched in the deleteUserAccount() function in Settings.jsx. Seletes the User from both store and database
 
 export function deleteUserAccountById (user_id) {
   return (dispatch) => {
-    return request('delete', `auth/${user_id}`) //not sure about this
+    console.log("Made it here ", id)
+    return request('delete', `auth/${user_id}`)
       .then (res => {
-        dispatch(resetApp())
+        dispatch(deleteAccount(id))
       })
       .catch(err => {
         dispatch(showError(err.message))
