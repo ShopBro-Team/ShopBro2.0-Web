@@ -1,4 +1,4 @@
-import { isAuthenticated, getUserTokenInfo } from '../utils/auth'
+import { isAuthenticated, getUserTokenInfo, removeUser } from '../utils/auth'
 
 const initialState = {
   isFetching: false,
@@ -54,6 +54,10 @@ export default function auth (state = initialState, action) {
         isFetching: false,
         isAuthenticated: false,
         errorMessage: action.message
+      }
+    case 'DELETE_ACCOUNT' :
+      return { 
+        user: removeUser() 
       }
     default:
       return state
