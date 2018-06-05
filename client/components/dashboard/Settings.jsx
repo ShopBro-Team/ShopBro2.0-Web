@@ -12,6 +12,7 @@ class Settings extends React.Component {
   deleteUserAccount(e, userId) {
 		e.preventDefault()
     this.props.dispatch(deleteUserAccountById(userId))
+    //this.props.dispatch() //to change location or just use isAuthenticated? as is, else <link>
   }
   render() {
     let userId = this.props.auth.user.user_id
