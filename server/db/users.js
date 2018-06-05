@@ -8,7 +8,6 @@ function createUser (user_name, user_email, password, db) {
         .insert({user_name: user_name.toLowerCase(), user_email, hash}) 
         .then(user_id => resolve(user_id))
     })
-    
   })
 }
 
@@ -25,16 +24,18 @@ function getUserByName (user_name, db) {
     .first()
 }
 
-function deleteUserAccount (user_id, db) {
+function deleteUserAccount (id, db) {
+  console.log("Hello from delete in db")
   return db('users')
-    .where('user_id', user_id)
+    .where('user_id', id)
     .delete()
 }
 
 module.exports = {
   createUser,
   userExists,
-  getUserByName
+  getUserByName,
+  deleteUserAccount
 }
 
 // This is the function of user authentication. 
