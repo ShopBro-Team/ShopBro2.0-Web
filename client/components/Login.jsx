@@ -29,16 +29,7 @@ class Login extends React.Component {
         <form className="Login container" onSubmit={this.submit}>
           <label className="is-size-4">Username:
         <input className="input is-normal has-text-centered" type="text" name="user_name" onChange={this.updateDetails}/>
-          </label>
-
-          //I'm just practicing writing a comment for the camera.
-
-          {/* Suprise!! */}
-
-          This is all practice that is all :)
-          Smiles your're on candid camera!!
-
-          
+          </label>         
             <br/>
           <label className="is-size-4">Password:
         <input className="input is-normal has-text-centered" type="password" name="password" onChange={this.updateDetails}/>
