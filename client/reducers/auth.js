@@ -6,9 +6,6 @@ const initialState = {
   user: getUserTokenInfo(),
   errorMessage: ''
 }
-//Those initialState above are the one that will be send to the action.
-// So the component of Login and register can use these. 
-// Moreover, the above initial component's function will be stated below
 
 export default function auth (state = initialState, action) {
 //This function is dealing with authentication for both login and register
@@ -55,10 +52,8 @@ export default function auth (state = initialState, action) {
         isAuthenticated: false,
         errorMessage: action.message
       }
-    case 'DELETE_ACCOUNT' :
-      return { 
-        user: removeUser() 
-      }
+    case 'DELETE_USER' :
+      return {user: removeUser()}
     default:
       return state
   }

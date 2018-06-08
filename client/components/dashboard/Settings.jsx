@@ -1,18 +1,14 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {logoutUser} from '../../actions/logout'
-import {deleteUserAccountById} from '../../actions/register'
+import {deleteUserAccountById} from '../../actions/deleteUser'
 import {connect} from 'react-redux'
 
-//Settings for app - functionality to be done!
-
 class Settings extends React.Component {
-// function Settings (props) {
 
-  deleteUserAccount(e, userId) {
-		e.preventDefault()
-    this.props.dispatch(deleteUserAccountById(userId))
-    //this.props.dispatch() //to change location or just use isAuthenticated? as is, else <link>
+  deleteUserAccount(e) {
+    e.preventDefault()
+    this.props.dispatch(deleteUserAccountById())
   }
   render() {
     let userId = this.props.auth.user.user_id
@@ -33,12 +29,11 @@ class Settings extends React.Component {
       </div>
 
       <p className= "level-item is-5 has-text-warning has-text-weight-medium">Delete your account</p>
-      {/* <input className="input is-normal has-text-centered" type="text" name="name" placeholder="Enter your password" /> */}
+      {/* ShopBro Team please leave line in here, will be used in future <input className="input is-normal has-text-centered" type="text" name="name" placeholder="Enter your password" /> */}
       <div className="buttons has-addons is-centered">
-        <span onClick={(e) => this.deleteUserAccount(e, userId)} className="button is-success has-text-warning">Yes</span>
+        <button onClick={(e) => this.deleteUserAccount(e)} className="button is-success has-text-warning"><Link to='/'>Yes</Link></button>
       </div>
-      {/* create an alert to confirm that user wants to delete account */}
-
+      {/* ShopBro Team please leave line in here, will be used in future. Create an alert to confirm that user wants to delete account */}
 
       <br/>
         <p className= "level-item is-5 has-text-warning has-text-weight-medium">Change user name</p>

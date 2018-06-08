@@ -4,6 +4,7 @@
   "description": "A webpack React starter",
   "repository": "https://github.com/dev-academy-challenges/boilerplate-react-webpack.git",
   "main": "server/index.js",
+  "license": "",
   "scripts": {
     "postinstall": "webpack && knex migrate:latest",
     "dev": "nodemon --watch server server/index & webpack --watch",

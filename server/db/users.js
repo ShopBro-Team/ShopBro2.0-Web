@@ -25,7 +25,6 @@ function getUserByName (user_name, db) {
 }
 
 function deleteUserAccount (id, db) {
-  console.log("Hello from delete in db")
   return db('users')
     .where('user_id', id)
     .delete()

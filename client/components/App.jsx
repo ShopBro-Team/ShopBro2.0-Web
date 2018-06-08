@@ -20,12 +20,18 @@ import { ShoppingList } from './ShoppingList';
 
 const App = ({auth}) => (
   <Router>
-    <div className='app-container has-text-centered is-block-flex-tablet is-block-flex-mobile' >
-      <div className="header columns is-centered">
+    <div className='app-container has-text-centered is-block-flex-tablet is-block-flex-mobile ' >
+      <div className="header columns is-centered is-hidden-mobile">
       <br/>
         <img src="/image/144.png" alt="logo"  className="image"/>
       </div>
+
+      <div className="header columns is-centered is-hidden-desktop is-hidden-tablet is-hidden-fullhd is-hidden-widescreen">
+      <br/>
+        <img src="/image/48.png" alt="logo"  className="image"/>
+      </div>
       
+      {/* <div className="page-content-mobile is-hidden-desktop is-hidden-tablet"> */}
       <div className="page-content">
         <Route exact path='/' component={props => auth.isAuthenticated
           ? <Main {...props} />
@@ -49,6 +55,7 @@ const App = ({auth}) => (
         <Footer />}
         
     </div>
+    {/* </div> */}
   </Router>
 )
 
