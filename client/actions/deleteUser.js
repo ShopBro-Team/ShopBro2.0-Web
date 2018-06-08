@@ -11,7 +11,6 @@ export function deleteUserAccountById () {
   return (dispatch) => {
     return request('delete', `auth/`)
       .then (res => {
-        console.log("res ", res)
         dispatch(deleteAccount())
       })
       .catch(err => {

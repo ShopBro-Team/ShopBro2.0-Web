@@ -1,7 +1,6 @@
 var router = require('express').Router()
 var {decode} = require('../auth/token')
 
-
 var {userExists, createUser, deleteUserAccount} = require('../db/users')
 var token = require('../auth/token')
 
@@ -29,7 +28,6 @@ router.get('/', function (req,res) {
 })
 
 router.delete('/', decode, (req, res) => {
-  console.log("RPUI, ", req.user.user_id)
   deleteUserAccount(req.user.user_id, req.app.get('db'))
     .then(account => res.json(account))
     .catch(err => res.status(500).send({message: "Server Error"}))

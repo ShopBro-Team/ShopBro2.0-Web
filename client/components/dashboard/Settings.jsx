@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import {logoutUser} from '../../actions/logout'
 import {deleteUserAccountById} from '../../actions/deleteUser'
+import {deleteDeletedUsersShoppinglists} from '../../actions/shoppinglist'
 import {connect} from 'react-redux'
 
 class Settings extends React.Component {
@@ -9,6 +10,7 @@ class Settings extends React.Component {
   deleteUserAccount(e) {
     e.preventDefault()
     this.props.dispatch(deleteUserAccountById())
+    this.props.dispatch(deleteDeletedUsersShoppinglists())
   }
   render() {
     let userId = this.props.auth.user.user_id
