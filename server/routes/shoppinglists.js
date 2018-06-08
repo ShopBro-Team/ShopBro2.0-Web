@@ -58,6 +58,15 @@ router.delete('/:id', (req,res) => {
     .then(shoppinglist => res.json(shoppinglist))
     .catch(err => res.status(500).send({message: "Server Error"}))
 })
+
+//This is new, deleting shoppinglists when deleting account
+//Delete all shoppinglists associated with a deleted user account
+// router.delete('/', decode, (req,res) => {
+//   console.log("Hitting the delete route")
+//   db.deleteShoppinglistsWhenDeletingUserAccount(req.params.id, req.app.get('db'))
+//     .then(shoppinglist => res.json(shoppinglist))
+//     .catch(err => res.status(500).send({message: "Server Error"}))
+// })
   
 module.exports = router
 
