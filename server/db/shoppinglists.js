@@ -40,12 +40,11 @@ function getTotalsByUserId (user_id, db) {
     .groupByRaw('user_id')     
 }
 
-// function deleteShoppinglistsWhenDeletingUserAccount (user_id, db) {
-//   console.log("Hello from delete ShoppinglistsWhenDeletingUserAccount in db")
-//   return db('shoppinglists')
-//     .where('user_id', user_id)
-//     .delete()
-// }
+function deleteShoppinglistsWhenDeletingUserAccount (user_id, db) {
+  return db('shoppinglists')
+    .where('user_id', user_id)
+    .delete()
+}
 
 //Need to use ES2015 module exports as 'requiring in' in the routes file  
 module.exports = {
@@ -54,5 +53,5 @@ module.exports = {
   getShoppinglistbyId,
   deleteShoppinglistById,
   getTotalsByUserId,
-  // deleteShoppinglistsWhenDeletingUserAccount
+  deleteShoppinglistsWhenDeletingUserAccount
 }

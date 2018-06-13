@@ -60,3 +60,15 @@ export function resetApp() {
     type: 'RESET_APP'
   }  
 }
+
+export function deleteDeletedUsersShoppinglists() {
+  return (dispatch) => {
+    return request('delete', `v1/shoppinglists`)
+      .then (res => {
+        dispatch(resetApp())
+      })
+      .catch(err => {
+        dispatch(showError(err.message))
+      })
+  }
+}
