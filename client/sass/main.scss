@@ -13,31 +13,32 @@ $fa-font-path: '~font-awesome/fonts';
 @import '~react-circular-progressbar/dist/styles.css';
 
 .header {
-    // top: 0;
-    width: 105%;
-    top: 0;
-    left: 0;
-    position: fixed;
-    z-index: 1;
-    background-color: white;
-    img {
-        display:block;
-        padding: 2% 0 0 0;
-        margin:auto;
-    }
-    //border-bottom: 1px #b6b6b6;
-    //box-shadow: 1px 3px 3px #b6b6b6;
-}
-
-.page-content-mobile {
-    margin-top: 5%;
+	width: 105%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	z-index: 1;
+	background-color: white;
+	img {
+		display:block;
+		margin:auto;
+		padding: 0.1rem;
+	}
+	border-bottom: 1px #b6b6b6;
+	box-shadow: 1px 3px 3px #b6b6b6;
 }
 
 .page-content {
-    margin-top: 10%;
-    height: 90%;
+//	margin-top: 10%;
+	@include mobile {
+		margin-top: 22px;
+	}
+
+	@include tablet {
+		margin-top: 95px; 
+	}
 }
 
 .circle-progress {
-    height: 35vh;
+	height: 35vh;
 }
