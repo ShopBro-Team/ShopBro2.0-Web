@@ -86,7 +86,7 @@ export class ShoppingList extends React.Component {
 						{/* <label className="label">Cost: $</label> */}
 					</div>
 						{/* Button to add the item */}
-					<a className="button column is-4 is-normal is-dark is-outlined is-mobile" onClick={this.addItem} type="submit" value="add item">
+					<a className="button is-small is-dark is-outlined is-mobile" onClick={this.addItem} type="submit" value="add item">
 						Add
 					</a>
 					<br/>

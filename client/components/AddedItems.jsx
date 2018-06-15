@@ -104,10 +104,10 @@ class AddedItems extends React.Component {
 								</div>
 								<div className="control column is-4">
 									<div className="buttons is-centered">
-										<a className="button is-normal is-primary is-outlined is-mobile" onClick={e => this.editItem(e, item)} type="submit" value="edit item">
+										<a className="button is-small is-primary is-outlined is-mobile" onClick={e => this.editItem(e, item)} type="submit" value="edit item">
 										Save
 										</a>
-										<a className="button is-normal is-primary is-outlined is-mobile" onClick=
+										<a className="button is-small is-primary is-outlined is-mobile" onClick=
 										{e => this.deleteItem(e, item)} type="submit" value="edit item">
 										Delete
 										</a>
@@ -130,10 +130,10 @@ class AddedItems extends React.Component {
 								</div>
 								<div className="control column is-4">
 									<div className="buttons is-centered">
-										<a className="button is-normal is-dark is-outlined is-mobile" onClick={this.toggleForm} type="submit" value="edit item">
+										<a className="button is-small is-dark is-outlined is-mobile" onClick={this.toggleForm} type="submit" value="edit item">
 										Edit
 										</a>
-										<a className="button is-normal is-dark is-outlined is-mobile" onClick=
+										<a className="button is-small is-dark is-outlined is-mobile" onClick=
 										{e => this.deleteItem(e, item)} type="submit" value="edit item">
 										Delete
 										</a>

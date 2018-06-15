@@ -22,10 +22,11 @@ $fa-font-path: '~font-awesome/fonts';
     background-color: white;
     img {
         display:block;
+        padding: 2% 0 0 0;
         margin:auto;
     }
-    border-bottom: 1px #b6b6b6;
-    box-shadow: 1px 3px 3px #b6b6b6;
+    //border-bottom: 1px #b6b6b6;
+    //box-shadow: 1px 3px 3px #b6b6b6;
 }
 
 .page-content-mobile {
@@ -34,6 +35,7 @@ $fa-font-path: '~font-awesome/fonts';
 
 .page-content {
     margin-top: 10%;
+    height: 90%;
 }
 
 .circle-progress {
