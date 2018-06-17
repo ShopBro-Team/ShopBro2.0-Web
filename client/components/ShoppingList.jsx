@@ -77,7 +77,7 @@ export class ShoppingList extends React.Component {
 			<div className='columns is-centered'>
 					{/* Input field for shopping item */}
 				<div className='level columns'>
-					<div className='control column is-three-quarters'>
+					<div className='control column is-two-quarters'>
 						{/* <label className='label '>Item:</label> */}
 						<input onChange={this.handleChange} className='input is-normal has-text-centered' type='text' value={this.state.name} name='name' placeholder='Enter item' />
 					</div>
