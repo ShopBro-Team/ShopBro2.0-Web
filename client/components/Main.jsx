@@ -57,6 +57,8 @@ function Main (props) {
           {props.budget - props.totalSpend > 0.01 ? <Link className='nav-item' to='/celebration'>Done</Link> : 
             <Link className='nav-item' to='/dashboard'>Done</Link>}  
         </button>  
+        <br/>
+        <br/>
       </div> 
     </div>
     </div>

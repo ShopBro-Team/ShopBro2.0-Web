@@ -33,6 +33,8 @@ $fa-font-path: '~font-awesome/fonts';
 }
 
 .page-content {
+	overflow-wrap: normal;	
+
 	@include mobile {
 		margin-top: 25px;
 	}
@@ -60,4 +62,8 @@ $fa-font-path: '~font-awesome/fonts';
 
 .circle-progress {
 	height: 35vh;
+}
+
+.button {
+	margin: 0 0.25rem;
 }

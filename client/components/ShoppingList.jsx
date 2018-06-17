@@ -91,6 +91,7 @@ export class ShoppingList extends React.Component {
 						Add
 					</a>
 					<br/>
+					<br/>
 				</div>
 			</div>
 			{this.state.messageCost && <p>{this.state.messageCost}</p>}
