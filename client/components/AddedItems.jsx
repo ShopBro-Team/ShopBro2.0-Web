@@ -104,10 +104,10 @@ class AddedItems extends React.Component {
 								</div>
 								<div className="control column is-4">
 									<div className="buttons is-centered">
-										<a className="button is-small is-primary is-outlined is-mobile" onClick={e => this.editItem(e, item)} type="submit" value="edit item">
+										<a className="button is-small is-dark is-outlined is-mobile" onClick={e => this.editItem(e, item)} type="submit" value="edit item">
 										Save
 										</a>
-										<a className="button is-small is-primary is-outlined is-mobile" onClick=
+										<a className="button is-small is-dark is-outlined is-mobile" onClick=
 										{e => this.deleteItem(e, item)} type="submit" value="edit item">
 										Delete
 										</a>
@@ -125,15 +125,17 @@ class AddedItems extends React.Component {
 							<div className="columns is-mobile is-centered ">	
 							<div className="level columns">
 								<div className="control column is-4">
-									<text className="is-size-6 has-text-warning">Item: {item.name}</text>
-									<p className="is-size-6 has-text-warning">Cost: {`$${(item.cost_in_cents/100).toFixed(2)}`}</p>
+									<text className="is-size-6 has-text-warning is-mobile">{item.name}</text>
+								</div>
+								<div className="control column is-4">
+									<text className="is-size-6 has-text-warning is-mobile">{`$${(item.cost_in_cents/100).toFixed(2)}`}</text>
 								</div>
 								<div className="control column is-4">
 									<div className="buttons is-centered">
 										<a className="button is-small is-dark is-outlined is-mobile" onClick={this.toggleForm} type="submit" value="edit item">
 										Edit
 										</a>
-										<a className="button is-small is-dark is-outlined is-mobile" onClick=
+										<a className="button is-small is-dark is-outlined" onClick=
 										{e => this.deleteItem(e, item)} type="submit" value="edit item">
 										Delete
 										</a>

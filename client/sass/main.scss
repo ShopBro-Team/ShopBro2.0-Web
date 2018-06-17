@@ -12,6 +12,10 @@ $fa-font-path: '~font-awesome/fonts';
 //Added for circular progress bar
 @import '~react-circular-progressbar/dist/styles.css';
 
+.app-container {
+	margin: auto;
+}
+
 .header {
 	width: 105%;
 	top: 0;
@@ -29,13 +33,22 @@ $fa-font-path: '~font-awesome/fonts';
 }
 
 .page-content {
-//	margin-top: 10%;
 	@include mobile {
-		margin-top: 22px;
+		margin-top: 25px;
+		max-width: 100%;
+		min-height: 100%;
 	}
 
 	@include tablet {
-		margin-top: 95px; 
+		margin: 100px auto;
+		max-width: 80%;
+		min-height: 100%;
+	}
+
+	@include desktop {
+		margin: 95px auto;
+		max-width: 60%;
+		min-height: 100%;
 	}
 }
 

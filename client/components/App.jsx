@@ -20,7 +20,7 @@ import { ShoppingList } from './ShoppingList';
 
 const App = ({auth}) => (
   <Router>
-    <div className='app-container has-text-centered is-block-flex-tablet is-block-flex-mobile is-block-flex-desktop' >
+    <div className='app-container is-fullheight has-text-centered is-block-flex-tablet is-block-flex-mobile is-block-flex-desktop' >
       
       {/* logo sizing for larger than mobile */}
       <div className='header columns is-centered is-hidden-mobile'>
