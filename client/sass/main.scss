@@ -35,20 +35,26 @@ $fa-font-path: '~font-awesome/fonts';
 .page-content {
 	@include mobile {
 		margin-top: 25px;
-		max-width: 100%;
-		min-height: 100%;
 	}
 
 	@include tablet {
 		margin: 100px auto;
 		max-width: 80%;
-		min-height: 100%;
 	}
 
 	@include desktop {
 		margin: 95px auto;
 		max-width: 60%;
-		min-height: 100%;
+	}
+}
+
+.container {
+	@include tablet {
+		max-width: 80%;
+	}
+
+	@include desktop {
+		max-width: 60%;
 	}
 }
 
