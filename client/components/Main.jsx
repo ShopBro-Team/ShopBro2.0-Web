@@ -34,7 +34,6 @@ function Main (props) {
   return (
     <div>
     <div className='Nav hero is-small is-success'>
-     <button className='is-pulled-right button is-small is-dark' onClick={() => props.dispatch(logoutUser())}>Logout</button>
       <div className='hero-body'>
         <p className='is-4 has-text-warning has-text-weight-bold'>Kia ora {capitalizeFirstLetter(userName)}!</p> 
         <br/>

@@ -9,9 +9,10 @@ function Footer (props) {
     <div className="navbar is-active is-fixed-bottom ">
       <div className="buttons is-centered">
       <div className="field is-grouped is-centered">
-        <Link className="navbar-item is-dark" to="/dashboard"><button className="button is-normal is-dark">Dashboard</button></Link>
-        <Link className="navbar-item is-dark" to="/main"><button className="button is-normal is-dark">Main</button></Link>
-        <Link className="navbar-item is-dark" to="/settings"><button className="button is-normal is-dark">Settings</button></Link>
+        <Link className="navbar-item is-dark" to="/dashboard">Dashboard</Link>
+        <Link className="navbar-item is-dark" to="/main">Main</Link>
+        <Link className="navbar-item is-dark" to="/settings">Settings</Link>
+        <Link className="navbar-item is-dark" to="/login" onClick={() => props.dispatch(logoutUser())}>Logout</Link>
         </div>
       </div>
     </div>
