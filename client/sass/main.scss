@@ -85,3 +85,8 @@ $fa-font-path: '~font-awesome/fonts';
 	text-align: center;
 	text-decoration: none;
 }
+
+/* When click on nav bar item, background remains #333 */
+a.navbar-item:hover, a.navbar-item.is-active, .navbar-link:hover, .navbar-link.is-active {
+	background-color: #333;
+}
