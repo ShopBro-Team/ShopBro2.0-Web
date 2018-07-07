@@ -54,7 +54,10 @@ const App = ({auth}) => (
       </div>
       {auth.isAuthenticated 
         && 
-        <Footer />}
+        <div className='footer-nav'>
+          <Footer />
+        </div>
+        }
         
     </div>
     {/* </div> */}
