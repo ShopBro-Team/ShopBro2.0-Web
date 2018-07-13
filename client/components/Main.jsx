@@ -33,18 +33,17 @@ function Main (props) {
   //props.auth.isAuthenticated checks if our user is authenticated, only if true can they progress to setting their budget, otherwise they see the Login and Register buttons which link to the relevant components. props.butdetView sets a nested ternary that navigates between BudgetSettingContainer and Budget. This is set as setting in initialState.
   return (
     <div>
-    <div className="Nav hero is-small is-success">
-     <button className="is-pulled-right button is-small is-dark" onClick={() => props.dispatch(logoutUser())}>Logout</button>
-      <div className="hero-body">
-        <p className="is-4 has-text-warning has-text-weight-bold">Kia ora {capitalizeFirstLetter(userName)}!</p> 
+    <div className='Nav hero is-small is-success'>
+      <div className='hero-body'>
+        <p className='is-4 has-text-warning has-text-weight-bold'>Kia ora {capitalizeFirstLetter(userName)}!</p> 
         <br/>
         {props.auth.isAuthenticated
           ? <div>
               {props.budgetView === 'setting' ? <BudgetSettingContainer /> : <Budget />}
             </div>
-          : <div className="columns nav-menu">
-              <Link className="nav-item" to="/login">Login</Link>&nbsp;
-              <Link className="nav-item" to="/register">Register</Link>
+          : <div className='columns nav-menu'>
+              <Link className='nav-item' to='/login'>Login</Link>&nbsp;
+              <Link className='nav-item' to='/register'>Register</Link>
             </div>
         }
         <ShoppingList />
@@ -52,13 +51,13 @@ function Main (props) {
       </div>
       
       {/* Done button calls done function and saves shopping list to database and celebrates if underbudget */}
-      <div className="completed">
-          <button className="button is-normal is-warning has-text-white" onClick={() => done()}>
-            {props.budget - props.totalSpend > 0.01 ? <Link className="nav-item" to="/celebration">Done</Link> : 
-              <Link className="nav-item" to="/dashboard">Done</Link>}  
-          </button> 
-          <br/> 
-          <br/> 
+      <div className='completed'>
+        <button className='button is-normal is-warning has-text-white' onClick={() => done()}>
+          {props.budget - props.totalSpend > 0.01 ? <Link className='nav-item' to='/celebration'>Done</Link> : 
+            <Link className='nav-item' to='/dashboard'>Done</Link>}  
+        </button>  
+        <br/>
+        <br/>
       </div> 
     </div>
     </div>

@@ -60,10 +60,11 @@ export class ShoppingList extends React.Component {
 	render() {
 		return <div>
 			<br />
-			<div className="column is-mobile is-centered">
+			<div className='column is-mobile is-centered'>
 				{/* NOTE: Updated so that the map over the AddedItems in the shopping list happens in the ShoppingList.jsx component, instead of AddedItems.jsx component. This means we can isolate the toggle of viewing value or input box to the individual items, rather than the whole list. */}
 
-				<h2 className="title is-5">Shopping List</h2>
+				<h2 className='title is-5'>Shopping List</h2>
+				<br/>
 
 				{this.props.shoppingList.map(item => {
 					return (
@@ -73,22 +74,23 @@ export class ShoppingList extends React.Component {
 			</div>
 
 			{/* Renders the initial input fields and add button to start the shopping list and it the starting point for all new items being added to the shopping list. */}
-			<div className="columns is-centered">
+			<div className='columns is-centered'>
 					{/* Input field for shopping item */}
-				<div className="level columns">
-					<div className="control column is-4">
-						<input onChange={this.handleChange} className="input is-normal has-text-centered" type="text" value={this.state.name} name="name" placeholder="Enter item" />
-						{/* <label className="label ">Item:</label> */}
+				<div className='level columns'>
+					<div className='control column is-two-quarters'>
+						{/* <label className='label '>Item:</label> */}
+						<input onChange={this.handleChange} className='input is-normal has-text-centered' type='text' value={this.state.name} name='name' placeholder='Enter item' />
 					</div>
 					{/* Input field for the cost of the item */}
-					<div className="control column is-4">
-						<input onChange={this.handleChange} className="input is-normal has-text-centered" type="number" min="0" value={this.state.cost} name="cost" placeholder="Enter cost" />
-						{/* <label className="label">Cost: $</label> */}
+					<div className='control column is-one-quarter'>
+						{/* <label className='label'>Cost:</label> */}
+						<input onChange={this.handleChange} className='input is-normal has-text-centered' type='number' min='0' value={this.state.cost} name='cost' placeholder='Enter cost' />
 					</div>
 						{/* Button to add the item */}
-					<a className="button column is-4 is-normal is-dark is-outlined is-mobile" onClick={this.addItem} type="submit" value="add item">
+					<a className='button is-normal is-dark is-outlined is-mobile' onClick={this.addItem} type='submit' value='add item'>
 						Add
 					</a>
+					<br/>
 					<br/>
 				</div>
 			</div>

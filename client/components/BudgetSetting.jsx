@@ -40,7 +40,7 @@ class BudgetSetting extends React.Component {
 			messageCost : checkValid.messageCost,
 			valid : checkValid.valid
 		})
-		console.log("checking if valid: ",checkValid, checkValid.valid)
+		console.log('checking if valid: ',checkValid, checkValid.valid)
 		if(checkValid.valid) {
       //** Convert budget in dollars to cents **
       this.props.dispatch(addBudget(budget))
@@ -52,19 +52,21 @@ class BudgetSetting extends React.Component {
 
   render() {
     return ( 
-      <div className="container"> 
-        <form onSubmit={this.handleSubmit}>
-        <label className="has-text-warning is-size-6 ">Set your budget $</label>
-        <br/>
-        <br/>
-        <input onChange={this.updateBudget} className="input is-normal has-text-centered" name="budget" type="number" step="0.01" placeholder="Your budget"/>
-        <br/>
-        <br/>
-        <input className="button is-normal is-warning has-text-primary" type="submit"/>
-        <br/>
-				{this.state.messageCost && <p>{this.state.messageCost}</p>}
-        </form>
-     </div>
+      <div>
+   			<div className='column is-mobile is-centered'>
+          <div className='columns is-centered'>
+            <div className='level columns'>
+              <label className='had-text-warning is-size-6'>Set your budget:</label>
+              <div className='control column is-two-quarters'>
+                <input onChange={this.updateBudget} className='input is-normal has-text-centered' name='budget' type='number' step='0.01' placeholder='Your budget'/>
+              </div>
+              <a className='button is-normal is-warning has-text-primary is-mobile' onClick={this.handleSubmit} type='submit' value='add item'>
+                Submit
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     )
   }
 }

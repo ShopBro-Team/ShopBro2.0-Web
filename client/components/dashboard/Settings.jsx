@@ -17,11 +17,6 @@ class Settings extends React.Component {
 
     return (
     <div>        
-      <div className="level-right">
-        <button className="button is-small is-dark" onClick={() => this.props.dispatch(logoutUser())}>Logout</button>
-        <br/>
-      </div>
-      <br/>
       <h1 className= "title is-4 has-text-warning has-text-weight-bold">Settings</h1>
 
       <p className= "level-item is-5 has-text-warning has-text-weight-medium">Delete your account</p>

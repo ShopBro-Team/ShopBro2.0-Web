@@ -19,12 +19,6 @@ function TotalSavings (props) {
   //NOTE: totals are brought in via props from the Dashboard component (not from the store)
   return (
     <div>
-      <div className="level-right">
-        <button className="button is-small is-dark" onClick={() => props.dispatch(logoutUser())}>Logout</button>
-        <br/>
-        <br/>
-      </div>
-
       <div className='columns is-mobile is-tablet is-centered'>
         <div className=''>
         
