@@ -57,7 +57,7 @@ class SavingsProgressBars extends React.Component {
             <br/>
             {this.renderProgressBar()}
             <br/>
-            { item.total_savings_in_cents > 0 
+            { item.total_savings_in_cents >= 0 
               ?
               <p>Total Savings: ${(item.total_savings_in_cents/100).toFixed(2)}</p>
               :

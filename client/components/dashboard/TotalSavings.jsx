@@ -39,7 +39,7 @@ function TotalSavings (props) {
      {/* Ternary to deal with 'negative' savings */}
       <h1 className="has-text-weight-bold">Hello {capitalizeFirstLetter(userName)}!</h1>  
         {props.totals[0] && 
-          (props.totals[0].totalsavings > 0 
+          (props.totals[0].totalsavings >= 0 
         ?
           <h1>Your total Savings : $ {(props.totals[0].totalsavings/100).toFixed(2)}</h1>
         :
