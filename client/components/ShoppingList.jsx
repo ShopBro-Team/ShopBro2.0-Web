@@ -13,6 +13,7 @@ export class ShoppingList extends React.Component {
 			id: 0,
 			name: '',
 			cost: '',
+			quantity: '',
 			messageCost: '',
 			valid: true
 		}
@@ -32,12 +33,16 @@ export class ShoppingList extends React.Component {
 		let item = {
 			id: this.state.id++,
 			name: this.state.name,
-			cost_in_cents: this.state.cost * 100
+			quantity: this.state.quantity,
+			unit_cost_in_cents: this.state.cost * 100,
+			total_cost_in_cents: this.state.cost * 100 * this.state.quantity
 		}
+		console.log(item)
 
 		this.setState({
 			name: '',
 			cost: '',
+			quantity: '',
 		})
 		// validate that cost value is not a negative number before sending to props	
 		let costToCheck = this.state.cost * 100
@@ -49,7 +54,7 @@ export class ShoppingList extends React.Component {
 		})
 		if (checkValid.valid) {
 			this.props.dispatch(addShoppingListItem(item))
-			this.props.dispatch(addToTotalSpend(item.cost_in_cents))
+			this.props.dispatch(addToTotalSpend(item.total_cost_in_cents))
 		}
 		//NOTE: Need to add functionality to reset add buttons to placeholder values - use reset?
 
@@ -85,6 +90,10 @@ export class ShoppingList extends React.Component {
 					<div className='control column is-one-quarter'>
 						{/* <label className='label'>Cost:</label> */}
 						<input onChange={this.handleChange} className='input is-normal has-text-centered' type='number' min='0' value={this.state.cost} name='cost' placeholder='Enter cost' />
+					</div>
+					{/* Input field for the quantity of the item */}
+					<div className='control column is-one-quarter'>
+						<input onChange={this.handleChange} className='input is-normal has-text-centered' type='number' min='0' value={this.state.quantity} name='quantity' placeholder='Enter quantity' />
 					</div>
 						{/* Button to add the item */}
 					<a className='button is-normal is-dark is-outlined is-mobile' onClick={this.addItem} type='submit' value='add item'>
