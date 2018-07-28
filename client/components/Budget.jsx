@@ -2,11 +2,13 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {navigate} from '../actions/navigate'
+import Alert from './Alert'
 
 class Budget extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+
      
     }
     this.renderProgressBar = this.renderProgressBar.bind(this)
@@ -21,7 +23,6 @@ class Budget extends React.Component {
   //renders our progressbar by calculating how many percent of total budget spent, the progress bars colour changes (set in styling in className) depending on if over or under 50% spent.
   renderProgressBar() {
     let progress = this.props.totalSpend *100/this.props.budget
-
 
     return (
       <div className='column is-mobile is-centered'>
@@ -46,6 +47,7 @@ class Budget extends React.Component {
   }
 
   render () {
+
     return (
       <div> 
 
@@ -60,10 +62,10 @@ class Budget extends React.Component {
           ?
           <p className="has-text-warning has-text-weight-bold is-size-6">
             You have ${((this.props.budget - this.props.totalSpend)/100).toFixed(2)} left</p> 
-          :
+          :          
           <p className="has-text-danger has-text-weight-bold is-size-6">
-            You have over spent by ${((this.props.totalSpend - this.props.budget)/100).toFixed(2)}</p> 
-        }
+             You have over spent by ${((this.props.totalSpend - this.props.budget)/100).toFixed(2)}
+          </p>}
 
     </div>    
     )

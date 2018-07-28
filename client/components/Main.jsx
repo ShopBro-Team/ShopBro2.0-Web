@@ -15,9 +15,17 @@ class Main extends React.Component {
     super(props)
     this.state = {
 
+      showModal: false,
+
     }
-  this.capitalizeFirstLetter = this.capitalizeFirstLetter.bind(this)
-  this.done = this.done.bind(this)
+
+    this.capitalizeFirstLetter = this.capitalizeFirstLetter.bind(this)
+    this.done = this.done.bind(this)
+    this.toggleModal = this.toggleModal.bind(this)
+  }
+
+  toggleModal() {
+    this.setState(({showModal}) => ({showModal: !showModal}))
   }
   
   capitalizeFirstLetter(data) {
@@ -34,10 +42,12 @@ class Main extends React.Component {
 
   }
 
+
   render() {
     let userName = this.props.auth.user.user_name
     const overBudget = this.props.budget - this.props.totalSpend < 0
     const savings = this.props.budget - this.props.totalSpend > 0.01
+    const {showModal} = this.state
 
     return (<div>
         <div className='Nav hero is-small is-success'>
@@ -54,7 +64,10 @@ class Main extends React.Component {
                 </div>
             }
             <ShoppingList />
-          {overBudget && <Alert noBudget={this.props.budget == 0} />} 
+          {this.state.showModal && <Alert noBudget={this.props.budget == 0} 
+                  closeModal={this.toggleModal} 
+                  showModal={this.state.showModal} />} 
+          <button className="button" onClick={() => this.toggleModal()}>Modal</button>
           </div>
           
           {/* Done button calls done function and saves shopping list to database and celebrates if underbudget */}
