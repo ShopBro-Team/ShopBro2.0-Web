@@ -35,6 +35,8 @@ class AddedItems extends React.Component {
 		//**Converts edited dollars to cents**
 		// Using or operator (||) to only update field if the field has been changed
 		// let updateItem is setting the values of the item object that is being edited. If value has been edited, it will take this.state. If value is unchanged, it will take this.props.
+		console.log("Props ", this.props.shoppingList)
+		console.log("what's your id? ", item.id, this.state.name, this.state.cost, this.state.quantity)
 
 		let updateItem = {
 				id: item.id,
@@ -47,7 +49,7 @@ class AddedItems extends React.Component {
 				
 				total_cost_in_cents: this.state.cost*100 * this.state.quantity || this.props.shoppingList[item.id].unit_cost_in_cents * this.props.shoppingList[item.id].quantity 
 			}
-			console.log("update item object before we play with it", updateItem)
+			// console.log("update item object before we play with it", updateItem)
 			
 			let updatedName = updateItem.name
 			let updatedQuantity = updateItem.quantity
@@ -88,7 +90,7 @@ class AddedItems extends React.Component {
 			messageCost : checkValid.messageCost,
 			valid : checkValid.valid
 		})
-		console.log('checking if valid: ',checkValid, checkValid.valid)
+		// console.log('checking if valid: ',checkValid, checkValid.valid)
 		if(checkValid.valid) {
 			this.props.dispatch(editShoppingListItem(updateItem)) // Send updated item object to editShoppingListItem //
 			this.props.dispatch(addToTotalSpend(diffCost)) // Send the value of the difference in cost to addToTotalSpend //

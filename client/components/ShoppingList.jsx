@@ -33,11 +33,11 @@ export class ShoppingList extends React.Component {
 		let item = {
 			id: this.state.id++,
 			name: this.state.name,
-			quantity: this.state.quantity,
+			quantity: this.state.quantity || '1',
 			unit_cost_in_cents: this.state.cost * 100,
-			total_cost_in_cents: this.state.cost * 100 * this.state.quantity
+			total_cost_in_cents: this.state.cost * 100  * (this.state.quantity || '1')
 		}
-		console.log(item)
+		console.log("item ", item)
 
 		this.setState({
 			name: '',
