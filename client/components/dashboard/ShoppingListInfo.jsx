@@ -57,23 +57,26 @@ class ShoppingListInfo extends React.Component {
               <table className="table is-fullwidth is-text-5 is-centered">
                 <thead>
                   <tr className="table-row-active-background-color">
-                    <th className="is-text-6 has-text-centered">Item/Cost</th>
+                    <th className="is-text-6 has-text-centered">Item</th>
+                    <th className="is-text-6 has-text-centered">#</th>
+                    <th className="is-text-6 has-text-centered">Cost/item</th>
+                    <th className="is-text-6 has-text-centered">Totalcost</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
                   {/* Map over all items in historic shopping list */}
                   { this.props.dashboardShoppingListById.length > 0 && this.props.dashboardShoppingListById[0].items.map(item => {
                   return (
-                    <div className="is-text-6" key={item.id}>
-                    {capitalizeFirstLetter(item.name)}
-                    : &nbsp;$
-                    {(item.cost_in_cents/100).toFixed(2)}
-                    </div>
+                    <tr key={item.id}>
+                    {/* <div className="is-text-6" key={item.id}> */}
+                      <td>{capitalizeFirstLetter(item.name)}</td>
+                      <td>{item.quantity}</td>
+                      <td>{(item.unit_cost_in_cents/100).toFixed(2)}</td>
+                      <td>{(item.total_cost_in_cents/100).toFixed(2)}</td>
+                    </tr>
                       )
                     })
                   }
-                  </tr>
                 </tbody>    
               </table>    
              <hr/>
