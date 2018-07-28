@@ -38,9 +38,13 @@ class AddedItems extends React.Component {
 
 		let updateItem = {
 				id: item.id,
+
 				name: this.state.name || this.props.shoppingList[item.id].name,
+
 				quantity: this.state.quantity || this.props.shoppingList[item.id].quantity,
+
 				unit_cost_in_cents: this.state.cost*100 || this.props.shoppingList[item.id].unit_cost_in_cents,
+				
 				total_cost_in_cents: this.state.cost*100 * this.state.quantity || this.props.shoppingList[item.id].unit_cost_in_cents * this.props.shoppingList[item.id].quantity 
 			}
 			console.log("update item object before we play with it", updateItem)
@@ -117,7 +121,7 @@ class AddedItems extends React.Component {
 
 									<div className='control column is-one-quarater'>
 										{/* Converts cost in cents to dollars for display purposes */}
-										<input onChange={this.handleChange} className='input is-normal has-text-centered' type='number' name='unit_cost_in_cents' placeholder={`$${(item.unit_cost_in_cents/100).toFixed(2)}`} />
+										<input onChange={this.handleChange} className='input is-normal has-text-centered' type='number' name='cost' placeholder={`$${(item.unit_cost_in_cents/100).toFixed(2)}`} />
 									</div>
 
 									<div className='control column is-one-quarater'>
