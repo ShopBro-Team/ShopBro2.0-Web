@@ -57,10 +57,10 @@ class ShoppingListInfo extends React.Component {
               <table className="table is-fullwidth is-text-5 is-centered">
                 <thead>
                   <tr className="table-row-active-background-color">
-                    <th className="is-text-6 has-text-centered">Item</th>
-                    <th className="is-text-6 has-text-centered">#</th>
-                    <th className="is-text-6 has-text-centered">Cost/item</th>
-                    <th className="is-text-6 has-text-centered">Totalcost</th>
+                    <th className="has-text-6 has-text-left">Item</th>
+                    <th className="has-text-6 has-text-left">#</th>
+                    <th className="has-text-6 has-text-left">Cost/item</th>
+                    <th className="has-text-6 has-text-left">Totalcost</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -69,10 +69,10 @@ class ShoppingListInfo extends React.Component {
                   return (
                     <tr key={item.id}>
                     {/* <div className="is-text-6" key={item.id}> */}
-                      <td>{capitalizeFirstLetter(item.name)}</td>
-                      <td>{item.quantity}</td>
-                      <td>{(item.unit_cost_in_cents/100).toFixed(2)}</td>
-                      <td>{(item.total_cost_in_cents/100).toFixed(2)}</td>
+                      <td className="has-text-6 has-text-left">{capitalizeFirstLetter(item.name)}</td>
+                      <td className="has-text-6 has-text-left">{item.quantity}</td>
+                      <td className="has-text-6 has-text-left">$ {(item.unit_cost_in_cents/100).toFixed(2)}</td>
+                      <td className="has-text-6 has-text-left">$ {(item.total_cost_in_cents/100).toFixed(2)}</td>
                     </tr>
                       )
                     })

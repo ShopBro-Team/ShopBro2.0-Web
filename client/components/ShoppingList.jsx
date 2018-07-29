@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { addShoppingListItem, addToTotalSpend } from '../actions/shoppinglist'
 import validateCostInput from '../utils/costInput'
 
-import AddedItems from './AddedItems'
+import AddedItemsNew from './AddedItemsNew'
 
 export class ShoppingList extends React.Component {
 	constructor(props) {
@@ -33,11 +33,11 @@ export class ShoppingList extends React.Component {
 		let item = {
 			id: this.state.id++,
 			name: this.state.name,
-			quantity: this.state.quantity,
+			quantity: this.state.quantity || '1',
 			unit_cost_in_cents: this.state.cost * 100,
-			total_cost_in_cents: this.state.cost * 100 * this.state.quantity
+			total_cost_in_cents: this.state.cost * 100  * (this.state.quantity || '1')
 		}
-		console.log(item)
+		console.log("item ", item)
 
 		this.setState({
 			name: '',
@@ -73,36 +73,38 @@ export class ShoppingList extends React.Component {
 
 				{this.props.shoppingList.map(item => {
 					return (
-						<AddedItems item={item} key={item.id} />
+						<AddedItemsNew item={item} key={item.id} />
 					)
 				})}
 			</div>
 
-			{/* Renders the initial input fields and add button to start the shopping list and it the starting point for all new items being added to the shopping list. */}
-			<div className='columns is-centered'>
-					{/* Input field for shopping item */}
-				<div className='level columns'>
-					<div className='control column is-two-quarters'>
-						{/* <label className='label '>Item:</label> */}
-						<input onChange={this.handleChange} className='input is-normal has-text-centered' type='text' value={this.state.name} name='name' placeholder='Enter item' />
-					</div>
-					{/* Input field for the cost of the item */}
-					<div className='control column is-one-quarter'>
-						{/* <label className='label'>Cost:</label> */}
-						<input onChange={this.handleChange} className='input is-normal has-text-centered' type='number' min='0' value={this.state.cost} name='cost' placeholder='Enter cost' />
-					</div>
-					{/* Input field for the quantity of the item */}
-					<div className='control column is-one-quarter'>
-						<input onChange={this.handleChange} className='input is-normal has-text-centered' type='number' min='0' value={this.state.quantity} name='quantity' placeholder='Enter quantity' />
-					</div>
-						{/* Button to add the item */}
-					<a className='button is-normal is-dark is-outlined is-mobile' onClick={this.addItem} type='submit' value='add item'>
-						Add
-					</a>
-					<br/>
-					<br/>
-				</div>
+			<div className='container is-centered is-full-width'>
+				<table id='addItemTable' className="table is-fullwidth is-text-5 is-centered">
+					<tbody>
+						<tr>
+							<td id='quantityInput' className="has-text-6 has-text-left"> 
+								<input onChange={this.handleChange} className='input is-normal has-text-centered' type='number' min='0' value={this.state.quantity} name='quantity' placeholder='#' />
+							</td>
+							<td id='itemInput' className="has-text-6 has-text-left"> 
+								<input onChange={this.handleChange} className='input is-normal has-text-centered' type='text' value={this.state.name} name='name' placeholder='Item' />
+							</td>
+							<td id='costInput' className="has-text-6 has-text-left"> 
+								<input onChange={this.handleChange} className='input is-normal has-text-centered' type='number' min='0' value={this.state.cost} name='cost' placeholder='Cost' />
+							</td>
+							<td>
+							<a className='button is-small is-dark is-outlined is-mobile' onClick={this.addItem} type='submit' value='add item'>
+								+
+							</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
+
+
+
+
+
 			{this.state.messageCost && <p>{this.state.messageCost}</p>}
 		</div>
 	}

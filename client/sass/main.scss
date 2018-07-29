@@ -66,6 +66,7 @@ $fa-font-path: '~font-awesome/fonts';
 
 .button {
 	margin: 0 0.25rem;
+	vertical-align: -webkit-baseline-middle;
 }
 
 /* Place the navbar at the bottom of the page, and make it stick */
@@ -95,4 +96,25 @@ a.navbar-item:hover, a.navbar-item.is-active, .navbar-link:hover, .navbar-link.i
 	@include desktop {
 	display: inherit;
 	}
+}
+
+.table td {
+    padding: 1px;
+	vertical-align: top;
+}
+
+#quantityInput {
+	width: 15%;
+}
+
+#itemInput {
+	width: 50%;
+}
+
+#costInput {
+	width: 30%;
+}
+
+#addItemTable {
+	background-color: #f4bf44;
 }
