@@ -44,8 +44,25 @@ class AddedItems extends React.Component {
 		const {item} = this.props
 		return (
 			<div>
-				I am things
+				<tr key={item.id}>
+					<td>{item.name}</td>
+					<td>{`(${item.quantity})`}</td>
+					<td>{`$${(item.total_cost_in_cents/100).toFixed(2)}`}</td>
+				</tr>
 			</div>
+
+					// <div>		
+
+					// 		<a className='button is-small is-dark is-outlined is-mobile' onClick={this.toggleForm} type='submit' value='edit item'>
+					// 			Edit
+					// 		</a>
+					// 		<a className='button is-small is-dark is-outlined is-mobile' onClick={e => this.deleteItem(e, item)} type='submit' value='edit item'>
+					// 			Delete
+					// 		</a>
+						
+					// </div>
+			// 		<br/>
+			// </div>
 		)
 	}
 }

@@ -68,22 +68,32 @@ export class ShoppingList extends React.Component {
 			<div className='column is-mobile is-centered'>
 				{/* NOTE: Updated so that the map over the AddedItems in the shopping list happens in the ShoppingList.jsx component, instead of AddedItems.jsx component. This means we can isolate the toggle of viewing value or input box to the individual items, rather than the whole list. */}
 
-				<h2 className='title is-5'>Shopping List</h2>
-				<br/>
-
-				{this.props.shoppingList.map(item => {
-					return (
-						<AddedItemsNew item={item} key={item.id} />
-					)
-				})}
+				<div className = "container is-centered">
+					<br/>
+						<table className="table is-fullwidth is-text-5 is-centered">
+							<thead>
+								<tr className="table-row-active-background-color">
+									<th className="has-text-6 has-text-left">Item</th>
+									<th className="has-text-6 has-text-left">#</th>
+									<th className="has-text-6 has-text-left">Totalcost</th>
+								</tr>
+							</thead>
+							<tbody>
+								{this.props.shoppingList.map(item => {
+									return (
+									<AddedItemsNew item={item} key={item.id} />
+									)
+								})}
+							</tbody>
+						</table>
 			</div>
 
 			<div className='container is-centered is-full-width'>
-				<table id='addItemTable' className="table is-fullwidth is-text-5 is-centered">
+				<table id='addItemTable' className="table is-fullwidth is-centered">
 					<tbody>
 						<tr>
-							<td id='quantityInput' className="has-text-6 has-text-left"> 
-								<input onChange={this.handleChange} className='input is-normal has-text-centered' type='number' min='0' value={this.state.quantity} name='quantity' placeholder='#' />
+							<td id='quantityInput' > 
+								<input id='quantityX' onChange={this.handleChange} className='input is-normal has-text-centered' type='number' min='0' value={this.state.quantity} name='quantity' placeholder='#' />
 							</td>
 							<td id='itemInput' className="has-text-6 has-text-left"> 
 								<input onChange={this.handleChange} className='input is-normal has-text-centered' type='text' value={this.state.name} name='name' placeholder='Item' />
@@ -106,6 +116,7 @@ export class ShoppingList extends React.Component {
 
 
 			{this.state.messageCost && <p>{this.state.messageCost}</p>}
+		</div>
 		</div>
 	}
 }
