@@ -33,29 +33,13 @@ class AddedItems extends React.Component {
 	editItem(e, item) {
 		e.preventDefault()
 		// let updateItem is setting the values of the item object that is being edited. Using or operator (||) to only update field if the field has been changed
-
-		let updateItem = {
-				id: item.id,
-
-				name: this.state.name || item.name,
-
-				quantity: this.state.quantity || item.quantity,
-
-				unit_cost_in_cents: this.state.cost*100 || item.unit_cost_in_cents,
-				
-				total_cost_in_cents: this.state.cost*100 * this.state.quantity || item.unit_cost_in_cents * item.quantity 
-			}
 			
-    let updatedName = updateItem.name
-    let updatedQuantity = updateItem.quantity
-    let updatedUnit_cost_in_cents = updateItem.unit_cost_in_cents
-    let updatedTotal_cost_in_cents = updateItem.unit_cost_in_cents *updateItem.quantity
-			
-    updateItem = { 
+    let updateItem = { 
       id: item.id, 
-      name: updatedName, 
-      quantity: updatedQuantity, 
-      unit_cost_in_cents: updatedUnit_cost_in_cents, total_cost_in_cents: updatedTotal_cost_in_cents
+      name: this.state.name || item.name, 
+      quantity: this.state.quantity || item.quantity, 
+      unit_cost_in_cents: this.state.cost*100 || item.unit_cost_in_cents, 
+      total_cost_in_cents: this.state.cost*100 || item.unit_cost_in_cents * this.state.quantity || item.quantity
     }
 
 		// **Below code calculates the value to be dispatched to addToTotalSpend when item edited (the difference between original value and new value)**
