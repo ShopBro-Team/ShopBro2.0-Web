@@ -33,13 +33,12 @@ class LayoutAddedItems extends React.Component {
 	editItem(e, item) {
 		e.preventDefault()
 		// let updateItem is setting the values of the item object that is being edited. Using or operator (||) to only update field if the field has been changed
-			
     let updateItem = { 
       id: item.id, 
       name: this.state.name || item.name, 
       quantity: this.state.quantity || item.quantity, 
       unit_cost_in_cents: this.state.cost*100 || item.unit_cost_in_cents, 
-      total_cost_in_cents: this.state.cost*100 || item.unit_cost_in_cents * this.state.quantity || item.quantity
+      total_cost_in_cents: (this.state.cost*100 || item.unit_cost_in_cents) * (this.state.quantity || item.quantity)
     }
 
 		// **Below code calculates the value to be dispatched to addToTotalSpend when item edited (the difference between original value and new value)**
@@ -106,7 +105,7 @@ class LayoutAddedItems extends React.Component {
 
                     <td className="has-text-6 has-text-left"> 
                       <button className='button is-small is-dark is-outlined is-mobile' onClick={e => this.editItem(e, item)} type='submit' value='edit item'>
-                        v
+                        edit
                       </button>
                     </td>
 
