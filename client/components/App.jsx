@@ -12,7 +12,7 @@ import Footer from './dashboard/Footer'
 import Settings from './dashboard/Settings'
 import ShoppingListInfo from './dashboard/ShoppingListInfo'
 import Celebration from './Celebration';
-import XShoppingList from './XShoppingList';
+import LayoutShoppingList from './LayoutShoppingList';
 
 // import Carousel from './dashboard/Carousel'  // this was harrison playing with bulma-carousel demo data
 
@@ -44,7 +44,7 @@ const App = ({auth}) => (
         <Route path='/register' component={Register} />
         <Route path='/celebration' component={Celebration} />
         <Route path='/budget' component={Budget} />
-        <Route path='/shoppinglist' component={XShoppingList} />
+        <Route path='/shoppinglist' component={LayoutShoppingList} />
         <Route path='/dashboard' component={Dashboard} />
         <Route path='/footer' component={Footer} />
         <Route path='/settings' component={Settings} />

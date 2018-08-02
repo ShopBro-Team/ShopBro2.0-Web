@@ -5,7 +5,7 @@ import { editShoppingListItem, deleteShoppingListItem, deleteFromTotalSpend, add
 import validateCostInput from '../utils/costInput'
 
 
-class AddedItems extends React.Component {
+class LayoutAddedItems extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -85,30 +85,11 @@ class AddedItems extends React.Component {
 		const {showInputField} = this.state 
 		const {item} = this.props
 		return (
-			<div>
+			<React.Fragment>
 					{showInputField
-            ? 			
-            
-            // this is the view when actually editing the cost
-
-						// <form key={item.id}>				  
-						// 	<div className='columns is-mobile is-centered'>
-						// 	  <div className='level columns'>
-
-            // <table id='addItemTable' className="table is-fullwidth is-centered">
-              <table className="table is-narrow is-text-5 is-centered">
-                <thead>
-                  <tr className="table-row-active-background-color">
-                    <th className="has-text-6 has-text-left" id='quantityList'>Qu</th>
-                    <th className="has-text-6 has-text-left" id='nameList'>Name</th>
-                    <th className="has-text-6 has-text-left" id='totalList'>Totalcost</th>
-                    <th className="has-text-6 has-text-left" id='totalList'>Del</th>
-                    <th className="has-text-6 has-text-left" id='totalList'>Ed</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="table-row-active-background-color">
-                    <th key={item.id}></th>
+            ? 	 // this is the view when actually editing the cost
+              <React.Fragment>
+                  <tr className="table-row-active-background-color" key={item.id}>
 
                     <td> 
                       {/* Converts cost in cents to dollars for display purposes */}
@@ -124,50 +105,37 @@ class AddedItems extends React.Component {
                     </td>
 
                     <td className="has-text-6 has-text-left"> 
-                      <a className='button is-small is-dark is-outlined is-mobile' onClick={e => this.editItem(e, item)} type='submit' value='edit item'>
-                        SaveMe
-                      </a>
+                      <button className='button is-small is-dark is-outlined is-mobile' onClick={e => this.editItem(e, item)} type='submit' value='edit item'>
+                        v
+                      </button>
                     </td>
 
                     <td className="has-text-6 has-text-left"> 
-                      <a className='button is-small is-dark is-outlined is-mobile' onClick={e => this.deleteItem(e, item)} type='submit' value='edit item'>
-                        Delete
-                      </a>
+                      <button className='button is-small is-dark is-outlined is-mobile' onClick={e => this.deleteItem(e, item)} type='submit' value='edit item'>
+                        x
+                      </button>
                     </td>
                   </tr>
-                </tbody>
-						    {/* {this.state.messageCost && <p>{this.state.messageCost}</p>} */}
-						</table>
-										
+                </React.Fragment>
+						  //   {this.state.messageCost && <p>{this.state.messageCost}</p>}					
             : 
-            <table className="table is-narrow is-text-5 is-centered">
-              <thead>
-                <tr className="table-row-active-background-color">
-                  <th className="has-text-6 has-text-left" id='quantityList'>Qu</th>
-                  <th className="has-text-6 has-text-left" id='nameList'>Name</th>
-                  <th className="has-text-6 has-text-left" id='totalList'>Totalcost</th>
-                  <th className="has-text-6 has-text-left" id='totalList'>Del</th>
-                  <th className="has-text-6 has-text-left" id='totalList'>Ed</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="table-row-active-background-color">
-                <th key={item.id}></th>
-                  <td className="has-text-6 has-text-left" >{`${item.quantity}`}</td>
-                  <td className="has-text-6 has-text-left" >{item.name}</td>
-                  <td className="has-text-6 has-text-left" >{`$${(item.total_cost_in_cents/100).toFixed(2)}`}</td>
-                  <td className="has-text-6 has-text-left" >                
-                    <a className='button is-small is-dark is-outlined is-mobile' onClick={this.toggleForm} type='submit' value='edit item'>Edit</a>
-                  </td>
-                  <td className="has-text-6 has-text-left" >
-                    <a className='button is-small is-dark is-outlined is-mobile' onClick={e => this.deleteItem(e, item)} type='submit' value='edit item'>Delete</a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            // this is the view when not editing, but actually listing all items
+            <React.Fragment>
+            <tr className="table-row-active-background-color" key={item.id}>
+              <td className="has-text-6 has-text-left" >{`${item.quantity}`}</td>
+              <td className="has-text-6 has-text-left" >{item.name}</td>
+              <td className="has-text-6 has-text-left" >{`$${(item.total_cost_in_cents/100).toFixed(2)}`}</td>
+              <td className="has-text-6 has-text-left" >                
+                <a className='button is-small is-dark is-outlined is-mobile' onClick={this.toggleForm} type='submit' value='edit item'>v</a>
+              </td>
+              <td className="has-text-6 has-text-left" >
+                <a className='button is-small is-dark is-outlined is-mobile' onClick={e => this.deleteItem(e, item)} type='submit' value='edit item'>x</a>
+              </td>
+            </tr>
+            </React.Fragment>
 					}
 
-			</div>			
+			</React.Fragment>			
 		)
 	}
 }
@@ -178,4 +146,4 @@ const mapStateToProps = (state) => {
         }
     }
     
-export default connect(mapStateToProps)(AddedItems)  
+export default connect(mapStateToProps)(LayoutAddedItems)  
