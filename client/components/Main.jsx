@@ -5,7 +5,7 @@ import {logoutUser} from '../actions/logout'
 import {saveShoppingList, resetApp} from '../actions/shoppinglist'
 import BudgetSettingContainer from '../containers/BudgetSettingContainer'
 import Budget from './Budget'
-import ShoppingList from './ShoppingList'
+import XShoppingList from './XShoppingList'
 import AlertContainer from '../containers/AlertContainer'
 import Celebration from './Celebration'
 
@@ -46,7 +46,7 @@ function Main (props) {
               <Link className='nav-item' to='/register'>Register</Link>
             </div>
         }
-        <ShoppingList />
+        <XShoppingList />
       {(props.budget - props.totalSpend) < 0 && <AlertContainer noBudget={props.budget == 0} />} 
       </div>
       

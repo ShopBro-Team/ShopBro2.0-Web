@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import Budget from './Budget'
-import ShoppingList from './ShoppingList'
+// import Budget from './Budget'
+// import ShoppingList from './ShoppingList'
 
 
 function Alert(props) {

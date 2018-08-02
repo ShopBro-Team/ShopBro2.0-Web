@@ -1,6 +1,7 @@
 import React from 'react'
 import {HashRouter as Router, Route} from 'react-router-dom'
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
 
 import Login from './Login'
 import Register from './Register'
@@ -10,11 +11,8 @@ import Dashboard from './dashboard/Dashboard'
 import Footer from './dashboard/Footer'
 import Settings from './dashboard/Settings'
 import ShoppingListInfo from './dashboard/ShoppingListInfo'
-
-
-import {connect} from 'react-redux'
 import Celebration from './Celebration';
-import { ShoppingList } from './ShoppingList';
+import XShoppingList from './XShoppingList';
 
 // import Carousel from './dashboard/Carousel'  // this was harrison playing with bulma-carousel demo data
 
@@ -46,7 +44,7 @@ const App = ({auth}) => (
         <Route path='/register' component={Register} />
         <Route path='/celebration' component={Celebration} />
         <Route path='/budget' component={Budget} />
-        <Route path='/shoppinglist' component={ShoppingList} />
+        <Route path='/shoppinglist' component={XShoppingList} />
         <Route path='/dashboard' component={Dashboard} />
         <Route path='/footer' component={Footer} />
         <Route path='/settings' component={Settings} />
