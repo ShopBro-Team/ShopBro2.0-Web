@@ -88,11 +88,11 @@ class LayoutAddedItems extends React.Component {
 					{showInputField
             ? 	 // this is the view when actually editing the cost
               <React.Fragment>
-                  <tr className="table-row-active-background-color" key={item.id}>
+                  <tr className="table-row-active-background-color is-mobile" key={item.id}>
 
-                    <td> 
+                    <td className="is-narrow has-text-6 has-text-centered"> 
                       {/* Converts cost in cents to dollars for display purposes */}
-                      <input onChange={this.handleChange} className='input is-normal has-text-centered' type='number' min='0' name='quantity' placeholder={`${item.quantity}`} />
+                      <input onChange={this.handleChange} className='input' type='number' min='0' name='quantity' placeholder={`${item.quantity}`} />
                     </td>
 
                     <td className="has-text-6 has-text-left"> 
@@ -103,13 +103,13 @@ class LayoutAddedItems extends React.Component {
                       <input onChange={this.handleChange} className='input is-normal has-text-centered' type='number' min='0' name='cost' placeholder={`$${(item.unit_cost_in_cents/100).toFixed(2)}`} />
                     </td>
 
-                    <td className="has-text-6 has-text-left"> 
+                    <td className="is-narrow has-text-6 has-text-left"> 
                       <button className='button is-small is-dark is-outlined is-mobile' onClick={e => this.editItem(e, item)} type='submit' value='edit item'>
                         edit
                       </button>
                     </td>
 
-                    <td className="has-text-6 has-text-left"> 
+                    <td className="is-narrow has-text-6 has-text-left"> 
                       <button className='button is-small is-dark is-outlined is-mobile' onClick={e => this.deleteItem(e, item)} type='submit' value='edit item'>
                         x
                       </button>
@@ -120,14 +120,14 @@ class LayoutAddedItems extends React.Component {
             : 
             // this is the view when not editing, but actually listing all items
             <React.Fragment>
-            <tr className="table-row-active-background-color" key={item.id}>
-              <td className="has-text-6 has-text-left" >{`${item.quantity}`}</td>
+            <tr className="table-row-active-background-color is-mobile" key={item.id}>
+              <td className="is-narrow has-text-6 has-text-left" >{`${item.quantity}`}</td>
               <td className="has-text-6 has-text-left" >{item.name}</td>
               <td className="has-text-6 has-text-left" >{`$${(item.total_cost_in_cents/100).toFixed(2)}`}</td>
-              <td className="has-text-6 has-text-left" >                
+              <td className="is-narrow has-text-6 has-text-left" >                
                 <a className='button is-small is-dark is-outlined is-mobile' onClick={this.toggleForm} type='submit' value='edit item'>v</a>
               </td>
-              <td className="has-text-6 has-text-left" >
+              <td className="is-narrow has-text-6 has-text-left" >
                 <a className='button is-small is-dark is-outlined is-mobile' onClick={e => this.deleteItem(e, item)} type='submit' value='edit item'>x</a>
               </td>
             </tr>
