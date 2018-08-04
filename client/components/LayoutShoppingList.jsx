@@ -69,7 +69,7 @@ export class LayoutShoppingList extends React.Component {
         <div className='columns is-mobile is-centered'>
           {/* NOTE: Updated so that the map over the AddedItems in the shopping list happens in the ShoppingList.jsx component, instead of AddedItems.jsx component. This means we can isolate the toggle of viewing value or input box to the individual items, rather than the whole list. */}
           <br/>
-          <table className="table is-text-5 is-centered is-mobile">
+          <table className="table is-text-5 is-centered is-mobile is-success">
             <thead>
               <tr className="table-row-active-background-color is-mobile">
                 <th className="is-narrow has-text-6 has-text-left">Qu</th>
@@ -94,7 +94,7 @@ export class LayoutShoppingList extends React.Component {
           <input id='input' onChange={this.handleChange} className='input column is-2 is-normal has-text-centered is-size-7-mobile' type='text' value={this.state.quantity} name='quantity' placeholder='#' />
           <input onChange={this.handleChange} className='input is-normal  column is-5 has-text-centered is-size-7-mobile' type='text' value={this.state.name} name='name' placeholder='Item' />
           <input onChange={this.handleChange} className='input is-normal column is-4 has-text-centered is-size-7-mobile' type='text' value={this.state.cost} name='cost' placeholder='Item Cost' />
-          <button className="button is-small is-warning has-text-white" onClick={this.addItem} type='submit'>+</button>
+          <button className="button is-small is-warning has-text-white column is-1" onClick={this.addItem} type='submit'>+</button>
         </div>
         {this.state.messageCost && <p>{this.state.messageCost}</p>}
       </div>
