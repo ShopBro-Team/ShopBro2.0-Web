@@ -96,3 +96,15 @@ a.navbar-item:hover, a.navbar-item.is-active, .navbar-link:hover, .navbar-link.i
 	display: inherit;
 	}
 }
+
+/*Edit shoppinglist items table specs */
+
+#editRow {
+  padding-left: 0.1em;
+  padding-right: 0.1em
+}
+
+#editQuantity {
+  padding: 0px;
+  text-align: center;
+}

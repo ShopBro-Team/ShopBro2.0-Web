@@ -33,7 +33,7 @@ function Main (props) {
   //props.auth.isAuthenticated checks if our user is authenticated, only if true can they progress to setting their budget, otherwise they see the Login and Register buttons which link to the relevant components. props.butdetView sets a nested ternary that navigates between BudgetSettingContainer and Budget. This is set as setting in initialState.
   return (
     <div>
-    <div className='Nav hero is-small is-success'>
+    <div className='Nav hero is-normal is-success'>
       <div className='hero-body'>
         <p className='is-4 has-text-warning has-text-weight-bold'>Kia ora {capitalizeFirstLetter(userName)}!</p> 
         <br/>
@@ -52,11 +52,12 @@ function Main (props) {
       
       {/* Done button calls done function and saves shopping list to database and celebrates if underbudget */}
       <div className='completed'>
+        <br />
+        <br />
         <button className='button is-normal is-warning has-text-white' onClick={() => done()}>
           {props.budget - props.totalSpend > 0.01 ? <Link className='nav-item' to='/celebration'>Done</Link> : 
             <Link className='nav-item' to='/dashboard'>Done</Link>}  
         </button>  
-        <br/>
         <br/>
       </div> 
     </div>
