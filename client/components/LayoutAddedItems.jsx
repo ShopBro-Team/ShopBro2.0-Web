@@ -90,9 +90,9 @@ class LayoutAddedItems extends React.Component {
               <React.Fragment>
                   <tr className="table-row-active-background-color is-mobile" key={item.id}>
 
-                    <td className="is-narrow has-text-6 has-text-centered"> 
+                    <td className="is-narrow has-text-6 has-text-centered" id='editRow'> 
                       {/* Converts cost in cents to dollars for display purposes */}
-                      <input onChange={this.handleChange} className='input' type='number' min='0' name='quantity' placeholder={`${item.quantity}`} />
+                      <input onChange={this.handleChange} className='input' id='editQuantity' type='text' name='quantity' placeholder={`${item.quantity}`} />
                     </td>
 
                     <td className="has-text-6 has-text-left"> 
@@ -100,7 +100,7 @@ class LayoutAddedItems extends React.Component {
                     </td>
 
                     <td className="has-text-6 has-text-left"> 
-                      <input onChange={this.handleChange} className='input is-normal has-text-centered' type='number' min='0' name='cost' placeholder={`$${(item.unit_cost_in_cents/100).toFixed(2)}`} />
+                      <input onChange={this.handleChange} className='input is-normal has-text-centered' type='text' name='cost' placeholder={`Single item cost $${(item.unit_cost_in_cents/100).toFixed(2)}`} />
                     </td>
 
                     <td className="is-narrow has-text-6 has-text-left"> 
