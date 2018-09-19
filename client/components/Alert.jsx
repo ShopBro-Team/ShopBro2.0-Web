@@ -38,8 +38,26 @@ class Alert extends React.Component {
             <div className="column"></div>
           </div>
       :
-        <div className="notification is-info">
-          <p className= "has-text-primary title is-6">Don't forget to set your budget!</p>
+        
+        <div className="columns">
+        <div className="column"></div>
+          <div className="modal is-active">
+              <div className="modal-background" onClick={this.closeModal} ></div>
+                  <div className="modal-card">
+                      <header className="modal-card-head">
+                          <button className="delete" aria-label="close" onClick={this.closeModal} />
+                      </header>
+                      <section className="modal-card-body">
+                          <div className="content grad-modal-content">
+                          <p className= "title is-5 has-text-danger">Don't forget to set your budget!</p>
+                          </div>
+                      </section>
+                      <footer className="modal-card-foot">
+                              <button className="button is-small is-warning is-outlined is-fullwidth" onClick={this.closeModal}>Back</button>
+                      </footer>
+                  </div>
+          </div>
+        <div className="column"></div>
         </div>} 
     </div>)
   }

@@ -63,11 +63,11 @@ class Main extends React.Component {
                   <Link className='nav-item' to='/register'>Register</Link>
                 </div>
             }
-            <ShoppingList />
-          {this.state.showModal && <Alert noBudget={this.props.budget == 0} 
+            
+          {overBudget ? <Alert noBudget={this.props.budget == 0} 
                   closeModal={this.toggleModal} 
-                  showModal={this.state.showModal} />} 
-          <button className="button" onClick={() => this.toggleModal()}>Modal</button>
+                  showModal={this.state.showModal} /> : <ShoppingList />} 
+          {/* <button className="button" onClick={() => this.toggleModal()}>Modal</button> */}
           </div>
           
           {/* Done button calls done function and saves shopping list to database and celebrates if underbudget */}
